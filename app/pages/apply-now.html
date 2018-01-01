@@ -1,0 +1,103 @@
+﻿<div class="row" ng-controller="applyNowController as vm">
+    <div class="col-md-12 text-center">
+        <span class="welcomeText">Apply Now</span><br />
+    </div>
+    <div class="col-md-12 fillHeader">
+    </div>
+    <div class="col-md-12">
+        <div class="fixHeight50"></div>
+    </div>
+    <div class="col-md-12">
+        <form name="frmApplyNow" method="POST" action="http://formspree.io/ashok.forklift@gmail.com">
+            <div class="col-md-12">
+                <div class="col-md-6" style="padding-bottom:20px;">
+                    <div class="form-group">
+                        <input ng-class="{'alert alert-danger': frmApplyNow.customerName.$error.required}" 
+                               type="text" 
+                               name="customerName" 
+                               ng-required="true" 
+                               class="form-control" 
+                               placeholder="Name" 
+                               ng-model="vm.enquiry.name" />
+                    </div>
+                </div>
+                <div class="col-md-6" style="padding-bottom:20px;" ng-required="true">
+                    <div class="form-group">
+                        <input ng-class="{'alert alert-danger': frmApplyNow.mobileNumber.$invalid}" 
+                               name="mobileNumber" 
+                               ng-pattern="/^[0-9]{10}$/"
+                               type="text" 
+                               class="form-control" 
+                               placeholder="Mobile Number" 
+                               ng-required="true" 
+                               ng-model="vm.enquiry.moblieNumber" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="col-md-6" style="padding-bottom:20px;">
+                    <div class="form-group">
+                        <input name="email" 
+                               type="text" 
+                               class="form-control" 
+                               placeholder="Email"
+                               ng-required="true" 
+                               ng-model="vm.enquiry.email" />
+                    </div>
+                </div>
+                <div class="col-md-6" style="padding-bottom:20px;">
+                    <div class="form-group">
+                        <input type="text" 
+                               ng-class="{'alert alert-danger': frmApplyNow.loanAmt.$invalid}" 
+                               name="loanAmt" 
+                               ng-pattern="/^[0-9]{5,7}$/"
+                               class="form-control" 
+                               placeholder="Loan Amount" 
+                               ng-required="true" 
+                               ng-model="vm.enquiry.loanAmt" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="col-md-6" style="padding-bottom:20px;">
+                    <div class="form-group">
+                        <input type="number" ng-class="{'alert alert-danger': frmApplyNow.tennure.$invalid}" 
+                               name="tennure" 
+                               ng-pattern="/^[0-9]{1,2}$/"
+                               class="form-control" 
+                               placeholder="For Years" 
+                               ng-model="vm.enquiry.tennure" />
+                    </div>
+                </div>
+                <div class="col-md-6" style="padding-bottom:20px;">
+                    <div class="form-group">
+                        <input type="text" 
+                               name="productType" 
+                               class="form-control" 
+                               ng-model="vm.enquiry.productType" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group" style="padding-bottom:20px; padding-left:15px; padding-right:15px;">
+                    <textarea type="text"
+                           class="form-control" 
+                           name="situation" 
+                           placeholder="Explain your situation" 
+                           ng-model="vm.enquiry.situation" />
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="col-md-6" style="padding-bottom:20px;">
+                    <!--<span style="color:red;" ng-if="vm.enquiry.name == null || vm.enquiry.name == ''">Enter your Name</span>-->
+                </div>
+                <div class="col-md-6" style="padding-bottom:20px;">
+                    <button ng-disabled="frmApplyNow.$invalid" class="btn btn-primary pull-right" type="submit">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div ng-include="'app/controls/footer.html'"></div>
+</div>
