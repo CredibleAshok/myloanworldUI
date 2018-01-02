@@ -15,7 +15,8 @@
             "sortOrder": 2,
             "icon": "car",
             "sref": 'autoloan',
-            "href": "app/pages/auto.html"
+            "href": "app/pages/auto.html",
+            "desc": "At My Loan World we understand that “life happens” and that our bank accounts are often unprepared for unexpected financial needs. From medical emergencies to happy events like weddings, My Loan World’s consumer business focuses on providing unsecured"
         }, {
             "loanTypeId": 3,
             "name": "Education Loan",
@@ -23,7 +24,8 @@
             "sortOrder": 3,
             "icon": "book",
             "sref": 'educationloan',
-            "href": "app/pages/education.html"
+            "href": "app/pages/education.html",
+            "desc": "At My Loan World we understand that “life happens” and that our bank accounts are often unprepared for unexpected financial needs. From medical emergencies to happy events like weddings, My Loan World’s consumer business focuses on providing unsecured"
         }, {
             "loanTypeId": 4,
             "name": "Business Loan",
@@ -31,7 +33,8 @@
             "sortOrder": 4,
             "icon": "briefcase",
             "sref": 'businessloan',
-            "href": "app/pages/business.html"
+            "href": "app/pages/business.html",
+            "desc": "At My Loan World we understand that “life happens” and that our bank accounts are often unprepared for unexpected financial needs. From medical emergencies to happy events like weddings, My Loan World’s consumer business focuses on providing unsecured"
         }, {
             "loanTypeId": 4,
             "name": "Personal Loan",
@@ -39,7 +42,8 @@
             "sortOrder": 4,
             "icon": "car",
             "sref": 'personalloan',
-            "href": "app/pages/personal.html"
+            "href": "app/pages/personal.html",
+            "desc": "At My Loan World we understand that “life happens” and that our bank accounts are often unprepared for unexpected financial needs. From medical emergencies to happy events like weddings, My Loan World’s consumer business focuses on providing unsecured"
         }],
         footerLinks: {
             "col1": [{
