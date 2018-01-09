@@ -5,7 +5,7 @@
             <h5>Products</h5>
             <ul class="list-unstyled">
                 <li ng-repeat="row in vm.footerLinks.col1">
-                    <a href="{{row.href}}"><i class="fa fa-{{row.icon}}"></i>{{row.name}}</a>
+                    <a ui-sref="{{row.sref}}"><i class="fa fa-{{row.icon}}"></i>{{row.name}}</a>
                 </li>
             </ul>
         </div>

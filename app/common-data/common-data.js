@@ -85,6 +85,10 @@
                 "name": "List of KYC Documents",
                 "href": "app/pages/list-of-kyc-documents.html"
             }]
-        }
+        },
+        serviceUrl: "http://service.myloanworld.com/",
+        localServiceUrl: "http://localhost/myloanworldService/",
+        // change this to live when in production
+        environment: "local" 
     };
 });
