@@ -1,15 +1,15 @@
-﻿myapp.factory('commonHttpService', function ($http) {
+﻿myapp.factory('commonHttpService', function ($http, commonService) {
+    var getApplicationType = function () {
+        $http({
+            method: 'GET',
+            url: (commonService.environment == "local" ? commonService.localServiceUrl : commonService.serviceUrl) + 'api/getApplicationType'
+        }).then(function successCallback(response) {
+            return response.data.$values;
+        }, function errorCallback(response) {
+            console.log("failed");
+        });
+    }
     return {
-        loanTypes: function () {
-            return $http({
-                method: 'GET',
-                url: 'http://localhost/myloanworldService/api/getproducts'
-            }).then(function successCallback(response) {
-                return response.data;
-            }, function errorCallback(response) {
-                // called asynchronously if an error occurs
-                // or server returns response with an error status.
-            });
-        },
+        applicationType: getApplicationType()
     };
 });

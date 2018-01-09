@@ -1,6 +1,16 @@
-myapp.controller('navbarController', function ($scope, commonService) {
+myapp.controller('navbarController', function ($scope, commonService, commonHttpService,$http) {
     var vm = this;
-    vm.loanTypes = commonService.loanTypes;
+    vm.getApplicationType = function () {
+        $http({
+            method: 'GET',
+            url: (commonService.environment == "local" ? commonService.localServiceUrl : commonService.serviceUrl) + 'api/getApplicationType'
+        }).then(function successCallback(response) {
+            vm.applicationType = response.data.$values;
+        }, function errorCallback(response) {
+            console.log("failed");
+        });
+    }
+    vm.getApplicationType();
     vm.topNavigationLinks = [{
         "topNavigationLinksId": 1,
         "name": "Home",

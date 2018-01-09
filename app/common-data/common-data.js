@@ -88,6 +88,7 @@
         },
         serviceUrl: "http://service.myloanworld.com/",
         localServiceUrl: "http://localhost/myloanworldService/",
-        environment: "local"
+        // change this to live when in production
+        environment: "local" 
     };
 });

@@ -1,12 +1,16 @@
 ﻿myapp.controller('applyNowController', function ($scope, $stateParams, $http, commonService) {
     var vm = this;
     vm.enquiry = {};
-    vm.enquiry.name = "Ashok1";
-    vm.enquiry.moblieNumber = "9876543238";
-    vm.enquiry.email = "akshdfk.askdhf@gmail.com";
-    vm.enquiry.loanAmt = $stateParams.loanAmt == undefined ? 12000 : $stateParams.loanAmt;
-    vm.enquiry.tennure = "12";
-    vm.enquiry.comments = "Ashok is my name";
+    if (commonService.environment == "local") {
+        vm.enquiry.name = "Ashok1";
+        vm.enquiry.moblieNumber = "9876543238";
+        vm.enquiry.email = "akshdfk.askdhf@gmail.com";
+        vm.enquiry.loanAmt = $stateParams.loanAmt == undefined ? 12000 : $stateParams.loanAmt;
+        vm.enquiry.tennure = "12";
+        vm.enquiry.comments = "Ashok is my name";
+    } else {
+        vm.enquiry.loanAmt = $stateParams.loanAmt == undefined ? 12000 : $stateParams.loanAmt;
+    }
     
     vm.sendEmail = function () {
         var emptyForm = document.getElementById("emptyForm");
@@ -27,7 +31,7 @@
     vm.saveProducts = function () {
         $http({
             method: 'POST',
-            url: commonService.environment == "local" ? commonService.localServiceUrl : commonService.serviceUrl + 'api/saveEnquiry',
+            url: (commonService.environment == "local" ? commonService.localServiceUrl : commonService.serviceUrl) + 'api/saveEnquiry',
             data: {
                 Name: vm.enquiry.name,
                 ContactNumber: vm.enquiry.moblieNumber,

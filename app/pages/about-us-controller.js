@@ -1,19 +1,15 @@
 ﻿myapp.controller('aboutUsController', function ($scope, commonService, $http) {
     var vm = this;
-    vm.loanTypes = commonService.loanTypes;
-    console.log(commonService.serviceUrl + 'api/getEnquiry');
-    vm.myloanType = {};
-    vm.loanTypesFromService = function () {
+    vm.applicationType = {};
+    vm.applicationTypeFromService = function () {
         $http({
             method: 'GET',
-            //url: 'http://localhost/myloanworldService/api/getproducts'
-            url: commonService.serviceUrl + 'api/getEnquiry'
+            url: (commonService.environment == "local" ? commonService.localServiceUrl : commonService.serviceUrl) + 'api/getApplicationType'
         }).then(function successCallback(response) {
-            vm.loanTypes = response.data.$values;
+            vm.applicationType = response.data.$values;
         }, function errorCallback(response) {
             console.log("failed");
         });
     };
-    
-    //vm.loanTypesFromService();
+    vm.applicationTypeFromService();
 })
