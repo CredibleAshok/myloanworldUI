@@ -1,4 +1,5 @@
-var myapp = angular.module('myapp', ['ui.router']);
+(function () {
+    var myapp = angular.module('myapp', ['ui.router', 'ui.bootstrap']);
 
 myapp.config(function ($stateProvider, $urlRouterProvider, $rootScopeProvider) {
     $urlRouterProvider.otherwise('/home');
@@ -46,9 +47,10 @@ myapp.config(function ($stateProvider, $urlRouterProvider, $rootScopeProvider) {
    $urlRouterProvider.when('#!/', '/home');
 });
 
-myapp.controller('mainController', function ($scope) {
+myapp.controller('mainController', function ($state) {
     var vm = this;
     vm.commentry = "na hum badmass hai. na hum tao ko piche hatate." +
         "saath main bula ke nache.aisa koi field nahi jaha hum na ho.Chaye wo hawai jahaz udana ho ya phir engineering ya phir sports." +
         "ladkiyo hum maarte nahi, log badnaam karte hai.";
 })
+})();

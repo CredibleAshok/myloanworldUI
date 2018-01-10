@@ -1,39 +1,71 @@
-myapp.controller('navbarController', function ($scope, commonService, commonHttpService,$http) {
-    var vm = this;
-    vm.getApplicationType = function () {
-        $http({
-            method: 'GET',
-            url: (commonService.environment == "local" ? commonService.localServiceUrl : commonService.serviceUrl) + 'api/getApplicationType'
-        }).then(function successCallback(response) {
-            vm.applicationType = response.data.$values;
-        }, function errorCallback(response) {
-            console.log("failed");
+(function () {
+
+    var controllerId = 'navbarController';
+    angular.module('myapp')
+    .controller(controllerId, ['$rootScope', '$modal', 'applicationTypeService', navbarControllerFunction]);
+
+    function navbarControllerFunction($rootScope, $modal, applicationTypeService) {
+        var vm = this;
+        console.log("this is new method of calling function.");
+
+        applicationTypeService.getApplicationType().then(function (resp) {
+            vm.applicationType = resp;
+        }, function (err) {
+            console.log("error is:- " + err.message);
         });
+
+        vm.openModal = function (add, channel) {
+            var modalScope = $rootScope.$new();
+            modalScope.viewMode = "New";
+            //modalScope.channel = channel; pass anything to modal scope from this.
+            modalScope.businessStream = vm.businessStream;
+            var modalOptions = {
+                templateUrl: 'app/controls/login-modal.html',
+                scope: modalScope,
+                keyboard: true,
+                windowClass: 'wide-modal',
+                backdrop: 'static',
+                resolve: {
+                    viewMode: function () {
+                        return 'New';
+                    }
+                }
+            };
+            modalScope.modalInstance = $modal.open(modalOptions);
+            modalScope.modalInstance.result.then(function (data) {
+                // Returned from modal, so refresh list.
+                return data;
+            }, function () {
+                // Cancelled.
+            })['finally'](function () {
+                modalScope.modalInstance = undefined  // <--- This fixes
+            });
+        }
+
+        vm.topNavigationLinks = [{
+            "topNavigationLinksId": 1,
+            "name": "Home",
+            "sortOrder": 1,
+            "sref": 'home',
+            "href": "app/pages/home.html"
+        }, {
+            "topNavigationLinksId": 2,
+            "name": "About Us",
+            "sortOrder": 2,
+            "sref": 'aboutUs',
+            "href": "app/pages/AboutUs.html"
+        }, {
+            "topNavigationLinksId": 3,
+            "name": "Team",
+            "sortOrder": 3,
+            "sref": 'team',
+            "href": "app/pages/teamDetail.html"
+        }, {
+            "topNavigationLinksId": 4,
+            "name": "Apply Now",
+            "sortOrder": 4,
+            "sref": 'applyNow',
+            "href": "app/pages/apply-now.html"
+        }];
     }
-    vm.getApplicationType();
-    vm.topNavigationLinks = [{
-        "topNavigationLinksId": 1,
-        "name": "Home",
-        "sortOrder": 1,
-        "sref": 'home',
-        "href": "app/pages/home.html"
-    }, {
-        "topNavigationLinksId": 2,
-        "name": "About Us",
-        "sortOrder": 2,
-        "sref": 'aboutUs',
-        "href": "app/pages/AboutUs.html"
-    }, {
-        "topNavigationLinksId": 3,
-        "name": "Team",
-        "sortOrder": 3,
-        "sref": 'team',
-        "href": "app/pages/teamDetail.html"
-    }, {
-        "topNavigationLinksId": 4,
-        "name": "Apply Now",
-        "sortOrder": 4,
-        "sref": 'applyNow',
-        "href": "app/pages/apply-now.html"
-    }];
-})
+})();

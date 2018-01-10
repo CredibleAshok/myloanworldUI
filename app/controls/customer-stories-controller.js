@@ -1,4 +1,5 @@
-myapp.controller('customerStoriesController', function ($scope) {
+(function () {
+    angular.module('myapp').controller('customerStoriesController', function ($scope) {
     var vm = this;
     vm.myval = 10;
     vm.carouselItems = [{
@@ -37,3 +38,4 @@ myapp.controller('customerStoriesController', function ($scope) {
 
     }];
 })
+})();

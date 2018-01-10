@@ -1,15 +1,10 @@
-myapp.controller('homeController', function ($scope, commonService, $http) {
-    var vm = this;
-    vm.applicationType = {};
-    vm.applicationTypeFromService = function () {
-        $http({
-            method: 'GET',
-            url: (commonService.environment == "local" ? commonService.localServiceUrl : commonService.serviceUrl) + 'api/getApplicationType'
-        }).then(function successCallback(response) {
-            vm.applicationType = response.data.$values;
-        }, function errorCallback(response) {
-            console.log("failed");
+(function () {
+    angular.module('myapp').controller('homeController', function ($scope, applicationTypeService) {
+        var vm = this;
+        applicationTypeService.getApplicationType().then(function (resp) {
+            vm.applicationType = resp;
+        }, function (err) {
+            console.log("error is:- " + err.message);
         });
-    };
-    vm.applicationTypeFromService();
-})
+    })
+})();

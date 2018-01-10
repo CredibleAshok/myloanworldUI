@@ -1,3 +1,5 @@
-﻿myapp.controller('autoLoanController', function ($scope, commonService) {
+﻿(function () {
+    angular.module('myapp').controller('autoLoanController', function ($scope, commonService) {
     var vm = this;
 })
+})();

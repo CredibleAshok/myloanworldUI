@@ -1,4 +1,5 @@
-myapp.controller('whyUsController', function ($scope) {
+(function () {
+    angular.module('myapp').controller('whyUsController', function ($scope) {
     var vm = this;
     vm.features = [{
         "featureId": 1,
@@ -47,3 +48,4 @@ myapp.controller('whyUsController', function ($scope) {
         }]
     }];
 })
+})();
