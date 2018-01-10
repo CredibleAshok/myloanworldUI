@@ -1,0 +1,34 @@
+﻿<div class="row">
+    <div class="col-md-12 text-center">
+        <span class="welcomeText">About Us</span><br />
+    </div>
+    <div class="col-md-12 fillHeader">
+
+    </div>
+    <div class="col-md-12">
+        <h1>Welcome to My loan World</h1>
+        <p>My Loan World asf  asdf asdf asddf is a new-age financial services platform that afa dsfa f leverages technology and data-science to make lending quick and easy</p>
+        <p>My Loan World is adsf adf credit for Incredible afa fdas  af  India. We use technology and data-science adf asdf asdf to make lending quick, simple and hassle-free. We believe traditional ways of lending can exclude those most in need because of outdated, rigid and often inefficient processes. At My loan world, we have simplified the lending process with a sharp focus on serving our borrowers’ unique needs and circumstances – offering our customers a truly superior borrowing experience.</p>
+    </div>
+</div>
+<div class="row" ng-controller="aboutUsController as vm">
+    <div class="col-md-12 text-center">
+        <h1>TYPES OF LOANS</h1>
+        <h2>We operate 4 businesses as part of the My Loan World Group</h2>
+    </div>
+    <div ng-repeat="row in vm.applicationType">
+        <div class="col-md-12" style="padding:20px;">
+            <div class="col-md-3">
+                <img src="common/images/myloanworld-logo.png" class="customerImage" />
+            </div>
+            <div class="col-md-9">
+                <h1>{{row.name}}</h1>
+                <p>{{row.descText}}</p>
+                <h4>Show More.....</h4>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div ng-include="'app/controls/footer.html'"></div>
+</div>
