@@ -1,18 +1,27 @@
 ﻿<!DOCTYPE html>
-<html ng-app="myapp">
+<!--<html ng-app="myapp">-->
+<html ng-app="appTestBackend">
 <head>
     <title>My Loan World</title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- custom css -->
     <link rel="stylesheet" href="common/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="common/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/customCss.css">
     <script src="common/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="common/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     <script src="common/angularjs/1.6.4/angular.min.js"></script>
+    <!--<script src="common/angularjs/1.6.4/angular-animate.js"></script>
+    <script src="common/angularjs/1.6.4/angular-sanitize.js"></script>-->
     <script src="common/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+    <script src="common/ui-bootstrap/ui-bootstrap-tpls-0.9.0.js"></script>
+    <script src="test/angular-mocks.js"></script>
+
+    <!-- This is required for loading fake data -->
+
 
     <script src="app/mainController.js"></script>
     <script src="app/pages/home-loan-controller.js"></script>
@@ -31,6 +40,9 @@
     <script src="app/pages/apply-now-controller.js"></script>
     <script src="app/controls/how-much-you-need-controller.js"></script>
     <script src="app/pages//about-us-controller.js"></script>
+    <script src="app/common-data/services/applicationt-Type-service.js"></script>
+    <!--Testing support-->
+    <script src="test/appTestBackend.js"></script>
 </head>
 
 <body ng-controller="mainController as vm">

@@ -1,4 +1,5 @@
-﻿myapp.factory('commonService', function () {
+﻿(function () {
+    angular.module('myapp').factory('commonService', function () {
     return {
         loanTypes: [{
             "loanTypeId": 1,
@@ -92,3 +93,4 @@
         environment: "local" 
     };
 });
+})();

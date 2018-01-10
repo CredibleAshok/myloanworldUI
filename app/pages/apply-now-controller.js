@@ -1,4 +1,5 @@
-﻿myapp.controller('applyNowController', function ($scope, $stateParams, $http, commonService) {
+﻿(function(){
+    angular.module('myapp').controller('applyNowController', function ($scope, $stateParams, $http, commonService) {
     var vm = this;
     vm.enquiry = {};
     if (commonService.environment == "local") {
@@ -48,3 +49,4 @@
         });
     }
 })
+})();

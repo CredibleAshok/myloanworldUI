@@ -1,4 +1,5 @@
-﻿myapp.controller('howMuchYouNeedController', function () {
+﻿(function () {
+    angular.module('myapp').controller('howMuchYouNeedController', function () {
     var vm = this;
     vm.inputValue = 10000;
     vm.sliderMin = 10000;
@@ -9,4 +10,5 @@
         lblMoneyValue.innerHTML = lblInputValue.value;
         vm.howMuchYouNeed = lblInputValue.value;
     };
-});
+})
+})();
