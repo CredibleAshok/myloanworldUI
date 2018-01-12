@@ -2,13 +2,13 @@
 
     var controllerId = 'navbarController';
     angular.module('myapp')
-    .controller(controllerId, ['$rootScope', '$modal', 'applicationTypeService', navbarControllerFunction]);
+        .controller(controllerId, ['$rootScope', '$modal', 'applicationsService', navbarControllerFunction]);
 
-    function navbarControllerFunction($rootScope, $modal, applicationTypeService) {
+    function navbarControllerFunction($rootScope, $modal, applicationsService) {
         var vm = this;
         console.log("this is new method of calling function.");
 
-        applicationTypeService.getApplicationType().then(function (resp) {
+        applicationsService.getApplicationType().then(function (resp) {
             vm.applicationType = resp;
         }, function (err) {
             console.log("error is:- " + err.message);
@@ -35,14 +35,14 @@
             modalScope.modalInstance = $modal.open(modalOptions);
             modalScope.modalInstance.result.then(function (data) {
                 // Returned from modal, so refresh list.
-                vm.loggedInUser = { "userName": "Manya", "age": 9 }; // temporary, change this
+                vm.loggedInUser = data; // temporary, change this
             }, function () {
                 // Cancelled.
             })['finally'](function () {
                 modalScope.modalInstance = undefined  // <--- This fixes
             });
         }
-
+        
         vm.topNavigationLinks = [{
             "topNavigationLinksId": 1,
             "name": "Home",

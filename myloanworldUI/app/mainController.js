@@ -43,6 +43,14 @@ myapp.config(function ($stateProvider, $urlRouterProvider, $rootScopeProvider) {
             url: '/apply-now ? loanAmt',
             templateUrl: 'app/pages/apply-now.html'
         })
+        .state('profile', {
+            url: '/profile',
+            templateUrl: 'app/pages/Profile.html'
+        })
+        .state('allApplications', {
+            url: '/all-applications',
+            templateUrl: 'app/pages/all-applications.html'
+        })
     $urlRouterProvider.when('', 'home');
    $urlRouterProvider.when('#!/', '/home');
 });

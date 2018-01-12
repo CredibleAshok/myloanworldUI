@@ -1,5 +1,5 @@
 ﻿(function () {
-    angular.module('myapp').directive('loanTypes', function (applicationTypeService) {
+    angular.module('myapp').directive('loanTypes', function (applicationsService) {
         //loan-type
         return {
             restrict: 'E',
@@ -10,7 +10,7 @@
             templateUrl: 'app/controls/loan-type.html',
             link: function (scope, element, attr) {
                 scope.excludeLoanType = attr.excludeLoanType;
-                applicationTypeService.getApplicationType().then(function (resp) {
+                applicationsService.getApplicationType().then(function (resp) {
                     scope.applicationType = resp;
                 });
             }

@@ -38,14 +38,17 @@
                         <button ng-if="vm.loggedInUser != undefined"><i class="fa fa-bars"></i>{{vm.loggedInUser.userName}}</button>
                     </a>
                     <ul class="dropdown-menu">
-                        <li>
-                            <a>View Profile</a>
+                        <li ng-repeat="product in vm.loggedInUser.afterLoginMenu">
+                            <a ui-sref="{{product.sref}}"><i style="padding-right:20px;" class="fa fa-{{product.icon}}"></i>{{product.name}}</a>
                         </li>
                         <li>
-                            <a>View Application Status</a>
+                            <a></a>
                         </li>
                         <li>
-                            <a>Log Out</a>
+                            <a></a>
+                        </li>
+                        <li>
+                            <a></a>
                         </li>
                     </ul>
                 </li>
