@@ -8,11 +8,12 @@
         vm.user = {};
         vm.user.userName = "ashok";
         vm.user.pwd = "password";
-        var loggedInUser = {};
         vm.validateUser = function () {
             authenticationService.validatePassword(vm.user.userName, vm.user.pwd).then(function (resp) {
-                loggedInUser = resp;
-                vm.getAfterLoginMenus();
+                if (resp != undefined) {
+                    vm.user = resp;
+                    vm.getAfterLoginMenus();
+                }
             }, function () {
                 console.log("password validated failed.");
             });
@@ -20,8 +21,8 @@
 
         vm.getAfterLoginMenus = function () {
             authenticationService.getAfterLoginMenus().then(function (resp) {
-                loggedInUser.afterLoginMenu = resp;
-                $scope.modalInstance.close(loggedInUser);
+                vm.user.afterLoginMenu = resp;
+                $scope.modalInstance.close(vm.user);
             }, function () {
                 console.log("password validated failed.");
             });

@@ -42,7 +42,9 @@
                 modalScope.modalInstance = undefined  // <--- This fixes
             });
         }
-        
+        $rootScope.$on('noManagementMenus', function () {
+            vm.loggedInUser = undefined;
+        });
         vm.topNavigationLinks = [{
             "topNavigationLinksId": 1,
             "name": "Home",

@@ -22,7 +22,7 @@
     "href": "myloanworld.com/home",
     "sortOrder": 3,
     "icon": "book",
-    "sref": "home",
+    "sref": "logOff",
     "href": "app/pages/home.html",
     "descText": "At My Loan World we understand that “life happens” and that our bank accounts are often unprepared for unexpected financial needs. From medical emergencies to happy events like weddings, My Loan World’s consumer business focuses on providing unsecured"
 }]

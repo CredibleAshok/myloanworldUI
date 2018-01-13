@@ -1,15 +1,22 @@
 ﻿(function () {
     angular.module('myapp').factory('authenticationService', ['$http', 'commonService', function ($http, commonService) {
-        var profile = {};
+        var loggedInUser = {};
+        var isUserLoggedIn = false;
         var service = {
-            getProfile: function () { return getProfile() },
+            isUserLoggedIn: function () { return isUserLoggedIn },
+            getProfile: function () { return getProfile()  },
             validatePassword: function (userName, pwd) { return validatePassword(userName, pwd) },
-            getAfterLoginMenus: function () { return getAfterLoginMenus() }
+            getAfterLoginMenus: function () { return getAfterLoginMenus() },
+            setLogOffUser: function () { return setLogOffUser() }
         };
         return service;
 
         function getProfile() {
-            return profile;
+            if (loggedInUser == undefined) {
+                return undefined;
+            } else {
+                return loggedInUser.profile;
+            }
         }
 
         function getAfterLoginMenus() {
@@ -28,11 +35,18 @@
                 method: 'GET',
                 url: (commonService.environment == "local" ? commonService.localServiceUrl : commonService.serviceUrl) + 'api/validatePassword'
             }).then(function successCallback(response) {
-                profile = response.data;
+                loggedInUser = {};
+                loggedInUser.profile = response.data;
+                isUserLoggedIn = true;
                 return response.data;
             }, function errorCallback(response) {
                 console.log("failed");
             });
+        }
+
+        function setLogOffUser() {
+            loggedInUser = undefined;
+            isUserLoggedIn = false;
         }
     }]);
 })();
