@@ -35,7 +35,7 @@
                 <li>
                     <a class="dropdown-toggle" data-toggle="dropdown">
                         <button ng-if="vm.loggedInUser == undefined" ng-click="vm.openModal()"><i class="fa fa-bars"></i>Login</button>
-                        <button ng-if="vm.loggedInUser != undefined"><i class="fa fa-bars"></i>{{vm.loggedInUser.userName}}</button>
+                        <button ng-if="vm.loggedInUser != undefined"><i class="fa fa-bars"></i>{{vm.loggedInUser.Name}}</button>
                     </a>
                     <ul class="dropdown-menu">
                         <li ng-repeat="product in vm.loggedInUser.afterLoginMenu">

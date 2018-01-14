@@ -79,6 +79,7 @@
     <Content Include="common\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
     <Content Include="common\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
     <Content Include="common\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

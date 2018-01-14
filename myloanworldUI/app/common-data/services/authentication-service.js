@@ -22,7 +22,7 @@
         function getAfterLoginMenus() {
             return $http({
                 method: 'GET',
-                url: (commonService.environment == "local" ? commonService.localServiceUrl : commonService.serviceUrl) + 'api/getAfterLoginMenus'
+                url: (commonService.getUrl() + 'api/getAfterLoginMenus')
             }).then(function successCallback(response) {
                 return response.data;
             }, function errorCallback(response) {
@@ -32,16 +32,18 @@
 
         function validatePassword(user) {
             return $http({
-                method: 'GET',
-                url: (commonService.environment == "local" ? commonService.localServiceUrl : commonService.serviceUrl) + 'api/getCustomer',
+                method: 'POST',
+                url: (commonService.getUrl() + 'api/getCustomer'),
+                //params: { customer: user }
                 data: {
-                    customer: user
+                    Name: user.Name,
+                    AccessKeyCode: user.AccessKeyCode
                 }
             }).then(function successCallback(response) {
                 loggedInUser = {};
-                loggedInUser.profile = response.data;
+                loggedInUser.profile = response.data.$values;
                 isUserLoggedIn = true;
-                return response.data;
+                return response.data.$values;
             }, function errorCallback(response) {
                 console.log("failed");
             });

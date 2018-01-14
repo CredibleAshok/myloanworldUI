@@ -8,9 +8,9 @@
         function getApplicationType() {
            return $http({
                 method: 'GET',
-                url: (commonService.environment == "local" ? commonService.localServiceUrl : commonService.serviceUrl) + 'api/getApplicationType'
+                url: (commonService.getUrl() + 'api/getApplicationType')
             }).then(function successCallback(response) {
-                return response.data;
+                return response.data.$values;
             }, function errorCallback(response) {
                 console.log("failed");
             });
@@ -18,7 +18,7 @@
         function getAllApplications() {
             return $http({
                 method: 'GET',
-                url: (commonService.environment == "local" ? commonService.localServiceUrl : commonService.serviceUrl) + 'api/getAllApplications'
+                url: (commonService.getUrl() + 'api/getAllApplications')
             }).then(function successCallback(response) {
                 return response.data;
             }, function errorCallback(response) {
