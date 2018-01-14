@@ -6,10 +6,10 @@
     function loginModalControllerFunction($scope, authenticationService) {
         var vm = this;
         vm.user = {};
-        vm.user.userName = "ashok";
-        vm.user.pwd = "password";
+        vm.user.Name = "ashok";
+        vm.user.AccessKeyCode = "password";
         vm.validateUser = function () {
-            authenticationService.validatePassword(vm.user.userName, vm.user.pwd).then(function (resp) {
+            authenticationService.validatePassword(vm.user).then(function (resp) {
                 if (resp != undefined) {
                     vm.user = resp;
                     vm.getAfterLoginMenus();

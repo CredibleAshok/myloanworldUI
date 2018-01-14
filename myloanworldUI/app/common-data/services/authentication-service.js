@@ -5,7 +5,7 @@
         var service = {
             isUserLoggedIn: function () { return isUserLoggedIn },
             getProfile: function () { return getProfile()  },
-            validatePassword: function (userName, pwd) { return validatePassword(userName, pwd) },
+            validatePassword: function (user) { return validatePassword(user) },
             getAfterLoginMenus: function () { return getAfterLoginMenus() },
             setLogOffUser: function () { return setLogOffUser() }
         };
@@ -30,10 +30,13 @@
             });
         }
 
-        function validatePassword(userName, pwd) {
+        function validatePassword(user) {
             return $http({
                 method: 'GET',
-                url: (commonService.environment == "local" ? commonService.localServiceUrl : commonService.serviceUrl) + 'api/validatePassword'
+                url: (commonService.environment == "local" ? commonService.localServiceUrl : commonService.serviceUrl) + 'api/getCustomer',
+                data: {
+                    customer: user
+                }
             }).then(function successCallback(response) {
                 loggedInUser = {};
                 loggedInUser.profile = response.data;
