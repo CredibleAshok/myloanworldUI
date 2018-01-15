@@ -1,26 +1,27 @@
 ﻿(function () {
     angular.module('myapp').factory('applicationsService', ['$http', 'commonService', function ($http, commonService) {
         var service = {
-            getAllApplications: function () { return getAllApplications() },
+            getApplicationById: function (applicationId) { return getApplicationById(applicationId) },
             getApplicationType: function () { return getApplicationType() }
         };
         return service;
         function getApplicationType() {
            return $http({
                 method: 'GET',
-                url: (commonService.environment == "local" ? commonService.localServiceUrl : commonService.serviceUrl) + 'api/getApplicationType'
+                url: (commonService.getUrl() + 'api/getApplicationType')
             }).then(function successCallback(response) {
-                return response.data;
+                return response.data.$values;
             }, function errorCallback(response) {
                 console.log("failed");
             });
         }
-        function getAllApplications() {
+        function getApplicationById(applicationId) {
             return $http({
                 method: 'GET',
-                url: (commonService.environment == "local" ? commonService.localServiceUrl : commonService.serviceUrl) + 'api/getAllApplications'
+                params: { "applicationId": applicationId},
+                url: (commonService.getUrl() + 'api/getApplicationById')
             }).then(function successCallback(response) {
-                return response.data;
+                return response.data.$values;
             }, function errorCallback(response) {
                 console.log("failed");
             });

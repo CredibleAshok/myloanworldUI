@@ -31,3 +31,4 @@ C:\Users\sweekar\Documents\GitHub\myloanworldUI\myloanworldUI\bin\Microsoft.Code
 C:\Users\sweekar\Documents\GitHub\myloanworldUI\myloanworldUI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\sweekar\Documents\GitHub\myloanworldUI\myloanworldUI\obj\Release\myloanworldUI.dll
 C:\Users\sweekar\Documents\GitHub\myloanworldUI\myloanworldUI\obj\Release\myloanworldUI.pdb
+C:\Users\sweekar\Documents\GitHub\myloanworldUI\myloanworldUI\obj\Release\myloanworldUI.csprojResolveAssemblyReference.cache

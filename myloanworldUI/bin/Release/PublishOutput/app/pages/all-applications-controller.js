@@ -1,14 +1,21 @@
 ﻿(function () {
-    var controllerId = 'allApplicationsController';
+    var controllerId = 'applicationsController';
     angular.module('myapp')
-        .controller(controllerId, ['applicationsService', allApplicationsFunction]);
+        .controller(controllerId, ['applicationsService', applicationsFunction]);
 
-    function allApplicationsFunction(applicationsService) {
+    function applicationsFunction(applicationsService) {
         var vm = this;
-        applicationsService.getAllApplications().then(function (resp) {
-            vm.allApplications = resp;
-        }, function (err) {
-            console.log("error is:- " + err.message);
-        });
+        vm.getAllApplications = function (applicationId) {
+            applicationsService.getApplicationById(applicationId).then(function (resp) {
+                if (applicationId != null) {
+                    vm.application = resp;
+                } else {
+                    vm.applicationList = resp;
+                }
+            }, function (err) {
+                console.log("error is:- " + err.message);
+            });
+        }
+        vm.getAllApplications(null); // get all applications on page load.
     }
 })();

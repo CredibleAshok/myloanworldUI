@@ -35,13 +35,24 @@
                 <li>
                     <a class="dropdown-toggle" data-toggle="dropdown">
                         <button ng-if="vm.loggedInUser == undefined" ng-click="vm.openModal()"><i class="fa fa-bars"></i>Login</button>
-                        <button ng-if="vm.loggedInUser != undefined"><i class="fa fa-bars"></i>{{vm.loggedInUser.userName}}</button>
+                        <button ng-if="vm.loggedInUser != undefined"><i class="fa fa-bars"></i>{{vm.loggedInUser.Name}}</button>
                     </a>
                     <ul class="dropdown-menu">
+                        <li>
+                            <a ui-sref="profile"><i style="padding-right:20px;" class="fa fa-home"></i>View Profile</a>
+                        </li>
+                        <li>
+                            <a ui-sref="allApplications"><i style="padding-right:20px;" class="fa fa-home"></i>View All Applications</a>
+                        </li>
+                        <li>
+                            <a ui-sref="logOff"><i style="padding-right:20px;" class="fa fa-home"></i>Log Out</a>
+                        </li>
+                    </ul>
+                    <!--<ul class="dropdown-menu">
                         <li ng-repeat="product in vm.loggedInUser.afterLoginMenu">
                             <a ui-sref="{{product.sref}}"><i style="padding-right:20px;" class="fa fa-{{product.icon}}"></i>{{product.name}}</a>
                         </li>
-                    </ul>
+                    </ul>-->
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">

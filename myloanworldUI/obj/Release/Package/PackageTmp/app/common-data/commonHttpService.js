@@ -3,7 +3,7 @@
         var getApplicationType = function () {
             $http({
                 method: 'GET',
-                url: (commonService.environment == "local" ? commonService.localServiceUrl : commonService.serviceUrl) + 'api/getApplicationType'
+                url: (commonService.getUrl() + 'api/getApplicationType')
             }).then(function successCallback(response) {
                 return response.data.$values;
             }, function errorCallback(response) {

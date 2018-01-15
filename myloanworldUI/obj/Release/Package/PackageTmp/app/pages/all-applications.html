@@ -1,16 +1,19 @@
-﻿<div ng-controller="allApplicationsController as vm">
+﻿<div ng-controller="applicationsController as vm">
     <div class="row">
         <div class="col-sm-12">
             <div class="col-sm-4">Application Id</div>
             <div class="col-sm-4">Application Status</div>
             <div class="col-sm-4"></div>
         </div>
-        <div ng-repeat="application in vm.allApplications">
+        <div ng-repeat="application in vm.applicationList">
             <div class="col-sm-12">
-                <div class="col-sm-4">{{application.applicationId}}</div>
-                <div class="col-sm-4">{{application.applicationStatus}}</div>
-                <div class="col-sm-4"><a href="#">{{application.applicationId}}</a></div>
+                <div class="col-sm-4"><button ng-click="vm.getAllApplications(application.ApplicationId)">{{application.ApplicationId}}</button></div>
+                <div class="col-sm-4">{{application.ApplicationStatus}}</div>
+                <div class="col-sm-4">{{application.ApplicationType}}</div>
             </div>
         </div>
+    </div>
+    <div>
+
     </div>
 </div>
