@@ -7,7 +7,10 @@
         </div>
         <div ng-repeat="application in vm.applicationList">
             <div class="col-sm-12">
-                <div class="col-sm-4"><button ng-click="vm.getAllApplications(application.ApplicationId)">{{application.ApplicationId}}</button></div>
+                <div class="col-sm-4">
+                <a ui-sref="applicationHistory({applicationId: application.ApplicationId})"><b>{{application.ApplicationId}}</b></a>
+                <!--<button ng-click="vm.getApplicationHistory(application.ApplicationId)"></button>-->
+                </div>
                 <div class="col-sm-4">{{application.ApplicationStatus}}</div>
                 <div class="col-sm-4">{{application.ApplicationType}}</div>
             </div>
@@ -15,5 +18,94 @@
     </div>
     <div>
 
+    </div>
+    <div>
+        <style>
+            .mytable {
+                border: 1px solid red;
+                width: 100%;
+            }
+
+                .mytable td:nth-child(odd) {
+                    border: 1px solid green;
+                }
+
+            .mytable1 {
+                border: 1px solid black;
+                width: 100%;
+            }
+
+                .mytable1 td:nth-child(even) {
+                    border: 1px solid blue;
+                }
+
+            .mytable tr:hover {
+                background-color: #ffa;
+            }
+        </style>
+        <table class="mytable">
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Age</td>
+                    <td>Roll no</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Ashok</td>
+                    <td>13</td>
+                    <td>10</td>
+
+                </tr>
+                <tr>
+                    <td>Babita</td>
+                    <td>131</td>
+                    <td>110</td>
+
+                </tr>
+                <tr>
+                    <td>As1hok</td>
+                    <td>113</td>
+                    <td>140</td>
+
+                </tr>
+
+
+
+            </tbody>
+        </table>
+        <table class="mytable1">
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Age</td>
+                    <td>Roll no</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Ashok</td>
+                    <td>13</td>
+                    <td>10</td>
+
+                </tr>
+                <tr>
+                    <td>Babita</td>
+                    <td>131</td>
+                    <td>110</td>
+
+                </tr>
+                <tr>
+                    <td>As1hok</td>
+                    <td>113</td>
+                    <td>140</td>
+
+                </tr>
+
+
+
+            </tbody>
+        </table>
     </div>
 </div>

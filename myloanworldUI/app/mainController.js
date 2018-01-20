@@ -98,6 +98,21 @@
                     "managementScreen": false
                 }
             })
+            .state('enquiries', {
+                url: '/',
+                templateUrl: 'app/pages/enquiry.html',
+                data: {
+                    "managementScreen": true
+                }
+            })
+            .state('applicationHistory', {
+                url: '/applicationHistory:applicationId',
+                templateUrl: 'app/pages/application-history.html',
+                data: {
+                    "managementScreen": true
+                }
+            })
+        //
         $urlRouterProvider.when('', 'home');
         $urlRouterProvider.when('#!/', '/home');
     });

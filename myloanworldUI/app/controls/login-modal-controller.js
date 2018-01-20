@@ -18,7 +18,7 @@
                 console.log("password validated failed.");
             });
         };
-        //todo: login after menues are not loading. so need a function in web api.
+        
         vm.getAfterLoginMenus = function () {
             authenticationService.getAfterLoginMenus().then(function (resp) {
                 vm.user.afterLoginMenu = resp;
@@ -26,6 +26,10 @@
             }, function () {
                 console.log("password validated failed.");
             });
+        }
+
+        vm.closeModal = function () {
+            $scope.modalInstance.close();
         }
     }
 })();

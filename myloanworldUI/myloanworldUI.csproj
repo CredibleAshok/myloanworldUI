@@ -65,8 +65,13 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\common-data\services\enquiry-service.js" />
     <Content Include="app\pages\all-applications-controller.js" />
     <Content Include="app\pages\all-applications.html" />
+    <Content Include="app\pages\application-history-controller.js" />
+    <Content Include="app\pages\application-history.html" />
+    <Content Include="app\pages\enquiry-controller.js" />
+    <Content Include="app\pages\enquiry.html" />
     <Content Include="app\pages\profile-controller.js" />
     <Content Include="app\pages\profile.html" />
     <Content Include="packages.config" />

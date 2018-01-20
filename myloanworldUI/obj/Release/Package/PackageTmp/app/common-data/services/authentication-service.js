@@ -15,16 +15,16 @@
             if (loggedInUser == undefined) {
                 return undefined;
             } else {
-                return loggedInUser.profile;
+                return loggedInUser.profile[0];
             }
         }
 
         function getAfterLoginMenus() {
             return $http({
                 method: 'GET',
-                url: (commonService.getUrl() + 'api/getAfterLoginMenus')
+                url: (commonService.getUrl() + 'api/getMenusList')
             }).then(function successCallback(response) {
-                return response.data;
+                return response.data.$values;
             }, function errorCallback(response) {
                 console.log("failed");
             });
