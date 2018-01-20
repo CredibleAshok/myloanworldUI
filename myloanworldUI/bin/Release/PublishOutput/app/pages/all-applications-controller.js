@@ -17,5 +17,9 @@
             });
         }
         vm.getAllApplications(null); // get all applications on page load.
+
+        vm.getApplicationHistory = function (applicationId) {
+
+        }
     }
 })();
