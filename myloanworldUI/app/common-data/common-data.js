@@ -1,6 +1,6 @@
 ﻿(function () {
     angular.module('myapp').factory('commonService', function () {
-        var environment = "localIIS";// this can have 3 values like 'local', 'localIIS' and 'live'
+        var environment = "local";// this can have 3 values like 'local', 'localIIS' and 'live'
         var liveServiceUrl = "http://service.myloanworld.com/";
         var localIISServiceUrl = "http://localhost/myloanworldService/";
         var localServiceUrl = "http://localhost:55750/";
@@ -106,7 +106,7 @@
             } else if (environment == 'localIIS') {
                 return localIISServiceUrl;
             } else if (environment == 'live') {
-                return serviceUrl;
+                return liveServiceUrl;
             }
         }
     });
