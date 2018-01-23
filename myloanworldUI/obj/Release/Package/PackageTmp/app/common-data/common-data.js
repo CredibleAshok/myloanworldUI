@@ -106,7 +106,7 @@
             } else if (environment == 'localIIS') {
                 return localIISServiceUrl;
             } else if (environment == 'live') {
-                return serviceUrl;
+                return liveServiceUrl;
             }
         }
     });
