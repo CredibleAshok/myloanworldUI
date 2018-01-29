@@ -1,0 +1,48 @@
+﻿<div ng-controller="enquiryController as vm">
+    <div class="row">
+        <form name="enquiryListForm">
+            <div class="col-xs-12">
+                <div class="col-md-12">
+                    <div class="col-md-6" style="padding-bottom:20px;">
+                        <div class="form-group">
+                            <input ng-class="{'alert alert-danger': enquiryListForm.customerName.$error.required}"
+                                   type="text"
+                                   name="customerName"
+                                   ng-required="true"
+                                   class="form-control"
+                                   placeholder="Name"
+                                   ng-model="vm.searchFilter.Name" />
+                        </div>
+                    </div>
+                    <div class="col-md-6" style="padding-bottom:20px;" ng-required="true">
+                        <div class="form-group">
+                            <input ng-class="{'alert alert-danger': enquiryListForm.mobileNumber.$invalid}"
+                                   name="mobileNumber"
+                                   ng-pattern="/^[0-9]{10}$/"
+                                   type="text"
+                                   class="form-control"
+                                   placeholder="Mobile Number"
+                                   ng-required="true"
+                                   ng-model="vm.searchFilter.ContactNumber" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <button ng-click="vm.getEnquiryList()">Search Enquiry</button>
+    <div class="row">
+        <div class="col-sm-12" style="background-color:olivedrab;">
+            <div class="col-md-3">Name</div>
+            <div class="col-md-3">Comments</div>
+            <div class="col-md-3">Contact Number</div>
+            <div class="col-md-3">Loan Amt</div>
+        </div>
+    </div>
+    <div class="row" ng-repeat="item in vm.enquiryList">
+        <div class="col-md-3">{{item.Name}}</div>    
+        <div class="col-md-3">{{item.Comments}}</div>
+        <div class="col-md-3">{{item.ContactNumber}}</div>
+        <div class="col-md-3">{{item.LoanAmt}}</div>
+    </div>
+</div>
