@@ -39,7 +39,8 @@
                     <div class="col-md-6" style="padding-bottom:20px;">
                         <div class="form-group">
                             <input name="email"
-                                   type="text"
+                                   type="email"
+                                   ng-class="{'alert alert-danger': enquiryForm.email.$invalid}"
                                    class="form-control"
                                    placeholder="Email"
                                    ng-required="true"

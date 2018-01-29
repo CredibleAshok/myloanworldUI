@@ -17,8 +17,8 @@
             </div>
         </div>
         <div class="containerModal" style="background-color:#f1f1f1">
-            <span class="psw"><a ui-sref="createPassword">Create password?</a></span>
-            <span class="psw"><a ui-sref="forgotPassword">Forgot password?</a></span>
+            <button type="button" class="psw" ng-click="vm.redirectTo('createPassword')">Create password</button>
+            <button type="button" class="psw" ng-click="vm.redirectTo('forgotPassword')">Forgot password</button>
         </div>
     </form>
 </div>

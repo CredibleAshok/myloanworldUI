@@ -1,9 +1,9 @@
 ﻿(function () {
     var controllerId = 'loginModalController';
     angular.module('myapp')
-        .controller(controllerId, ['$scope', 'authenticationService', loginModalControllerFunction]);
+        .controller(controllerId, ['$scope', '$state', 'authenticationService', loginModalControllerFunction]);
 
-    function loginModalControllerFunction($scope, authenticationService) {
+    function loginModalControllerFunction($scope, $state, authenticationService) {
         var vm = this;
         vm.user = {};
         vm.user.Name = "testCustomer";
@@ -30,6 +30,10 @@
 
         vm.closeModal = function () {
             $scope.modalInstance.close();
+        }
+        vm.redirectTo = function (state) {
+            $scope.modalInstance.close();
+            $state.go(state);
         }
     }
 })();

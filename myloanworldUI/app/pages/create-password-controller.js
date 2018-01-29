@@ -3,11 +3,11 @@
 (function () {
     var controllerId = 'createPasswordController';
     angular.module('myapp')
-        .controller(controllerId, ['applicationsService', 'authenticationService', createPasswordFunction]);
+        .controller(controllerId, ['$state', 'applicationsService', 'authenticationService', createPasswordFunction]);
 
-    function createPasswordFunction(applicationsService, authenticationService) {
+    function createPasswordFunction($state, applicationsService, authenticationService) {
         var vm = this;
-        vm.title = $stateParams.action == "1" ? "Create Password" : "Forget Password";
+        vm.title = $state.current.name == "forgotPassword" ? "Forget Password" : "Create Password";
         vm.user = { "name": "Ashok New User", "accessKeyCode": "mypassword" };
         vm.response = "";
         vm.performAction = function () {
