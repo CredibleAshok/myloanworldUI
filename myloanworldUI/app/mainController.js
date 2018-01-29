@@ -105,6 +105,20 @@
                     "managementScreen": true
                 }
             })
+            .state('createPassword', {
+                url: '/create-password',
+                templateUrl: 'app/pages/create-password.html',
+                data: {
+                    "managementScreen": false
+                }
+            })
+            .state('forgotPassword', {
+                url: '/forgot-password',
+                templateUrl: 'app/pages/create-password.html',
+                data: {
+                    "managementScreen": false
+                }
+            })
             .state('applicationHistory', {
                 url: '/applicationHistory:applicationId',
                 templateUrl: 'app/pages/application-history.html',
@@ -113,6 +127,7 @@
                 }
             })
         //
+        
         $urlRouterProvider.when('', 'home');
         $urlRouterProvider.when('#!/', '/home');
     });
