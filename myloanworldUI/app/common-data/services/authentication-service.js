@@ -4,10 +4,11 @@
         var isUserLoggedIn = false;
         var service = {
             isUserLoggedIn: function () { return isUserLoggedIn },
-            getProfile: function () { return getProfile()  },
+            getProfile: function () { return getProfile() },
             validatePassword: function (user) { return validatePassword(user) },
             getAfterLoginMenus: function () { return getAfterLoginMenus() },
-            setLogOffUser: function () { return setLogOffUser() }
+            setLogOffUser: function () { return setLogOffUser() },
+            createPassword: function (user) { return createPassword(user) }
         };
         return service;
 
@@ -52,6 +53,21 @@
         function setLogOffUser() {
             loggedInUser = undefined;
             isUserLoggedIn = false;
+        }
+
+        function createPassword(user) {
+            return $http({
+                method: 'POST',
+                url: (commonService.getUrl() + 'api/createPassword'),
+                data: {
+                    Name: user.name,
+                    AccessKeyCode: user.accessKeyCode
+                }
+            }).then(function successCallback(response) {
+                return response.data.$values;
+            }, function errorCallback(response) {
+                console.log("create password failed");
+            });
         }
     }]);
 })();
