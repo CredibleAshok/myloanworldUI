@@ -8,7 +8,8 @@
             validatePassword: function (user) { return validatePassword(user) },
             getAfterLoginMenus: function () { return getAfterLoginMenus() },
             setLogOffUser: function () { return setLogOffUser() },
-            createPassword: function (user) { return createPassword(user) }
+            createPassword: function (user) { return createPassword(user) },
+            forgotPassword: function (user) { return forgotPassword(user) }
         };
         return service;
 
@@ -64,10 +65,25 @@
                     AccessKeyCode: user.accessKeyCode
                 }
             }).then(function successCallback(response) {
-                return response.data.$values;
+                return response.data;
             }, function errorCallback(response) {
                 console.log("create password failed");
             });
         }
+
+        function forgotPassword(user) {
+            return $http({
+                method: 'POST',
+                url: (commonService.getUrl() + 'api/forgotPassword'),
+                data: {
+                    Name: user.name
+                }
+            }).then(function successCallback(response) {
+                return response.data;
+            }, function errorCallback(response) {
+                console.log("create password failed");
+            });
+        }
+
     }]);
 })();

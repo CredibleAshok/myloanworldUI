@@ -32,7 +32,7 @@
     vm.saveProducts = function () {
         $http({
             method: 'POST',
-            url: (commonService.environment == "local" ? commonService.localServiceUrl : commonService.serviceUrl) + 'api/saveEnquiry',
+            url: (commonService.getUrl() + 'api/saveEnquiry'),
             data: {
                 Name: vm.enquiry.name,
                 ContactNumber: vm.enquiry.moblieNumber,
@@ -44,8 +44,8 @@
             console.log("value saved");
             // now submit form
             vm.sendEmail();      
-        }, function errorCallback(response) {
-            console.log("database saving failed");
+            }, function errorCallback(response) {
+                console.log("database saving failed:- " + response.exceptionMessage);
         });
     }
 })

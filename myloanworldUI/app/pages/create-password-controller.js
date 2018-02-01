@@ -8,17 +8,17 @@
     function createPasswordFunction($state, applicationsService, authenticationService) {
         var vm = this;
         vm.title = $state.current.name == "forgotPassword" ? "Forget Password" : "Create Password";
-        vm.user = { "name": "Ashok New User", "accessKeyCode": "mypassword" };
+        vm.user = { "name": "TestCustomer", "accessKeyCode": "mypassword" };
         vm.response = "";
         vm.performAction = function () {
-            if ($stateParams.action == "1") {
-                userService.createPassword().then(function (resp) {
+            if ($state.current.name != "forgotPassword") {
+                authenticationService.createPassword(vm.user).then(function (resp) {
                     // function sucess, ask user to go to his registered email id and login again with the new password
                     vm.response = resp;
                 }, function (error) {
                 });
             } else {
-                userService.forgetPassword().then(function (resp) {
+                authenticationService.forgotPassword(vm.user).then(function (resp) {
                     // function sucess, ask user to go to his registered email id and login again with the new password
                     vm.response = resp;
                 }, function (error) {

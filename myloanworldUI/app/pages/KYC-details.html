@@ -4,8 +4,8 @@
             <span class="welcomeText">KYC Details</span><br />
         </div>
     </div>
-    <div class="col-sm-12">
-        <div class="col-sm-12 form-group">
+    <div class="row">
+        <div class="col-sm-4 form-group">
             <label for="userId">First Name</label>
             <div class="input-group">
                 <input type="text"
@@ -14,7 +14,7 @@
                        required />
             </div>
         </div>
-        <div class="col-sm-12 form-group" ng-if="vm.title !='Forget Password'">
+        <div class="col-sm-4 form-group" ng-if="vm.title !='Forget Password'">
             <label for="userId">Middle Name</label>
             <div class="input-group">
                 <input type="text"
@@ -23,9 +23,7 @@
                        required />
             </div>
         </div>
-    </div>
-    <div class="col-sm-12">
-        <div class="col-sm-12 form-group">
+        <div class="col-sm-4 form-group">
             <label for="userId">Last Name</label>
             <div class="input-group">
                 <input type="text"
@@ -34,7 +32,9 @@
                        required />
             </div>
         </div>
-        <div class="col-sm-12 form-group" ng-if="vm.title !='Forget Password'">
+    </div>
+    <div class="row">
+        <div class="col-sm-4 form-group" ng-if="vm.title !='Forget Password'">
             <label for="userId">Father Name</label>
             <div class="input-group">
                 <input type="text"
@@ -43,9 +43,7 @@
                        required />
             </div>
         </div>
-    </div>
-    <div class="col-sm-12">
-        <div class="col-sm-12 form-group">
+        <div class="col-sm-4 form-group">
             <label for="userId">Sex</label>
             <div class="input-group">
                 <select>
@@ -54,7 +52,7 @@
                 </select>
             </div>
         </div>
-        <div class="col-sm-12 form-group" ng-if="vm.title !='Forget Password'">
+        <div class="col-sm-4 form-group" ng-if="vm.title !='Forget Password'">
             <label for="userId">Marital Status</label>
             <div class="input-group">
                 <select>
@@ -65,37 +63,37 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-12">
-        <div class="col-sm-12 form-group">
-            <label for="userId">Mother Name</label>
-            <div class="input-group">
-                <input type="text"
-                       name="userId"
-                       ng-model="vm.user.lname"
-                       required />
-            </div>
-        </div>
-        <div class="col-sm-12 form-group" ng-if="vm.title !='Forget Password'">
-            <label for="userId">Husband Name</label>
-            <div class="input-group">
-                <input type="text"
-                       name="userId"
-                       ng-model="vm.user.fName"
-                       required />
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-12">
-        <div class="col-sm-12 form-group">
-            <label for="userId">House Contact</label>
-            <div class="input-group">
-                <input type="text"
-                       name="userId"
-                       ng-model="vm.user.lname"
-                       required />
-            </div>
-        </div>
-        <div class="col-sm-12 form-group" ng-if="vm.title !='Forget Password'">
+   <div class="row">
+       <div class="col-sm-4 form-group">
+           <label for="userId">Mother Name</label>
+           <div class="input-group">
+               <input type="text"
+                      name="userId"
+                      ng-model="vm.user.lname"
+                      required />
+           </div>
+       </div>
+       <div class="col-sm-4 form-group" ng-if="vm.title !='Forget Password'">
+           <label for="userId">Husband Name</label>
+           <div class="input-group">
+               <input type="text"
+                      name="userId"
+                      ng-model="vm.user.fName"
+                      required />
+           </div>
+       </div>
+       <div class="col-sm-4 form-group">
+           <label for="userId">House Contact</label>
+           <div class="input-group">
+               <input type="text"
+                      name="userId"
+                      ng-model="vm.user.contactNumber"
+                      required />
+           </div>
+       </div>
+   </div>
+    <div class="row">
+        <div class="col-sm-4 form-group" ng-if="vm.title !='Forget Password'">
             <label for="userId">Office Contact</label>
             <div class="input-group">
                 <input type="text"
@@ -104,9 +102,7 @@
                        required />
             </div>
         </div>
-    </div>
-    <div class="col-sm-12">
-        <div class="col-sm-12 form-group">
+        <div class="col-sm-4 form-group">
             <label for="userId">House Address</label>
             <div class="input-group">
                 <input type="text"
@@ -115,7 +111,7 @@
                        required />
             </div>
         </div>
-        <div class="col-sm-12 form-group" ng-if="vm.title !='Forget Password'">
+        <div class="col-sm-4 form-group" ng-if="vm.title !='Forget Password'">
             <label for="userId">Office Address</label>
             <div class="input-group">
                 <input type="text"

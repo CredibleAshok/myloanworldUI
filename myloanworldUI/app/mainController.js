@@ -99,7 +99,7 @@
                 }
             })
             .state('enquiries', {
-                url: '/',
+                url: '/enquiries',
                 templateUrl: 'app/pages/enquiry.html',
                 data: {
                     "managementScreen": true
@@ -122,6 +122,13 @@
             .state('applicationHistory', {
                 url: '/applicationHistory:applicationId',
                 templateUrl: 'app/pages/application-history.html',
+                data: {
+                    "managementScreen": true
+                }
+            })
+            .state('knowYourCustomer', {
+                url: '/kyc/:fname/:contactNumber',
+                templateUrl: 'app/pages/KYC-details.html',
                 data: {
                     "managementScreen": true
                 }

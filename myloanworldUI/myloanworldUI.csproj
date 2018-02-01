@@ -74,6 +74,7 @@
     <Content Include="app\pages\create-password.html" />
     <Content Include="app\pages\enquiry-controller.js" />
     <Content Include="app\pages\enquiry.html" />
+    <Content Include="app\pages\kyc-controller.js" />
     <Content Include="app\pages\KYC-details.html" />
     <Content Include="app\pages\profile-controller.js" />
     <Content Include="app\pages\profile.html" />

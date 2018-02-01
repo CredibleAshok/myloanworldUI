@@ -7,7 +7,7 @@
         var vm = this;
         vm.user = {};
         vm.user.Name = "testCustomer";
-        vm.user.AccessKeyCode = "1232131";
+        vm.user.AccessKeyCode = "mypassword";
         vm.validateUser = function () {
             authenticationService.validatePassword(vm.user).then(function (resp) {
                 if (resp != undefined) {

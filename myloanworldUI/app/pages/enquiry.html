@@ -1,5 +1,10 @@
 ﻿<div ng-controller="enquiryController as vm">
     <div class="row">
+        <div class="col-xs-12 text-center">
+            <span class="welcomeText">{{vm.title}}</span><br />
+        </div>
+    </div>
+    <div class="row">
         <form name="enquiryListForm">
             <div class="col-xs-12">
                 <div class="col-md-12">
@@ -31,20 +36,31 @@
         </form>
     </div>
     <button ng-click="vm.getEnquiryList()">Search Enquiry</button>
-    <div class="row">
-        <div class="col-sm-12" style="background-color:olivedrab;">
-            <div class="col-md-3 col-sm-3">Name</div>
-            <div class="col-md-3 col-sm-3">Comments</div>
-            <div class="col-md-2 col-sm-2">Contact Number</div>
-            <div class="col-md-2 col-sm-2">Loan Amt</div>
-            <div class="col-md-2 col-sm-2"></div>
-        </div>
-    </div>
-    <div class="row" ng-repeat="item in vm.enquiryList">
-        <div class="col-md-3 col-sm-3">{{item.Name}}</div>    
-        <div class="col-md-3 col-sm-3">{{item.Comments}}</div>
-        <div class="col-md-2 col-sm-2">{{item.ContactNumber}}</div>
-        <div class="col-md-2 col-sm-2">{{item.LoanAmt}}</div>
-        <div class="col-md-2 col-sm-2"><button type="button" class="btn btn-default" ng-click="vm.startApplication(item)">Start Application</button></div>
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <td class="col-sm-3">Name</td>
+                    <td class="col-sm-3">Comments</td>
+                    <td class="col-sm-2">Contact Number</td>
+                    <td class="col-sm-2">Loan Amt</td>
+                    <td class="col-sm-2"></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in vm.enquiryList">
+                    <td class="col-sm-3">{{item.Name}}</td>
+                    <td class="col-sm-3">{{item.Comments}}</td>
+                    <td class="col-sm-2">{{item.ContactNumber}}</td>
+                    <td class="col-sm-2">{{item.LoanAmt}}</td>
+                    <td class="col-sm-2">
+                        <!--<a ui-sref="applicationHistory({applicationId: item.ApplicationId})" class="btn btn-default"><b>{{application.ApplicationId}}</b></a>-->
+                        <a ui-sref="knowYourCustomer({fname: item.Name,contactNumber: item.ContactNumber})" class="btn btn-default"><b>Start Application</b></a>
+                        <!--<button type="button" class="btn btn-default" ng-click="vm.startApplication(item)">Start Application</button>-->
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
