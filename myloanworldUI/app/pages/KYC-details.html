@@ -10,16 +10,16 @@
             <div class="input-group">
                 <input type="text"
                        name="userId"
-                       ng-model="vm.user.fname"
+                       ng-model="vm.customer.Name"
                        required />
             </div>
         </div>
-        <div class="col-sm-4 form-group" ng-if="vm.title !='Forget Password'">
+        <div class="col-sm-4 form-group"vm.customer>
             <label for="userId">Middle Name</label>
             <div class="input-group">
                 <input type="text"
                        name="userId"
-                       ng-model="vm.user.mName"
+                       ng-model="vm.customer.mName"
                        required />
             </div>
         </div>
@@ -28,18 +28,18 @@
             <div class="input-group">
                 <input type="text"
                        name="userId"
-                       ng-model="vm.user.lname"
+                       ng-model="vm.customer.lname"
                        required />
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-4 form-group" ng-if="vm.title !='Forget Password'">
+        <div class="col-sm-4 form-group"vm.customer>
             <label for="userId">Father Name</label>
             <div class="input-group">
                 <input type="text"
                        name="userId"
-                       ng-model="vm.user.fName"
+                       ng-model="vm.customer.fName"
                        required />
             </div>
         </div>
@@ -52,7 +52,7 @@
                 </select>
             </div>
         </div>
-        <div class="col-sm-4 form-group" ng-if="vm.title !='Forget Password'">
+        <div class="col-sm-4 form-group"vm.customer>
             <label for="userId">Marital Status</label>
             <div class="input-group">
                 <select>
@@ -69,16 +69,16 @@
            <div class="input-group">
                <input type="text"
                       name="userId"
-                      ng-model="vm.user.lname"
+                      ng-model="vm.customer.lname"
                       required />
            </div>
        </div>
-       <div class="col-sm-4 form-group" ng-if="vm.title !='Forget Password'">
+       <div class="col-sm-4 form-group"vm.customer>
            <label for="userId">Husband Name</label>
            <div class="input-group">
                <input type="text"
                       name="userId"
-                      ng-model="vm.user.fName"
+                      ng-model="vm.customer.fName"
                       required />
            </div>
        </div>
@@ -87,38 +87,70 @@
            <div class="input-group">
                <input type="text"
                       name="userId"
-                      ng-model="vm.user.contactNumber"
+                      ng-model="vm.customer.contactNumber"
                       required />
            </div>
        </div>
    </div>
     <div class="row">
-        <div class="col-sm-4 form-group" ng-if="vm.title !='Forget Password'">
-            <label for="userId">Office Contact</label>
+        <div class="col-sm-4 form-group"vm.customer>
+            <label for="userId">Home Address</label>
             <div class="input-group">
                 <input type="text"
                        name="userId"
-                       ng-model="vm.user.fName"
+                       ng-model="vm.customer.HomeAddress"
                        required />
             </div>
         </div>
         <div class="col-sm-4 form-group">
-            <label for="userId">House Address</label>
-            <div class="input-group">
-                <input type="text"
-                       name="userId"
-                       ng-model="vm.user.lname"
-                       required />
-            </div>
-        </div>
-        <div class="col-sm-4 form-group" ng-if="vm.title !='Forget Password'">
             <label for="userId">Office Address</label>
             <div class="input-group">
                 <input type="text"
                        name="userId"
-                       ng-model="vm.user.fName"
+                       ng-model="vm.customer.OfficeAddress"
                        required />
             </div>
         </div>
+        <div class="col-sm-4 form-group"vm.customer>
+            <label for="userId">Home Contact</label>
+            <div class="input-group">
+                <input type="text"
+                       name="userId"
+                       ng-model="vm.customer.HomeContact"
+                       required />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 form-group"vm.customer>
+            <label for="userId">Office Contact</label>
+            <div class="input-group">
+                <input type="text"
+                       name="userId"
+                       ng-model="vm.customer.OfficeContact"
+                       required />
+            </div>
+        </div>
+        <div class="col-sm-4 form-group">
+            <label for="userId">Application Type</label>
+                <div class="input-group">
+                    <select>
+                        <option>1</option>
+                        <option>2</option>
+                    </select>
+                </div>
+        </div>
+        <div class="col-sm-4 form-group"vm.customer>
+            <label for="userId">Home Contact</label>
+            <div class="input-group">
+                <input type="text"
+                       name="userId"
+                       ng-model="vm.customer.HomeContact1"
+                       required />
+            </div>
+        </div>
+    </div>
+    <div class="row pull-right">
+        <div ><button type="button" class="btn btn-default" ng-click="vm.saveApplication()">Save Application</button></div>
     </div>
 </div>

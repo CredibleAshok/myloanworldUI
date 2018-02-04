@@ -6,15 +6,18 @@
     function loginModalControllerFunction($scope, $state, authenticationService) {
         var vm = this;
         vm.user = {};
-        vm.user.Name = "testCustomer";
-        vm.user.AccessKeyCode = "mypassword";
+        vm.user.UserName = "TestCustomer";
+        vm.user.AccessKeyCode = "Test";
         vm.validateUser = function () {
             authenticationService.validatePassword(vm.user).then(function (resp) {
-                if (resp != undefined) {
+                if (resp != undefined && resp.length > 0) {
                     vm.user = resp[0];
                     vm.getAfterLoginMenus();
+                } else {
+                    vm.responseMessage = "User details not correct!";
                 }
             }, function () {
+                vm.user.AccessKeyCode = "";
                 console.log("password validated failed.");
             });
         };

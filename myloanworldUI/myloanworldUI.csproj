@@ -70,6 +70,8 @@
     <Content Include="app\pages\all-applications.html" />
     <Content Include="app\pages\application-history-controller.js" />
     <Content Include="app\pages\application-history.html" />
+    <Content Include="app\controls\change-application-status-controller.js" />
+    <Content Include="app\controls\change-application-status.html" />
     <Content Include="app\pages\create-password-controller.js" />
     <Content Include="app\pages\create-password.html" />
     <Content Include="app\pages\enquiry-controller.js" />

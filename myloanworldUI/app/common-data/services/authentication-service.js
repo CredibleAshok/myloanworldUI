@@ -9,7 +9,8 @@
             getAfterLoginMenus: function () { return getAfterLoginMenus() },
             setLogOffUser: function () { return setLogOffUser() },
             createPassword: function (user) { return createPassword(user) },
-            forgotPassword: function (user) { return forgotPassword(user) }
+            forgotPassword: function (user) { return forgotPassword(user) },
+            saveApplication: function (customer) { return saveApplication(customer) }
         };
         return service;
 
@@ -17,7 +18,7 @@
             if (loggedInUser == undefined) {
                 return undefined;
             } else {
-                return loggedInUser.profile[0];
+                return loggedInUser.profile;
             }
         }
 
@@ -35,15 +36,15 @@
         function validatePassword(user) {
             return $http({
                 method: 'POST',
-                url: (commonService.getUrl() + 'api/getCustomer'),
+                url: (commonService.getUrl() + 'api/getUser'),
                 //params: { customer: user }
                 data: {
-                    Name: user.Name,
+                    UserName: user.UserName,
                     AccessKeyCode: user.AccessKeyCode
                 }
             }).then(function successCallback(response) {
                 loggedInUser = {};
-                loggedInUser.profile = response.data.$values;
+                loggedInUser.profile = response.data.$values[0];
                 isUserLoggedIn = true;
                 return response.data.$values;
             }, function errorCallback(response) {
@@ -61,7 +62,7 @@
                 method: 'POST',
                 url: (commonService.getUrl() + 'api/createPassword'),
                 data: {
-                    Name: user.name,
+                    UserName: user.UserName,
                     AccessKeyCode: user.accessKeyCode
                 }
             }).then(function successCallback(response) {
@@ -76,7 +77,29 @@
                 method: 'POST',
                 url: (commonService.getUrl() + 'api/forgotPassword'),
                 data: {
-                    Name: user.name
+                    UserName: user.UserName
+                }
+            }).then(function successCallback(response) {
+                return response.data;
+            }, function errorCallback(response) {
+                console.log("create password failed");
+            });
+        }
+
+        function saveApplication(customer) {
+            return $http({
+                method: 'POST',
+                url: (commonService.getUrl() + 'api/saveApplication'),
+                data: {
+                    Name: customer.Name,
+                    HomeAddress: customer.HomeAddress,
+                    OfficeAddress: customer.OfficeAddress,
+                    HomeContact: customer.HomeContact,
+                    OfficeContact: customer.OfficeContact,
+                    EnquiryId: customer.EnquiryId,
+                    ApplicationTypeId: customer.ApplicationTypeId,
+                    Comments: customer.Comments,
+                    CreatedBy: customer.CreatedBy
                 }
             }).then(function successCallback(response) {
                 return response.data;
