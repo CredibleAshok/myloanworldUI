@@ -6,7 +6,7 @@
 
         <div class="containerModal">
             <label><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" name="userName" ng-model="vm.user.Name" ng-required="true">
+            <input type="text" placeholder="Enter Username" name="userName" ng-model="vm.user.UserName" ng-required="true">
 
             <label><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name="pwd" ng-model="vm.user.AccessKeyCode" ng-required="true">
@@ -14,6 +14,9 @@
             <div class="text-right">
                 <button ng-click="vm.validateUser()">Login</button>
                 <button type="button" class="cancelbtn" ng-click="vm.closeModal()">Cancel</button>
+            </div>
+            <div>
+                <span style="color:red;">{{vm.responseMessage}}</span>
             </div>
         </div>
         <div class="containerModal" style="background-color:#f1f1f1">

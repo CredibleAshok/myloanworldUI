@@ -32,20 +32,25 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-sm-12">
+                    <div class="col-sm-6"></div>
+                    <div class="col-sm-6" style="text-align:right;">
+                        <button ng-click="vm.getEnquiryList()">Search Enquiry</button>
+                    </div>
+                </div>
             </div>
         </form>
     </div>
-    <button ng-click="vm.getEnquiryList()">Search Enquiry</button>
-
-    <div class="table-responsive">
-        <table class="table">
+    <br />
+    <div class="col-md-12 table-responsive">
+        <table class="table table-striped table-bordered table-condensed table-hover">
             <thead>
                 <tr>
-                    <td class="col-sm-3">Name</td>
-                    <td class="col-sm-3">Comments</td>
-                    <td class="col-sm-2">Contact Number</td>
-                    <td class="col-sm-2">Loan Amt</td>
-                    <td class="col-sm-2"></td>
+                    <th class="col-sm-3">Name</th>
+                    <th class="col-sm-3">Comments</th>
+                    <th class="col-sm-2">Contact Number</th>
+                    <th class="col-sm-2">Loan Amt</th>
+                    <th class="col-sm-2"></th>
                 </tr>
             </thead>
             <tbody>
