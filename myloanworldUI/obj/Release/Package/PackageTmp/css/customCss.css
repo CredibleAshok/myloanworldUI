@@ -402,7 +402,7 @@ span.psw {
 }
 
 .myprogress {
-    background-color: blue!important;
+    background-color: green!important;
 }
 .setCircle {
     width: 70px;
@@ -417,7 +417,6 @@ span.psw {
 }
 .normalBar {
     text-align: center;
-    border-radius: 6px;
     color: transparent;
     background-color:gray;
 }

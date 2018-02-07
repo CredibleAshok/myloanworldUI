@@ -17,10 +17,16 @@
             applicationsService.getApplicationType().then(function (resp) {
                 vm.loanTypes = resp;
             }, function (error) {
-                console.log("failed");
+                console.log("loan type fetching failed");
             });
         }
 
+        vm.getCommonData = function () {
+            vm.sexOptions = commonService.sexOptions();
+            vm.maritalStatusOptions = commonService.maritalStatusOptions(); 
+        }
+        
+        vm.getCommonData();
         vm.sendEmail = function () {
             var emptyForm = document.getElementById("emptyForm");
             var newChild = '<form id="emailForm" action="http://formspree.io/ashok.forklift@gmail.com" method="POST"><button id="sendEmail" type="submit">Send Email</button>'
@@ -58,5 +64,6 @@
         }
         // load loan types on page load.
         vm.getLoanTypes();
+
     })
 })();

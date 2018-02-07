@@ -1,13 +1,16 @@
 ﻿(function () {
     angular.module('myapp').factory('commonService', function () {
-        var environment = "local";// this can have 3 values like 'local', 'localIIS' and 'live'
+        var environment = "live";// this can have 3 values like 'local', 'localIIS' and 'live'
         var liveServiceUrl = "http://service.myloanworld.com/";
         var localIISServiceUrl = "http://localhost/myloanworldService/";
         var localServiceUrl = "http://localhost:55750/";
+        
         var service = {
             loanTypes: function () { return loanTypes() },
             footerLinks: function () { return footerLinks() },
-            getUrl: function () { return getUrl() }
+            getUrl: function () { return getUrl() },
+            sexOptions: function () { return sexOptions() },
+            maritalStatusOptions: function () { return maritalStatusOptions() }
         };
         return service;
         function footerLinks() {
@@ -100,6 +103,13 @@
                 "desc": "At My Loan World we understand that “life happens” and that our bank accounts are often unprepared for unexpected financial needs. From medical emergencies to happy events like weddings, My Loan World’s consumer business focuses on providing unsecured"
             }];
         }
+        function sexOptions() {
+            return [{ "name": "Male", "sexId": 1 }, { "name": "Female", "sexId": 2 }];
+        }
+        function maritalStatusOptions() {
+            return [{ "name": "Married", "Id": 1 }, { "name": "UnMarried", "Id": 2 }, { "name": "Divorced", "Id": 3 }, { "name": "NeverMarried", "Id": 4 }];
+        }
+        
         function getUrl() {
             if (environment == 'local') {
                 return localServiceUrl;
