@@ -46,12 +46,6 @@
             vm.loggedInUser = undefined;
         });
         vm.topNavigationLinks = [{
-            "topNavigationLinksId": 1,
-            "name": "Home",
-            "sortOrder": 1,
-            "sref": 'home',
-            "href": "app/pages/home.html"
-        }, {
             "topNavigationLinksId": 2,
             "name": "About Us",
             "sortOrder": 2,

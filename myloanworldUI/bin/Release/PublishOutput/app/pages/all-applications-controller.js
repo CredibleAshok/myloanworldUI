@@ -5,6 +5,7 @@
 
     function applicationsFunction(applicationsService) {
         var vm = this;
+        vm.title = "All Applications";
         vm.getAllApplications = function (applicationId) {
             applicationsService.getApplicationById(applicationId).then(function (resp) {
                 if (applicationId != null) {

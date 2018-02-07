@@ -1,13 +1,13 @@
 ﻿(function () {
     var controllerId = 'loginModalController';
     angular.module('myapp')
-        .controller(controllerId, ['$scope', 'authenticationService', loginModalControllerFunction]);
+        .controller(controllerId, ['$scope', '$state', 'authenticationService', loginModalControllerFunction]);
 
-    function loginModalControllerFunction($scope, authenticationService) {
+    function loginModalControllerFunction($scope, $state, authenticationService) {
         var vm = this;
         vm.user = {};
         vm.user.Name = "testCustomer";
-        vm.user.AccessKeyCode = "1232131";
+        vm.user.AccessKeyCode = "mypassword";
         vm.validateUser = function () {
             authenticationService.validatePassword(vm.user).then(function (resp) {
                 if (resp != undefined) {
@@ -30,6 +30,10 @@
 
         vm.closeModal = function () {
             $scope.modalInstance.close();
+        }
+        vm.redirectTo = function (state) {
+            $scope.modalInstance.close();
+            $state.go(state);
         }
     }
 })();

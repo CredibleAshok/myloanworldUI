@@ -402,5 +402,57 @@ span.psw {
 }
 
 .myprogress {
-    background-color: blue;
+    background-color: blue!important;
+}
+.setCircle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: gray;
+    position: absolute;
+    top: -130%;
+    left: 40%;
+    color: white;
+    padding-top: 25px;
+}
+.normalBar {
+    text-align: center;
+    border-radius: 6px;
+    color: transparent;
+    background-color:gray;
+}
+.tooltipNormal {
+    background-color: gray;
+    border-radius: 6px;
+    padding:10px;
+}
+.setCircle:hover .tooltipNormal{
+    color:red;
+}
+.closeTooltip {
+    width: 20px;
+    width: 100%;
+    text-align: right;
+}
+
+@media only screen and (max-width: 361px) {
+    .normalBar {
+        margin-bottom:60px;
+        background-color: red;
+    }
+    body {
+        background-color: lightblue;
+    }
+    .tooltipNormal {
+        background-color: gray;
+        border-radius: 6px;
+        padding: 10px;
+        position:fixed;
+        z-index:100;
+        top:60px;
+    }
+    .closeTooltip {
+        width: 100%;
+        text-align: right;
+    }
 }
