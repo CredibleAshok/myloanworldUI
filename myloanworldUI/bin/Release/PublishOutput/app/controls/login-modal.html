@@ -1,0 +1,24 @@
+﻿<div ng-controller="loginModalController as vm">
+    <form id="loginForm">
+        <div class="imgcontainer">
+            <img src="img_avatar2.png" alt="Avatar" class="avatar">
+        </div>
+
+        <div class="containerModal">
+            <label><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="userName" ng-model="vm.user.Name" ng-required="true">
+
+            <label><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="pwd" ng-model="vm.user.AccessKeyCode" ng-required="true">
+
+            <div class="text-right">
+                <button ng-click="vm.validateUser()">Login</button>
+                <button type="button" class="cancelbtn" ng-click="vm.closeModal()">Cancel</button>
+            </div>
+        </div>
+        <div class="containerModal" style="background-color:#f1f1f1">
+            <button type="button" class="psw" ng-click="vm.redirectTo('createPassword')">Create password</button>
+            <button type="button" class="psw" ng-click="vm.redirectTo('forgotPassword')">Forgot password</button>
+        </div>
+    </form>
+</div>

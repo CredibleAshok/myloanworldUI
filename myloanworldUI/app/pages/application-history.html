@@ -1,0 +1,27 @@
+﻿
+<div ng-controller="applicationHistoryController as vm" style="margin-top:50px;">
+    <div class="col-md-12 text-center">
+        <span class="welcomeText"></span><br />
+    </div>
+    <div class="row" style="padding-top:20px; padding-bottom:70px;">
+        <div ng-repeat="item in vm.applicationStatus">
+            <div ng-class="{'myprogress': vm.applicationHistory[(item.ApplicationStatusId-1)].Comments != undefined}" class="{{vm.className}} normalBar">{{item.Name}}
+                <div ng-class="{'myprogress': vm.applicationHistory[(item.ApplicationStatusId-1)].Comments != undefined}" class="setCircle">{{item.Name}}
+                <br /><button ng-click="vm.showMore((item.ApplicationStatusId-1))">+</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="tooltipNormal" ng-show="vm.selectedIndex > -1">
+                <div class="closeTooltip">
+                    <button ng-click="vm.hideTooltip()">X</button>
+                </div>
+                <p>{{vm.applicationHistory[vm.selectedIndex].CreatedBy}}</p>
+                <p>{{vm.applicationHistory[vm.selectedIndex].Comments}}</p>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>

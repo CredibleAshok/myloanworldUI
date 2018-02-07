@@ -1,4 +1,4 @@
-﻿<nav class="navbar navbar-default navbar-fixed-top" ng-controller="navbarController as vm">
+﻿<nav class="navbar navbar-default navbar-fixed-top" ng-controller="navbarController as vm" role="navigation">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -35,17 +35,22 @@
                 <li>
                     <a class="dropdown-toggle" data-toggle="dropdown">
                         <button ng-if="vm.loggedInUser == undefined" ng-click="vm.openModal()"><i class="fa fa-bars"></i>Login</button>
-                        <button ng-if="vm.loggedInUser != undefined"><i class="fa fa-bars"></i>{{vm.loggedInUser.userName}}</button>
+                        <button ng-if="vm.loggedInUser != undefined"><i class="fa fa-bars"></i>{{vm.loggedInUser.UserName}}</button>
                     </a>
+                    <!--<ul class="dropdown-menu">
+                        <li>
+                            <a ui-sref="profile"><i style="padding-right:20px;" class="fa fa-home"></i>View Profile</a>
+                        </li>
+                        <li>
+                            <a ui-sref="allApplications"><i style="padding-right:20px;" class="fa fa-home"></i>View All Applications</a>
+                        </li>
+                        <li>
+                            <a ui-sref="logOff"><i style="padding-right:20px;" class="fa fa-home"></i>Log Out</a>
+                        </li>
+                    </ul>-->
                     <ul class="dropdown-menu">
-                        <li>
-                            <a>View Profile</a>
-                        </li>
-                        <li>
-                            <a>View Application Status</a>
-                        </li>
-                        <li>
-                            <a>Log Out</a>
+                        <li ng-repeat="product in vm.loggedInUser.afterLoginMenu">
+                            <a ui-sref="{{product.Sref}}"><i style="padding-right:20px;"  class="fa fa-{{product.Icon}}"></i>{{product.Name}}</a>
                         </li>
                     </ul>
                 </li>
@@ -56,3 +61,12 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
+<script>
+    $(document).ready(function () {
+        $(document).on('click', '.navbar-collapse.in', function (e) {
+            if ($(e.target).is('a:not(".dropdown-toggle")')) {
+                $(this).collapse('hide');
+            }
+        });
+    });
+</script>

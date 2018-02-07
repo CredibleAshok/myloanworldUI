@@ -1,30 +1,112 @@
 ﻿(function () {
     angular.module('myapp').factory('authenticationService', ['$http', 'commonService', function ($http, commonService) {
+        var loggedInUser = {};
+        var isUserLoggedIn = false;
         var service = {
-            validatePassword: function (userName, pwd) { return validatePassword(userName, pwd) },
-            getManagementMenus: function (userName, pwd) { return getManagementMenus(userName, pwd) }
+            isUserLoggedIn: function () { return isUserLoggedIn },
+            getProfile: function () { return getProfile() },
+            validatePassword: function (user) { return validatePassword(user) },
+            getAfterLoginMenus: function () { return getAfterLoginMenus() },
+            setLogOffUser: function () { return setLogOffUser() },
+            createPassword: function (user) { return createPassword(user) },
+            forgotPassword: function (user) { return forgotPassword(user) },
+            saveApplication: function (customer) { return saveApplication(customer) }
         };
         return service;
-        
-        function getManagementMenus(userName) {
+
+        function getProfile() {
+            if (loggedInUser == undefined) {
+                return undefined;
+            } else {
+                return loggedInUser.profile;
+            }
+        }
+
+        function getAfterLoginMenus() {
             return $http({
                 method: 'GET',
-                url: (commonService.environment == "local" ? commonService.localServiceUrl : commonService.serviceUrl) + 'api/getManagementMenus'
+                url: (commonService.getUrl() + 'api/getMenusList')
             }).then(function successCallback(response) {
-                return response.data;
+                return response.data.$values;
             }, function errorCallback(response) {
                 console.log("failed");
             });
         }
-        function validatePassword(userName, pwd) {
+
+        function validatePassword(user) {
             return $http({
-                method: 'GET',
-                url: (commonService.environment == "local" ? commonService.localServiceUrl : commonService.serviceUrl) + 'api/validatePassword'
+                method: 'POST',
+                url: (commonService.getUrl() + 'api/getUser'),
+                //params: { customer: user }
+                data: {
+                    UserName: user.UserName,
+                    AccessKeyCode: user.AccessKeyCode
+                }
             }).then(function successCallback(response) {
-                return response.data;
+                loggedInUser = {};
+                loggedInUser.profile = response.data.$values[0];
+                isUserLoggedIn = true;
+                return response.data.$values;
             }, function errorCallback(response) {
                 console.log("failed");
             });
         }
+
+        function setLogOffUser() {
+            loggedInUser = undefined;
+            isUserLoggedIn = false;
+        }
+
+        function createPassword(user) {
+            return $http({
+                method: 'POST',
+                url: (commonService.getUrl() + 'api/createPassword'),
+                data: {
+                    UserName: user.UserName,
+                    AccessKeyCode: user.accessKeyCode
+                }
+            }).then(function successCallback(response) {
+                return response.data;
+            }, function errorCallback(response) {
+                console.log("create password failed");
+            });
+        }
+
+        function forgotPassword(user) {
+            return $http({
+                method: 'POST',
+                url: (commonService.getUrl() + 'api/forgotPassword'),
+                data: {
+                    UserName: user.UserName
+                }
+            }).then(function successCallback(response) {
+                return response.data;
+            }, function errorCallback(response) {
+                console.log("create password failed");
+            });
+        }
+
+        function saveApplication(customer) {
+            return $http({
+                method: 'POST',
+                url: (commonService.getUrl() + 'api/saveApplication'),
+                data: {
+                    Name: customer.Name,
+                    HomeAddress: customer.HomeAddress,
+                    OfficeAddress: customer.OfficeAddress,
+                    HomeContact: customer.HomeContact,
+                    OfficeContact: customer.OfficeContact,
+                    EnquiryId: customer.EnquiryId,
+                    ApplicationTypeId: customer.ApplicationTypeId,
+                    Comments: customer.Comments,
+                    CreatedBy: customer.CreatedBy
+                }
+            }).then(function successCallback(response) {
+                return response.data;
+            }, function errorCallback(response) {
+                console.log("create password failed");
+            });
+        }
+
     }]);
 })();

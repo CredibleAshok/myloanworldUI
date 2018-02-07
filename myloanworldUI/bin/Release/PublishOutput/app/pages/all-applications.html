@@ -1,0 +1,24 @@
+﻿<div ng-controller="applicationsController as vm">
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <span class="welcomeText">{{vm.title}}</span><br />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-xs-12">
+            <div class="col-sm-4  col-xs-4">Application Id</div>
+            <div class="col-sm-4 col-xs-4">Application Status</div>
+            <div class="col-sm-4 col-xs-4">Application Type</div>
+        </div>
+        <div ng-repeat="application in vm.applicationList">
+            <div class="col-sm-12 col-xs-12">
+                <div class="col-sm-4 col-xs-4">
+                <a ui-sref="applicationHistory({applicationId: application.ApplicationId})"><b>{{application.ApplicationId}}</b></a>
+                <!--<button ng-click="vm.getApplicationHistory(application.ApplicationId)"></button>-->
+                </div>
+                <div class="col-sm-4 col-xs-4">{{application.ApplicationStatus}}</div>
+                <div class="col-sm-4 col-xs-4">{{application.ApplicationType}}</div>
+            </div>
+        </div>
+    </div>
+</div>

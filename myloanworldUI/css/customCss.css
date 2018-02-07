@@ -367,3 +367,92 @@ span.psw {
     }
 }
 
+/*Application progress */
+.proBar {
+    float: left;
+    background-color: gray;
+    width: 15%;
+    border-radius: 5px;
+}
+
+.proCircle {
+    float: left;
+    background-color: gray;
+    width: 5%;
+    height: 60px;
+    position: relative;
+    margin-left: -5px;
+    margin-right: -5px;
+    bottom: 20px;
+    border-radius: 50%;
+    text-align: center;
+    padding-top: 15px;
+    color: white;
+}
+
+.mytooltip {
+    visibility: hidden;
+    position: relative;
+    bottom: 80px;
+}
+
+.proCircle:hover .mytooltip {
+    color: red;
+    visibility: visible;
+}
+
+.myprogress {
+    background-color: blue!important;
+}
+.setCircle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: gray;
+    position: absolute;
+    top: -130%;
+    left: 40%;
+    color: white;
+    padding-top: 25px;
+}
+.normalBar {
+    text-align: center;
+    border-radius: 6px;
+    color: transparent;
+    background-color:gray;
+}
+.tooltipNormal {
+    background-color: gray;
+    border-radius: 6px;
+    padding:10px;
+}
+.setCircle:hover .tooltipNormal{
+    color:red;
+}
+.closeTooltip {
+    width: 20px;
+    width: 100%;
+    text-align: right;
+}
+
+@media only screen and (max-width: 361px) {
+    .normalBar {
+        margin-bottom:60px;
+        background-color: red;
+    }
+    body {
+        background-color: lightblue;
+    }
+    .tooltipNormal {
+        background-color: gray;
+        border-radius: 6px;
+        padding: 10px;
+        position:fixed;
+        z-index:100;
+        top:60px;
+    }
+    .closeTooltip {
+        width: 100%;
+        text-align: right;
+    }
+}

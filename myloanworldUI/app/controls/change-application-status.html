@@ -1,0 +1,29 @@
+﻿<div ng-controller="changeApplicationModalController as vm" novalidate>
+    <form name="changeApplicationForm" >
+        <div class="imgcontainer">
+            <span>Change Application Status</span>
+        </div>
+
+        <div class="containerModal">
+            <label><b>Application Id</b></label>
+            <input type="text" placeholder="Enter Application Id" name="applicationId" ng-model="vm.application.ApplicationId" readonly="readonly">
+
+            <label><b>New Status</b></label>
+            <input ng-class="{'alert alert-danger': changeApplicationForm.applicationStatusId.$error.required}" type="text" placeholder="Enter New Application Status" name="applicationStatus" ng-model="vm.application.ApplicationStatusId" ng-required="true">
+            
+            <label><b>Created By</b></label>
+            <input ng-class="{'alert alert-danger': changeApplicationForm.createdBy.$error.required}" type="text" placeholder="Created By" name="createdBy"  ng-model="vm.application.CreatedBy" ng-required="true">
+
+            <label><b>Comments</b></label>
+            <input ng-class="{'alert alert-danger': changeApplicationForm.comments.$error.required}" type="text" placeholder="Comments" name="comments" ng-model="vm.application.Comments" ng-required="true">
+
+            <div class="text-right">
+                <button ng-click="vm.changeApplicationStatus()" ng-disabled="changeApplicationForm.$invalid">OK</button>
+                <button type="button" class="cancelbtn" ng-click="vm.closeModal()">Cancel</button>
+            </div>
+            <div>
+                <span style="color:red;">{{vm.responseMessage}}</span>
+            </div>
+        </div>
+    </form>
+</div>

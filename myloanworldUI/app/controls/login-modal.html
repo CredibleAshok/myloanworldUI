@@ -6,18 +6,22 @@
 
         <div class="containerModal">
             <label><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" name="userName" ng-model="vm.user.userName" ng-required="true">
+            <input type="text" placeholder="Enter Username" name="userName" ng-model="vm.user.UserName" ng-required="true">
 
             <label><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="pwd" ng-model="vm.user.pwd" ng-required="true">
+            <input type="password" placeholder="Enter Password" name="pwd" ng-model="vm.user.AccessKeyCode" ng-required="true">
 
-            <button ng-click="vm.validateUser()">Login</button>
-            <input type="checkbox" checked="checked"> Remember me
+            <div class="text-right">
+                <button ng-click="vm.validateUser()">Login</button>
+                <button type="button" class="cancelbtn" ng-click="vm.closeModal()">Cancel</button>
+            </div>
+            <div>
+                <span style="color:red;">{{vm.responseMessage}}</span>
+            </div>
         </div>
-
         <div class="containerModal" style="background-color:#f1f1f1">
-            <button type="button" class="cancelbtn" ng-click="vm.closeModal()">Cancel</button>
-            <span class="psw">Forgot <a href="resetPassword">password?</a></span>
+            <button type="button" class="psw" ng-click="vm.redirectTo('createPassword')">Create password</button>
+            <button type="button" class="psw" ng-click="vm.redirectTo('forgotPassword')">Forgot password</button>
         </div>
     </form>
 </div>
