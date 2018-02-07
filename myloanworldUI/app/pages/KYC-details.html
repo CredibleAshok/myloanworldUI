@@ -15,7 +15,7 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title">
-                                <a data-toggle="collapse" href="#mandatoryInfo">Mandatory Information</a>
+                                <a data-toggle="collapse" data-target="#mandatoryInfo">Mandatory Information</a>
                             </h4>
                         </div>
                         <div id="mandatoryInfo" class="panel-collapse collapse">
@@ -92,15 +92,15 @@
                                 </div>
                                 <div class="col-sm-12">
                                     <div class="form-group" style="padding-bottom:20px; padding-left:15px; padding-right:15px;">
-                                        <textarea type="text"
-                                                  class="form-control"
-                                                  name="comments"
-                                                  placeholder="Explain your situation"
-                                                  ng-model="vm.enquiry.comments" />
+                                        <input type="text"
+                                               class="form-control"
+                                               name="comments"
+                                               placeholder="Explain your situation"
+                                               ng-model="vm.enquiry.comments" />
                                     </div>
                                 </div>
                             </div>
-                            <div class="panel-footer">To speed up your application process please fill the below information!</div>
+                            <div class="panel-footer">To speed up your application process please fill the below information and click Save Application ! Otherwise just click Send Enquiry!</div>
                         </div>
                     </div>
                 </div>
@@ -112,12 +112,13 @@
                     <button ng-disabled="enquiryForm.$invalid" class="btn btn-primary pull-right" ng-click="vm.saveProducts()">Send Enquiry</button>
                 </div>
             </div>
+            <br />
             <div class="col-sm-12">
                 <div class="panel-group">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title">
-                                <a data-toggle="collapse" href="#personalInfo">Personal Information</a>
+                                <a data-toggle="collapse" data-target="#personalInfo">Personal Information</a>
                             </h4>
                         </div>
                         <div id="personalInfo" class="panel-collapse collapse">
@@ -211,7 +212,7 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title">
-                                <a data-toggle="collapse" href="#addressContact">Contact Information</a>
+                                <a data-toggle="collapse" data-target="#addressContact">Contact Information</a>
                             </h4>
                         </div>
                         <div id="addressContact" class="panel-collapse collapse">
@@ -266,7 +267,7 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title">
-                                <a data-toggle="collapse" href="#addressInfo">Address Information</a>
+                                <a data-toggle="collapse" data-target="#addressInfo">Address Information</a>
                             </h4>
                         </div>
                         <div id="addressInfo" class="panel-collapse collapse">
