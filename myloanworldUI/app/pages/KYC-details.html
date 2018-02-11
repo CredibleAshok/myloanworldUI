@@ -1,8 +1,6 @@
-<div class="row" ng-controller="applyNowController as vm">
+<div class="row" ng-controller="kycDetailController as vm">
     <div class="col-sm-12 text-center">
-        <span class="welcomeText">Apply Now</span><br />
-    </div>
-    <div class="col-sm-12 fillHeader">
+        <span class="welcomeText">KYC Details</span><br />
     </div>
     <div class="col-sm-12">
         <div class="fixHeight50"></div>
@@ -10,109 +8,6 @@
     <div id="emptyForm"></div>
     <div class="col-sm-12">
         <form name="enquiryForm">
-            <div class="col-sm-12">
-                <div class="panel-group">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" data-target="#mandatoryInfo">Mandatory Information</a>
-                            </h4>
-                        </div>
-                        <div id="mandatoryInfo" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <div class="col-sm-12">
-                                    <div class="col-sm-6" style="padding-bottom:20px;">
-                                        <div class="form-group">
-                                            <input ng-class="{'alert alert-danger': enquiryForm.customerFirstName.$error.required}"
-                                                   type="text"
-                                                   name="customerFirstName"
-                                                   ng-required="true"
-                                                   class="form-control"
-                                                   placeholder="Name"
-                                                   ng-model="vm.enquiry.firstName" />
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6" style="padding-bottom:20px;" ng-required="true">
-                                        <div class="form-group">
-                                            <input ng-class="{'alert alert-danger': enquiryForm.mobileNumber.$invalid}"
-                                                   name="mobileNumber"
-                                                   ng-pattern="/^[0-9]{10}$/"
-                                                   type="text"
-                                                   class="form-control"
-                                                   placeholder="Mobile Number"
-                                                   ng-required="true"
-                                                   ng-model="vm.enquiry.moblieNumber" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-12">
-                                    <div class="col-sm-6" style="padding-bottom:20px;">
-                                        <div class="form-group">
-                                            <input name="email"
-                                                   type="email"
-                                                   ng-class="{'alert alert-danger': enquiryForm.email.$invalid}"
-                                                   class="form-control"
-                                                   placeholder="Email"
-                                                   ng-required="true"
-                                                   ng-model="vm.enquiry.email" />
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6" style="padding-bottom:20px;">
-                                        <div class="form-group">
-                                            <input type="text"
-                                                   ng-class="{'alert alert-danger': enquiryForm.loanAmt.$invalid}"
-                                                   name="loanAmt"
-                                                   ng-pattern="/^[0-9]{5,7}$/"
-                                                   class="form-control"
-                                                   placeholder="Loan Amount"
-                                                   ng-required="true"
-                                                   ng-model="vm.enquiry.loanAmt" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-12">
-                                    <div class="col-sm-6" style="padding-bottom:20px;">
-                                        <div class="form-group">
-                                            <input ng-class="{'alert alert-danger': enquiryForm.tennure.$invalid}"
-                                                   name="tennure"
-                                                   ng-pattern="/^[0-9]{1,2}$/"
-                                                   class="form-control"
-                                                   placeholder="For Years"
-                                                   ng-model="vm.enquiry.tennure" />
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6" style="padding-bottom:20px;">
-                                        <div class="form-group">
-                                            <input type="text"
-                                                   name="productType"
-                                                   class="form-control"
-                                                   ng-model="vm.enquiry.productType" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-12">
-                                    <div class="form-group" style="padding-bottom:20px; padding-left:15px; padding-right:15px;">
-                                        <input type="text"
-                                               class="form-control"
-                                               name="comments"
-                                               placeholder="Explain your situation"
-                                               ng-model="vm.enquiry.comments" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="panel-footer">To speed up your application process please fill the below information and click Save Application ! Otherwise just click Send Enquiry!</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-12">
-                <div class="col-sm-6" style="padding-bottom:20px;">
-                </div>
-                <div class="col-sm-6" style="padding-bottom:20px;">
-                    <button ng-disabled="enquiryForm.$invalid" class="btn btn-primary pull-right" ng-click="vm.saveProducts()">Send Enquiry</button>
-                </div>
-            </div>
-            <br />
             <div class="col-sm-12">
                 <div class="panel-group">
                     <div class="panel panel-default">
@@ -130,7 +25,7 @@
                                                    name="middleName"
                                                    class="form-control"
                                                    placeholder="middle Name"
-                                                   ng-model="vm.enquiry.middleName" />
+                                                   ng-model="vm.customer.MiddleName" />
                                         </div>
                                     </div>
                                     <div class="col-sm-6" style="padding-bottom:20px;" ng-required="true">
@@ -139,14 +34,14 @@
                                                    type="text"
                                                    class="form-control"
                                                    placeholder="Last Name"
-                                                   ng-model="vm.enquiry.lastName" />
+                                                   ng-model="vm.customer.LastName" />
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-12">
                                     <div class="col-sm-6" style="padding-bottom:20px;">
                                         <div class="form-group">
-                                            <select ng-model="vm.enquiry.sex">
+                                            <select ng-model="vm.customer.sex">
                                                 <option>Male</option>
                                                 <option>Female</option>
                                             </select>
@@ -154,7 +49,7 @@
                                     </div>
                                     <div class="col-sm-6" style="padding-bottom:20px;" ng-required="true">
                                         <div class="form-group">
-                                            <select ng-model="vm.enquiry.maritalStatus">
+                                            <select ng-model="vm.customer.MaritalStatus">
                                                 <option>Married</option>
                                                 <option>Never Married</option>
                                                 <option>Divorce</option>
@@ -169,7 +64,7 @@
                                                    name="motherName"
                                                    class="form-control"
                                                    placeholder="motherName"
-                                                   ng-model="vm.enquiry.motherName" />
+                                                   ng-model="vm.customer.MotherName" />
                                         </div>
                                     </div>
                                     <div class="col-sm-6" style="padding-bottom:20px;" ng-required="true">
@@ -178,7 +73,7 @@
                                                    type="text"
                                                    class="form-control"
                                                    placeholder="Father Name"
-                                                   ng-model="vm.enquiry.fatherName" />
+                                                   ng-model="vm.customer.FatherName" />
                                         </div>
                                     </div>
                                 </div>
@@ -189,7 +84,7 @@
                                                    name="husbandName"
                                                    class="form-control"
                                                    placeholder="husband Name"
-                                                   ng-model="vm.enquiry.husbandName" />
+                                                   ng-model="vm.customer.HusbandName" />
                                         </div>
                                     </div>
                                     <div class="col-sm-6" style="padding-bottom:20px;" ng-required="true">
@@ -198,7 +93,7 @@
                                                    type="text"
                                                    class="form-control"
                                                    placeholder="other Personal"
-                                                   ng-model="vm.enquiry.otherPersonal" />
+                                                   ng-model="vm.customer.OtherPersonal" />
                                         </div>
                                     </div>
                                 </div>
@@ -224,7 +119,7 @@
                                                    name="homeContact"
                                                    class="form-control"
                                                    placeholder="Home Contact"
-                                                   ng-model="vm.enquiry.homeContact" />
+                                                   ng-model="vm.customer.HomeContact" />
                                         </div>
                                     </div>
                                     <div class="col-sm-6" style="padding-bottom:20px;">
@@ -233,7 +128,7 @@
                                                    type="text"
                                                    class="form-control"
                                                    placeholder="Office Contact"
-                                                   ng-model="vm.enquiry.officeContact" />
+                                                   ng-model="vm.customer.OfficeContact" />
                                         </div>
                                     </div>
                                 </div>
@@ -244,7 +139,7 @@
                                                    name="homeContact"
                                                    class="form-control"
                                                    placeholder="Home Contact"
-                                                   ng-model="vm.enquiry.homeContact" />
+                                                   ng-model="vm.customer.HomeContact" />
                                         </div>
                                     </div>
                                     <div class="col-sm-6" style="padding-bottom:20px;">
@@ -253,7 +148,7 @@
                                                    type="text"
                                                    class="form-control"
                                                    placeholder="Office Contact"
-                                                   ng-model="vm.enquiry.officeContact" />
+                                                   ng-model="vm.customer.OfficeContact" />
                                         </div>
                                     </div>
                                 </div>
@@ -279,7 +174,7 @@
                                                    name="homeAddress"
                                                    class="form-control"
                                                    placeholder="Permanent Home Address"
-                                                   ng-model="vm.enquiry.homeAddress" />
+                                                   ng-model="vm.customer.HomeAddress" />
                                         </div>
                                     </div>
                                     <div class="col-sm-6" style="padding-bottom:20px;">
@@ -288,7 +183,7 @@
                                                    type="text"
                                                    class="form-control"
                                                    placeholder="Permanent Office Address"
-                                                   ng-model="vm.enquiry.officeAddress" />
+                                                   ng-model="vm.customer.OfficeAddress" />
                                         </div>
                                     </div>
                                 </div>
@@ -299,7 +194,7 @@
                                                    name="localhomeAddress"
                                                    class="form-control"
                                                    placeholder="Local Home Contact"
-                                                   ng-model="vm.enquiry.localhomeAddress" />
+                                                   ng-model="vm.customer.LocalhomeAddress" />
                                         </div>
                                     </div>
                                     <div class="col-sm-6" style="padding-bottom:20px;">
@@ -308,8 +203,15 @@
                                                    type="text"
                                                    class="form-control"
                                                    placeholder="Local Office Contact"
-                                                   ng-model="vm.enquiry.localOfficeContact" />
+                                                   ng-model="vm.customer.LocalOfficeContact" />
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="col-sm-6" style="padding-bottom:20px;">
+                                    </div>
+                                    <div class="col-sm-6" style="padding-bottom:20px;">
+                                        <button class="btn btn-primary pull-right" ng-click="vm.updateCustomer()">Update Customer</button>
                                     </div>
                                 </div>
                             </div>
@@ -319,7 +221,7 @@
             </div>
         </form>
     </div>
-    <div class="col-sm-12" ng-repeat="enquiry in vm.enquiryList">
+    <div class="col-sm-12" ng-repeat="enquiry in vm.customerList">
         <div class="col-sm-6">{{enquiry.Name}}</div>
         <div class="col-sm-6">{{enquiry.Comments}}</div>
     </div>

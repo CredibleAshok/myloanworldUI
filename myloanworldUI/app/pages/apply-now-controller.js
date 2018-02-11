@@ -43,21 +43,26 @@
             emptyForm.remove();
             console.log("form removed");
         }
-        vm.saveProducts = function () {
+
+        vm.saveEnquiry = function () {
             $http({
                 method: 'POST',
                 url: (commonService.getUrl() + 'api/saveEnquiry'),
                 data: {
-                    Name: vm.enquiry.name,
+                    Name: vm.enquiry.firstName,
                     ContactNumber: vm.enquiry.moblieNumber,
                     LoanAmt: vm.enquiry.loanAmt,
-                    Comments: vm.enquiry.comments
+                    Comments: vm.enquiry.comments,
+                    customer: {
+                        HomeAddress: vm.enquiry.homeAddress,
+                        OfficeAddress: vm.enquiry.officeAddress
+                    }
                 }
             }).then(function successCallback(response) {
                 vm.enquiryList = response.data.$values;
                 console.log("value saved");
                 // now submit form
-                vm.sendEmail();
+                //vm.sendEmail();
             }, function errorCallback(response) {
                 console.log("database saving failed:- " + response.exceptionMessage);
             });

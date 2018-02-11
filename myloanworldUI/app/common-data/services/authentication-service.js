@@ -10,7 +10,7 @@
             setLogOffUser: function () { return setLogOffUser() },
             createPassword: function (user) { return createPassword(user) },
             forgotPassword: function (user) { return forgotPassword(user) },
-            saveApplication: function (customer) { return saveApplication(customer) }
+            updateCustomer: function (customer) { return updateCustomer(customer) }
         };
         return service;
 
@@ -86,12 +86,15 @@
             });
         }
 
-        function saveApplication(customer) {
+        function updateCustomer(customer) {
             return $http({
                 method: 'POST',
-                url: (commonService.getUrl() + 'api/saveApplication'),
+                url: (commonService.getUrl() + 'api/updateCustomer'),
                 data: {
-                    Name: customer.Name,
+                    FirstName: customer.FirstName,
+                    MiddleName: customer.MiddleName,
+                    LastName: customer.LastName,
+                    CustomerId: customer.CustomerId,
                     HomeAddress: customer.HomeAddress,
                     OfficeAddress: customer.OfficeAddress,
                     HomeContact: customer.HomeContact,
@@ -104,7 +107,7 @@
             }).then(function successCallback(response) {
                 return response.data;
             }, function errorCallback(response) {
-                console.log("create password failed");
+                console.log("update customer failed");
             });
         }
 

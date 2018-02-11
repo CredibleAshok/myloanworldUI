@@ -19,7 +19,6 @@
         }
         vm.getAllApplications(null); // get all applications on page load.
         vm.openChangeApplicationStatusModal = function (application) {
-            //vm.loggedInUser = { "userName": "Manya", "age": 9 };
             var modalScope = $rootScope.$new();
             modalScope.viewMode = "New";
             modalScope.application = application;// pass anything to modal scope from this.
