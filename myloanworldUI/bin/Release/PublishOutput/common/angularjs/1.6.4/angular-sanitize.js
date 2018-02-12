@@ -554,8 +554,8 @@
 
     // define ngSanitize module and register $sanitize service
     angular.module('ngSanitize', [])
-      .provider('$sanitize', $SanitizeProvider)
-      .info({ angularVersion: '1.6.4' });
+        .provider('$sanitize', $SanitizeProvider);
+      //.info({ angularVersion: '1.6.4' }); commented to bypass an error  by ashok.
 
     /**
      * @ngdoc filter

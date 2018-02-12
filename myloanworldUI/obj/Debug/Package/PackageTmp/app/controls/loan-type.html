@@ -1,0 +1,7 @@
+﻿<div class="col-md-12 headerList text-center">
+    <ul class="list-unstyled list-inline">
+        <li ng-repeat="row in applicationType">
+            <a ng-if="row.name != excludeLoanType" ui-sref="{{row.sref}}"><i class="fa fa-{{row.icon}}"></i>{{row.name}}</a>
+        </li>
+    </ul>
+</div>

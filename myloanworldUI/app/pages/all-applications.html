@@ -5,22 +5,28 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-12">
-            <div class="col-sm-3">Application Id</div>
-            <div class="col-sm-3">Application Status</div>
-            <div class="col-sm-3">Application Type</div>
-            <div class="col-sm-3"></div>
-        </div>
-        <div ng-repeat="application in vm.applicationList">
-            <div class="col-sm-12">
-                <div class="col-sm-3">
-                <a ui-sref="applicationHistory({applicationId: application.ApplicationId})"><b>{{application.ApplicationId}}</b></a>
-                <!--<button ng-click="vm.getApplicationHistory(application.ApplicationId)"></button>-->
-                </div>
-                <div class="col-sm-3">{{application.ApplicationStatus}}</div>
-                <div class="col-sm-3">{{application.ApplicationType}}</div>
-                <div class="col-sm-3"><button class="btn btn-default" ng-click="vm.openChangeApplicationStatusModal(application)"><b>Change Application Status</b></button></div>
-            </div>
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-condensed table-hover">
+                <thead>
+                    <tr>
+                        <th class="col-sm-1">Application Id</th>
+                        <th class="col-sm-3">Customer Name</th>
+                        <th class="col-sm-1">Application Status</th>
+                        <th class="col-sm-2">Application Type</th>
+                        <th class="col-sm-3">Application Date</th>
+                        <th class="col-sm-2"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="application in vm.applicationList">
+                        <td class="col-sm-1"><a ui-sref="applicationHistory({applicationId: application.ApplicationId})"><b>{{application.ApplicationId}}</b></a></td>
+                        <td class="col-sm-3">{{application.CustomerName}}</td>
+                        <td class="col-sm-1">{{application.ApplicationStatus}}</td>
+                        <td class="col-sm-2">{{application.ApplicationType}}</td>
+                        <td class="col-sm-3">{{application.CreationDate}}</td>
+                        <td class="col-sm-2"><button class="btn btn-default" ng-click="vm.openChangeApplicationStatusModal(application)"><b>Change Application Status</b></button></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
-</div>

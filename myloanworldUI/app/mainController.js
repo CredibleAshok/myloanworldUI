@@ -1,5 +1,5 @@
 (function () {
-    var myapp = angular.module('myapp', ['ui.router', 'ui.bootstrap']);
+    var myapp = angular.module('myapp', ['ui.router', 'ui.bootstrap', 'ngSanitize', 'ui.select']);
 
     myapp.config(function ($stateProvider, $urlRouterProvider, $rootScopeProvider) {
         $urlRouterProvider.otherwise('/home');
@@ -127,7 +127,7 @@
                 }
             })
             .state('knowYourCustomer', {
-                url: '/kyc/:fname/:contactNumber',
+                url: '/kyc/:fname/:contactNumber/:enquiryId',
                 templateUrl: 'app/pages/KYC-details.html',
                 data: {
                     "managementScreen": true

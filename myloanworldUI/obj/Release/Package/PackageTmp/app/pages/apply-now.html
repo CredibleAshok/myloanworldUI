@@ -1,106 +1,332 @@
 ﻿<div class="row" ng-controller="applyNowController as vm">
-    <div class="col-md-12 text-center">
+    <div class="col-sm-12 text-center">
         <span class="welcomeText">Apply Now</span><br />
     </div>
-    <div class="col-md-12 fillHeader">
+    <div class="col-sm-12 fillHeader">
     </div>
-    <div class="col-md-12">
+    <div class="col-sm-12">
         <div class="fixHeight50"></div>
     </div>
     <div id="emptyForm"></div>
-    <div class="col-md-12">
+    <div class="col-sm-12">
         <form name="enquiryForm">
-                <div class="col-md-12">
-                    <div class="col-md-6" style="padding-bottom:20px;">
-                        <div class="form-group">
-                            <input ng-class="{'alert alert-danger': enquiryForm.customerName.$error.required}"
-                                   type="text"
-                                   name="customerName"
-                                   ng-required="true"
-                                   class="form-control"
-                                   placeholder="Name"
-                                   ng-model="vm.enquiry.name" />
+            <div class="col-sm-12">
+                <div class="panel-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-target="#mandatoryInfo">Mandatory Information</a>
+                            </h4>
                         </div>
-                    </div>
-                    <div class="col-md-6" style="padding-bottom:20px;" ng-required="true">
-                        <div class="form-group">
-                            <input ng-class="{'alert alert-danger': enquiryForm.mobileNumber.$invalid}"
-                                   name="mobileNumber"
-                                   ng-pattern="/^[0-9]{10}$/"
-                                   type="text"
-                                   class="form-control"
-                                   placeholder="Mobile Number"
-                                   ng-required="true"
-                                   ng-model="vm.enquiry.moblieNumber" />
+                        <div id="mandatoryInfo" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div class="col-sm-12">
+                                    <div class="col-sm-6" style="padding-bottom:20px;">
+                                        <div class="form-group">
+                                            <input ng-class="{'alert alert-danger': enquiryForm.customerFirstName.$error.required}"
+                                                   type="text"
+                                                   name="customerFirstName"
+                                                   ng-required="true"
+                                                   class="form-control"
+                                                   placeholder="Name"
+                                                   ng-model="vm.enquiry.firstName" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6" style="padding-bottom:20px;" ng-required="true">
+                                        <div class="form-group">
+                                            <input ng-class="{'alert alert-danger': enquiryForm.mobileNumber.$invalid}"
+                                                   name="mobileNumber"
+                                                   ng-pattern="/^[0-9]{10}$/"
+                                                   type="text"
+                                                   class="form-control"
+                                                   placeholder="Mobile Number"
+                                                   ng-required="true"
+                                                   ng-model="vm.enquiry.moblieNumber" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="col-sm-6" style="padding-bottom:20px;">
+                                        <div class="form-group">
+                                            <input name="email"
+                                                   type="email"
+                                                   ng-class="{'alert alert-danger': enquiryForm.email.$invalid}"
+                                                   class="form-control"
+                                                   placeholder="Email"
+                                                   ng-required="true"
+                                                   ng-model="vm.enquiry.email" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6" style="padding-bottom:20px;">
+                                        <div class="form-group">
+                                            <input type="text"
+                                                   ng-class="{'alert alert-danger': enquiryForm.loanAmt.$invalid}"
+                                                   name="loanAmt"
+                                                   ng-pattern="/^[0-9]{5,7}$/"
+                                                   class="form-control"
+                                                   placeholder="Loan Amount"
+                                                   ng-required="true"
+                                                   ng-model="vm.enquiry.loanAmt" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="col-sm-6" style="padding-bottom:20px;">
+                                        <div class="form-group">
+                                            <input ng-class="{'alert alert-danger': enquiryForm.tennure.$invalid}"
+                                                   name="tennure"
+                                                   ng-pattern="/^[0-9]{1,2}$/"
+                                                   class="form-control"
+                                                   placeholder="For Years"
+                                                   ng-model="vm.enquiry.tennure" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6" style="padding-bottom:20px;">
+                                        <div class="form-group">
+                                            <ui-select ng-model="vm.enquiry.applicationTypeId" theme="bootstrap">
+                                                <ui-select-match placeholder="Select or search a product in the list...">{{$select.selected.name}}</ui-select-match>
+                                                <ui-select-choices repeat="item in vm.loanTypes | filter: $select.search">
+                                                    <div ng-bind-html="item.name | highlight: $select.search"></div>
+                                                </ui-select-choices>
+                                            </ui-select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group" style="padding-bottom:20px; padding-left:15px; padding-right:15px;">
+                                        <input type="text"
+                                               class="form-control"
+                                               name="comments"
+                                               placeholder="Explain your situation"
+                                               ng-model="vm.enquiry.comments" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-footer">To speed up your application process please fill the below information and click Save Application ! Otherwise just click Send Enquiry!</div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-12">
-                    <div class="col-md-6" style="padding-bottom:20px;">
-                        <div class="form-group">
-                            <input name="email"
-                                   type="email"
-                                   ng-class="{'alert alert-danger': enquiryForm.email.$invalid}"
-                                   class="form-control"
-                                   placeholder="Email"
-                                   ng-required="true"
-                                   ng-model="vm.enquiry.email" />
+            </div>
+            <div class="col-sm-12">
+                <div class="col-sm-6" style="padding-bottom:20px;">
+                </div>
+                <div class="col-sm-6" style="padding-bottom:20px;">
+                    <button ng-disabled="enquiryForm.$invalid" class="btn btn-primary pull-right" ng-click="vm.saveProducts()">Send Enquiry</button>
+                </div>
+            </div>
+            <br />
+            <div class="col-sm-12">
+                <div class="panel-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-target="#personalInfo">Personal Information</a>
+                            </h4>
                         </div>
-                    </div>
-                    <div class="col-md-6" style="padding-bottom:20px;">
-                        <div class="form-group">
-                            <input type="text"
-                                   ng-class="{'alert alert-danger': enquiryForm.loanAmt.$invalid}"
-                                   name="loanAmt"
-                                   ng-pattern="/^[0-9]{5,7}$/"
-                                   class="form-control"
-                                   placeholder="Loan Amount"
-                                   ng-required="true"
-                                   ng-model="vm.enquiry.loanAmt" />
+                        <div id="personalInfo" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div class="col-sm-12">
+                                    <div class="col-sm-6" style="padding-bottom:20px;">
+                                        <div class="form-group">
+                                            <input type="text"
+                                                   name="middleName"
+                                                   class="form-control"
+                                                   placeholder="middle Name"
+                                                   ng-model="vm.enquiry.middleName" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6" style="padding-bottom:20px;">
+                                        <div class="form-group">
+                                            <input name="lastName"
+                                                   type="text"
+                                                   class="form-control"
+                                                   placeholder="Last Name"
+                                                   ng-model="vm.enquiry.lastName" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="col-sm-6" style="padding-bottom:20px;">
+                                        <div class="form-group">
+                                            <ui-select ng-model="vm.enquiry.sex" theme="bootstrap">
+                                                <ui-select-match placeholder="Select or search a sex in the list...">{{$select.selected.name}}</ui-select-match>
+                                                <ui-select-choices repeat="item in vm.sexOptions | filter: $select.search">
+                                                    <div ng-bind-html="item.name | highlight: $select.search"></div>
+                                                </ui-select-choices>
+                                            </ui-select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6" style="padding-bottom:20px;" ng-required="true">
+                                        <div class="form-group">
+                                            <ui-select ng-model="vm.enquiry.maritalStatus" theme="bootstrap">
+                                                <ui-select-match placeholder="Select Marital Status...">{{$select.selected.name}}</ui-select-match>
+                                                <ui-select-choices repeat="item in vm.maritalStatusOptions | filter: $select.search">
+                                                    <div ng-bind-html="item.name | highlight: $select.search"></div>
+                                                </ui-select-choices>
+                                            </ui-select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="col-sm-6" style="padding-bottom:20px;">
+                                        <div class="form-group">
+                                            <input type="text"
+                                                   name="motherName"
+                                                   class="form-control"
+                                                   placeholder="motherName"
+                                                   ng-model="vm.enquiry.motherName" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6" style="padding-bottom:20px;" ng-required="true">
+                                        <div class="form-group">
+                                            <input name="fatherName"
+                                                   type="text"
+                                                   class="form-control"
+                                                   placeholder="Father Name"
+                                                   ng-model="vm.enquiry.fatherName" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="col-sm-6" style="padding-bottom:20px;">
+                                        <div class="form-group">
+                                            <input type="text"
+                                                   name="husbandName"
+                                                   class="form-control"
+                                                   placeholder="husband Name"
+                                                   ng-model="vm.enquiry.husbandName" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6" style="padding-bottom:20px;" ng-required="true">
+                                        <div class="form-group">
+                                            <input name="otherPersonal"
+                                                   type="text"
+                                                   class="form-control"
+                                                   placeholder="other Personal"
+                                                   ng-model="vm.enquiry.otherPersonal" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-12">
-                    <div class="col-md-6" style="padding-bottom:20px;">
-                        <div class="form-group">
-                            <input ng-class="{'alert alert-danger': enquiryForm.tennure.$invalid}"
-                                   name="tennure"
-                                   ng-pattern="/^[0-9]{1,2}$/"
-                                   class="form-control"
-                                   placeholder="For Years"
-                                   ng-model="vm.enquiry.tennure" />
+            </div>
+            <div class="col-sm-12">
+                <div class="panel-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-target="#addressContact">Contact Information</a>
+                            </h4>
+                        </div>
+                        <div id="addressContact" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div class="col-sm-12">
+                                    <div class="col-sm-6" style="padding-bottom:20px;">
+                                        <div class="form-group">
+                                            <input type="text"
+                                                   name="homeContact"
+                                                   class="form-control"
+                                                   placeholder="Home Contact"
+                                                   ng-model="vm.enquiry.homeContact" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6" style="padding-bottom:20px;">
+                                        <div class="form-group">
+                                            <input name="officeContact"
+                                                   type="text"
+                                                   class="form-control"
+                                                   placeholder="Office Contact"
+                                                   ng-model="vm.enquiry.officeContact" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="col-sm-6" style="padding-bottom:20px;">
+                                        <div class="form-group">
+                                            <input type="text"
+                                                   name="homeContact"
+                                                   class="form-control"
+                                                   placeholder="Home Contact"
+                                                   ng-model="vm.enquiry.homeContact" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6" style="padding-bottom:20px;">
+                                        <div class="form-group">
+                                            <input name="officeContact"
+                                                   type="text"
+                                                   class="form-control"
+                                                   placeholder="Office Contact"
+                                                   ng-model="vm.enquiry.officeContact" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-6" style="padding-bottom:20px;">
-                        <div class="form-group">
-                            <input type="text"
-                                   name="productType"
-                                   class="form-control"
-                                   ng-model="vm.enquiry.productType" />
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="panel-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-target="#addressInfo">Address Information</a>
+                            </h4>
+                        </div>
+                        <div id="addressInfo" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div class="col-sm-12">
+                                    <div class="col-sm-6" style="padding-bottom:20px;">
+                                        <div class="form-group">
+                                            <input type="text"
+                                                   name="homeAddress"
+                                                   class="form-control"
+                                                   placeholder="Permanent Home Address"
+                                                   ng-model="vm.enquiry.homeAddress" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6" style="padding-bottom:20px;">
+                                        <div class="form-group">
+                                            <input name="officeAddress"
+                                                   type="text"
+                                                   class="form-control"
+                                                   placeholder="Permanent Office Address"
+                                                   ng-model="vm.enquiry.officeAddress" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="col-sm-6" style="padding-bottom:20px;">
+                                        <div class="form-group">
+                                            <input type="text"
+                                                   name="localhomeAddress"
+                                                   class="form-control"
+                                                   placeholder="Local Home Contact"
+                                                   ng-model="vm.enquiry.localhomeAddress" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6" style="padding-bottom:20px;">
+                                        <div class="form-group">
+                                            <input name="localOfficeContact"
+                                                   type="text"
+                                                   class="form-control"
+                                                   placeholder="Local Office Contact"
+                                                   ng-model="vm.enquiry.localOfficeContact" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-12">
-                    <div class="form-group" style="padding-bottom:20px; padding-left:15px; padding-right:15px;">
-                        <textarea type="text"
-                                  class="form-control"
-                                  name="comments"
-                                  placeholder="Explain your situation"
-                                  ng-model="vm.enquiry.comments" />
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="col-md-6" style="padding-bottom:20px;">
-                    </div>
-                    <div class="col-md-6" style="padding-bottom:20px;">
-                        <button ng-disabled="enquiryForm.$invalid" class="btn btn-primary pull-right" ng-click="vm.saveProducts()">Send Enquiry</button>
-                    </div>
-                </div>
-            </form>
+            </div>
+        </form>
     </div>
-    <div class="col-md-12" ng-repeat="enquiry in vm.enquiryList">
-        <div class="col-md-6">{{enquiry.Name}}</div>
-        <div class="col-md-6">{{enquiry.Comments}}</div>
+    <div class="col-sm-12" ng-repeat="enquiry in vm.enquiryList">
+        <div class="col-sm-6">{{enquiry.Name}}</div>
+        <div class="col-sm-6">{{enquiry.Comments}}</div>
     </div>
 </div>
 <div class="row">
