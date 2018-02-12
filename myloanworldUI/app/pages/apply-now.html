@@ -81,7 +81,7 @@
                                     </div>
                                     <div class="col-sm-6" style="padding-bottom:20px;">
                                         <div class="form-group">
-                                            <ui-select ng-model="vm.enquiry.applicationTypeId" theme="bootstrap">
+                                            <ui-select ng-model="vm.enquiry.applicationType" theme="bootstrap">
                                                 <ui-select-match placeholder="Select or search a product in the list...">{{$select.selected.name}}</ui-select-match>
                                                 <ui-select-choices repeat="item in vm.loanTypes | filter: $select.search">
                                                     <div ng-bind-html="item.name | highlight: $select.search"></div>

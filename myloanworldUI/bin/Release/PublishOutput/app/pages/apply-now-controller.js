@@ -1,5 +1,5 @@
 ﻿(function () {
-    angular.module('myapp').controller('applyNowController', function ($scope, $stateParams, $http, commonService, applicationsService) {
+    angular.module('myapp').controller('applyNowController', function ($scope, $stateParams, $http, commonService, applicationsService, enquiryService) {
         var vm = this;
         vm.enquiry = {};
         if (commonService.environment == "local") {
@@ -23,9 +23,9 @@
 
         vm.getCommonData = function () {
             vm.sexOptions = commonService.sexOptions();
-            vm.maritalStatusOptions = commonService.maritalStatusOptions(); 
+            vm.maritalStatusOptions = commonService.maritalStatusOptions();
         }
-        
+
         vm.getCommonData();
         vm.sendEmail = function () {
             var emptyForm = document.getElementById("emptyForm");
@@ -43,22 +43,12 @@
             emptyForm.remove();
             console.log("form removed");
         }
-        vm.saveProducts = function () {
-            $http({
-                method: 'POST',
-                url: (commonService.getUrl() + 'api/saveEnquiry'),
-                data: {
-                    Name: vm.enquiry.name,
-                    ContactNumber: vm.enquiry.moblieNumber,
-                    LoanAmt: vm.enquiry.loanAmt,
-                    Comments: vm.enquiry.comments
-                }
-            }).then(function successCallback(response) {
+
+        vm.saveEnquiry = function () {
+            enquiryService.saveEnquiry(vm.enquiry).then(function (success) {
                 vm.enquiryList = response.data.$values;
-                console.log("value saved");
-                // now submit form
-                vm.sendEmail();
-            }, function errorCallback(response) {
+                //vm.sendEmail();
+            }, function (err) {
                 console.log("database saving failed:- " + response.exceptionMessage);
             });
         }

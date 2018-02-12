@@ -46,22 +46,25 @@
         <table class="table table-striped table-bordered table-condensed table-hover">
             <thead>
                 <tr>
+                    <th class="col-sm-1">Enquiry Id</th>
                     <th class="col-sm-3">Name</th>
                     <th class="col-sm-3">Comments</th>
                     <th class="col-sm-2">Contact Number</th>
-                    <th class="col-sm-2">Loan Amt</th>
+                    <th class="col-sm-1">Loan Amt</th>
                     <th class="col-sm-2"></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="item in vm.enquiryList">
+                    <td class="col-sm-1">{{item.EnquiryId}}</td>
                     <td class="col-sm-3">{{item.Name}}</td>
                     <td class="col-sm-3">{{item.Comments}}</td>
                     <td class="col-sm-2">{{item.ContactNumber}}</td>
-                    <td class="col-sm-2">{{item.LoanAmt}}</td>
+                    <td class="col-sm-1">{{item.LoanAmt}}</td>
                     <td class="col-sm-2">
                         <!--<a ui-sref="applicationHistory({applicationId: item.ApplicationId})" class="btn btn-default"><b>{{application.ApplicationId}}</b></a>-->
-                        <a ui-sref="knowYourCustomer({fname: item.Name,contactNumber: item.ContactNumber})" class="btn btn-default"><b>Start Application</b></a>
+                        <a ng-if="item.EnquiryId != null" ui-sref="knowYourCustomer({fname: item.Name, contactNumber: item.ContactNumber, enquiryId: item.EnquiryId})" class="btn btn-default"><b>KYC Form</b></a>
+                        <a ng-if="item.EnquiryId == null" ui-sref="knowYourCustomer({fname: item.Name, contactNumber: item.ContactNumber, enquiryId: item.EnquiryId})" class="btn btn-default"><b>Start Application</b></a>
                         <!--<button type="button" class="btn btn-default" ng-click="vm.startApplication(item)">Start Application</button>-->
                     </td>
                 </tr>

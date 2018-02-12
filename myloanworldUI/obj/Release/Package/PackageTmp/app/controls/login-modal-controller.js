@@ -1,9 +1,9 @@
 ﻿(function () {
     var controllerId = 'loginModalController';
     angular.module('myapp')
-        .controller(controllerId, ['$scope', '$state', 'authenticationService', loginModalControllerFunction]);
+        .controller(controllerId, ['$rootScope', '$scope', '$state', '$modal', 'authenticationService', loginModalControllerFunction]);
 
-    function loginModalControllerFunction($scope, $state, authenticationService) {
+    function loginModalControllerFunction($rootScope, $scope, $state, $modal, authenticationService) {
         var vm = this;
         vm.user = {};
         vm.user.UserName = "TestCustomer";
@@ -37,6 +37,33 @@
         vm.redirectTo = function (state) {
             $scope.modalInstance.close();
             $state.go(state);
+        }
+        vm.openModal = function (modeName) {
+            vm.loggedInUser = { "userName": "Manya", "age": 9 };
+            var modalScope = $rootScope.$new();
+            modalScope.viewMode = "New";
+            modalScope.modeName = modeName; //pass anything to modal scope from this.
+            var modalOptions = {
+                templateUrl: 'app/pages/create-password.html',
+                scope: modalScope,
+                keyboard: true,
+                windowClass: 'wide-modal',
+                backdrop: 'static',
+                resolve: {
+                    viewMode: function () {
+                        return 'New';
+                    }
+                }
+            };
+            modalScope.modalInstance = $modal.open(modalOptions);
+            modalScope.modalInstance.result.then(function (data) {
+                // Returned from modal, so refresh list.
+                vm.loggedInUser = data; // temporary, change this
+            }, function () {
+                // Cancelled.
+            })['finally'](function () {
+                modalScope.modalInstance = undefined  // <--- This fixes
+            });
         }
     }
 })();

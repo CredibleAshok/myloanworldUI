@@ -127,7 +127,7 @@
                 }
             })
             .state('knowYourCustomer', {
-                url: '/kyc/:fname/:contactNumber',
+                url: '/kyc/:fname/:contactNumber/:enquiryId',
                 templateUrl: 'app/pages/KYC-details.html',
                 data: {
                     "managementScreen": true
