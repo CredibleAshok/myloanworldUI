@@ -5,6 +5,7 @@
 
     function applicationsFunction($rootScope, $modal, applicationsService) {
         var vm = this;
+        vm.loggedInUser.RoleType = 'Admin'; //check for user right.
         vm.title = "All Applications";
         vm.getAllApplications = function (applicationId) {
             applicationsService.getApplicationById(applicationId).then(function (resp) {
