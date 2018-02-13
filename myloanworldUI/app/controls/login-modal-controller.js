@@ -11,7 +11,7 @@
         vm.validateUser = function () {
             authenticationService.validatePassword(vm.user).then(function (resp) {
                 if (resp != undefined && resp.length > 0) {
-                    vm.user = resp[0];
+                    vm.user = authenticationService.getLoggedInUser();
                     vm.getAfterLoginMenus();
                 } else {
                     vm.responseMessage = "User details not correct!";

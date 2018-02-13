@@ -78,6 +78,10 @@
     <Content Include="app\pages\enquiry.html" />
     <Content Include="app\pages\kyc-controller.js" />
     <Content Include="app\pages\KYC-details.html" />
+    <Content Include="app\pages\manage-application-status-controller.js" />
+    <Content Include="app\pages\manage-application-status.html" />
+    <Content Include="app\pages\manage-application-type-controller.js" />
+    <Content Include="app\pages\manage-application-type.html" />
     <Content Include="app\pages\profile-controller.js" />
     <Content Include="app\pages\profile.html" />
     <Content Include="common\angular-ui\ui-select\select.css" />
