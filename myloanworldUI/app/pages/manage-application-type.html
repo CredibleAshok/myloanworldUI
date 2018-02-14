@@ -135,19 +135,23 @@
                         <th class="col-sm-1">LocalHref</th>
                         <th class="col-sm-1">Valid From</th>
                         <th class="col-sm-1">Valid To</th>
-                        <th class="col-sm-4">Product Description</th>
+                        <th class="col-sm-3">Product Description</th>
+                        <th class="col-sm-1"></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr ng-repeat="applicationType in vm.applicationTypeList">
-                        <td class="col-sm-1">{{applicationType.ProductId}}</td>
+                        <td class="col-sm-1">{{applicationType.ApplicationTypeId}}</td>
                         <td class="col-sm-1">{{applicationType.Name}}</td>
                         <td class="col-sm-1">{{applicationType.Href}}</td>
                         <td class="col-sm-1">{{applicationType.Sref}}</td>
                         <td class="col-sm-1">{{applicationType.Localhref}}</td>
                         <td class="col-sm-1">{{applicationType.ValidFrom}}</td>
                         <td class="col-sm-1">{{applicationType.ValidTo}}</td>
-                        <td class="col-sm-4">{{applicationType.DescText}}</td>
+                        <td class="col-sm-3">{{applicationType.DescText}}</td>
+                        <td class="col-sm-1">
+                            <button ng-if="vm.loggedInUser.FeatureName=='Admin'" class="btn btn-primary pull-right" ng-click="vm.editApplicationType(applicationType.ApplicationTypeId)">See All Applications</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
