@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
     angular.module('myapp').controller('manageApplicationTypeController', function (applicationsService, authenticationService) {
         var vm = this;
         vm.loggedInUser = authenticationService.getLoggedInUser();
@@ -6,10 +6,16 @@
             applicationsService.getApplicationTypeList().then(function (resp) {
                 vm.applicationTypeList = resp;
             }, function (error) {
-                console.log("loan type fetching failed");
+                console.log("application type fetching failed");
             });
         }
 
-        vm.getApplicationTypeList();
+        vm.saveApplicationType = function () {
+            applicationsService.saveApplicationType(vm.applicationType).then(function (resp) {
+                vm.applicationTypeList = resp;
+            }, function (error) {
+                console.log("application type saving failed");
+            });
+        }
     })
 })();
