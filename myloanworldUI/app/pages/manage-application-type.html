@@ -110,11 +110,17 @@
                 <div class="col-sm-6" style="padding-bottom:20px;">
                 </div>
                 <div class="col-sm-6" style="padding-bottom:20px;">
-                    <button ng-disabled="applicationTypeFrom.$invalid" class="btn btn-primary pull-right" ng-click="vm.saveProduct()">Save Product</button>
+                    <button ng-disabled="applicationTypeFrom.$invalid" ng-if="vm.loggedInUser.FeatureName=='Admin'" class="btn btn-primary pull-right" ng-click="vm.saveApplicationType()">Save Application Type</button>
                 </div>
             </div>
             <br />
         </form>
+    </div>
+    <div class="row">
+        <div class="col-sm-6"></div>
+        <div class="col-sm-6">
+            <button ng-if="vm.loggedInUser.FeatureName=='Admin'" class="btn btn-primary pull-right" ng-click="vm.getApplicationType()">See All Applications</button>
+        </div>
     </div>
     <div class="row">
         <div class="table-responsive">
