@@ -17,5 +17,13 @@
                 console.log("application type saving failed");
             });
         }
+
+        vm.editApplicationType = function (applicationTypeId) {
+            applicationsService.updateApplicationType(applicationTypeId).then(function (resp) {
+                vm.applicationTypeList = resp;
+            }, function (error) {
+                console.log("Application Status Update failed");
+            });
+        }
     })
 })();
