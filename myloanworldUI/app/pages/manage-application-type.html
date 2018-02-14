@@ -141,16 +141,16 @@
                 </thead>
                 <tbody>
                     <tr ng-repeat="applicationType in vm.applicationTypeList">
-                        <td class="col-sm-1">{{applicationType.ApplicationTypeId}}</td>
-                        <td class="col-sm-1">{{applicationType.Name}}</td>
-                        <td class="col-sm-1">{{applicationType.Href}}</td>
-                        <td class="col-sm-1">{{applicationType.Sref}}</td>
-                        <td class="col-sm-1">{{applicationType.Localhref}}</td>
-                        <td class="col-sm-1">{{applicationType.ValidFrom}}</td>
-                        <td class="col-sm-1">{{applicationType.ValidTo}}</td>
-                        <td class="col-sm-3">{{applicationType.DescText}}</td>
-                        <td class="col-sm-1">
-                            <button ng-if="vm.loggedInUser.FeatureName=='Admin'" class="btn btn-primary pull-right" ng-click="vm.editApplicationType(applicationType.ApplicationTypeId)">See All Applications</button>
+                        <td ng-if="vm.editMode != true" class="col-sm-1">{{applicationType.ApplicationTypeId}}</td>
+                        <td ng-if="vm.editMode != true" class="col-sm-1">{{applicationType.Name}}</td>
+                        <td ng-if="vm.editMode != true" class="col-sm-1">{{applicationType.Href}}</td>
+                        <td ng-if="vm.editMode != true" class="col-sm-1">{{applicationType.Sref}}</td>
+                        <td ng-if="vm.editMode != true" class="col-sm-1">{{applicationType.Localhref}}</td>
+                        <td ng-if="vm.editMode != true" class="col-sm-1">{{applicationType.ValidFrom}}</td>
+                        <td ng-if="vm.editMode != true" class="col-sm-1">{{applicationType.ValidTo}}</td>
+                        <td ng-if="vm.editMode != true" class="col-sm-3">{{applicationType.DescText}}</td>
+                        <td ng-if="vm.editMode != true" class="col-sm-1">
+                            <button ng-if="vm.loggedInUser.FeatureName=='Admin'" class="btn btn-primary pull-right" ng-click="vm.editApplicationType(applicationType)">Edit Applications</button>
                         </td>
                     </tr>
                 </tbody>
