@@ -1,13 +1,12 @@
-(function () {
-    angular.module('myapp').factory('applicationsService', ['$http', 'commonService', function ($http, commonService) {
+﻿(function () {
+    angular.module('myapp').factory('applicationsService', ['$http', 'commonService', 'authenticationService', function ($http, commonService, authenticationService) {
         var loanTypes = {};
         var service = {
             getApplicationById: function (applicationId) { return getApplicationById(applicationId) },
             getApplicationType: function () { return getApplicationType() },
+            getLoanTypes: function () { return loanTypes },
             getApplicationHistory: function (applicationId) { return getApplicationHistory(applicationId) },
             getApplicationStatus: function () { return getApplicationStatus() },
-            getApplicationStatusList: function () { return getApplicationStatus() }, // returning existing method
-            getApplicationTypeList: function () { return getApplicationType() }, // returning existing method
 
             changeApplicationStatus: function (application) { return changeApplicationStatus(application) },
             saveApplicationStatus: function (applicationStatus) { return saveApplicationStatus(applicationStatus) },
@@ -86,7 +85,7 @@
                 url: (commonService.getUrl() + 'api/saveApplicationStatus'),
                 data: {
                     Name: applicationStatus.Name,
-                    UpdatedBy: applicationStatus.UpdatedBy
+                    UpdatedBy: authenticationService.getLoggedInUser().UserName
                 }
             }).then(function successCallback(response) {
                 return response.data.$values;
@@ -100,13 +99,13 @@
                 method: 'POST',
                 url: (commonService.getUrl() + 'api/saveApplicationType'),
                 data: {
-                    Name: applicationType.Name,
-                    DescText:applicationType.DescText,
-                    Href:applicationType.Href,
-                    Icon:applicationType.Icon,
-                    Sref:applicationType.Sref,
-                    Localhref:applicationType.Localhref,
-                    UpdatedBy: applicationType.UpdatedBy
+                    Name: applicationType.name,
+                    DescText:applicationType.descText,
+                    Href:applicationType.href,
+                    Icon:applicationType.icon,
+                    Sref:applicationType.sref,
+                    Localhref:applicationType.localhref,
+                    UpdatedBy: authenticationService.getLoggedInUser().UserName
                 }
             }).then(function successCallback(response) {
                 return response.data.$values;
@@ -118,16 +117,16 @@
         function updateApplicationType(applicationType) {
             return $http({
                 method: 'POST',
-                url: (commonService.getUrl() + 'api/saveApplicationType'),
+                url: (commonService.getUrl() + 'api/updateApplicationType'),
                 data: {
-                    Name: applicationType.Name,
-                    DescText:applicationType.DescText,
-                    Href:applicationType.Href,
-                    Icon:applicationType.Icon,
-                    Sref:applicationType.Sref,
-                    Localhref:applicationType.Localhref,
-                    UpdatedBy: applicationType.UpdatedBy,
-                    ApplicationTypeId:applicationType.ApplicationTypeId
+                    Name: applicationType.name,
+                    DescText:applicationType.descText,
+                    Href:applicationType.href,
+                    Icon:applicationType.icon,
+                    Sref:applicationType.sref,
+                    Localhref:applicationType.localhref,
+                    UpdatedBy: authenticationService.getLoggedInUser().UserName,
+                    ApplicationTypeId:applicationType.applicationTypeId
                 }
             }).then(function successCallback(response) {
                 return response.data.$values;
@@ -141,9 +140,9 @@
                 method: 'POST',
                 url: (commonService.getUrl() + 'api/updateApplicationStatus'),
                 data: {
-                    Name: applicationType.Name,
-                    UpdatedBy: applicationType.UpdatedBy,
-                    ApplicationStatusId: applicationType.ApplicationStatusId
+                    Name: applicationStatus.Name,
+                    UpdatedBy: applicationStatus.UpdatedBy,
+                    ApplicationStatusId: applicationStatus.ApplicationStatusId
                 }
             }).then(function successCallback(response) {
                 return response.data.$values;

@@ -1,10 +1,11 @@
 ﻿(function () {
     var controllerId = 'applicationsController';
     angular.module('myapp')
-        .controller(controllerId, ['$rootScope', '$modal', 'applicationsService', applicationsFunction]);
+        .controller(controllerId, ['$rootScope', '$modal', 'applicationsService', 'authenticationService', applicationsFunction]);
 
-    function applicationsFunction($rootScope, $modal, applicationsService) {
+    function applicationsFunction($rootScope, $modal, applicationsService, authenticationService) {
         var vm = this;
+        vm.loggedInUser = authenticationService.getLoggedInUser();
         vm.title = "All Applications";
         vm.getAllApplications = function (applicationId) {
             applicationsService.getApplicationById(applicationId).then(function (resp) {

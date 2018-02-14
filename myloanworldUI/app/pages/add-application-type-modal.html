@@ -1,0 +1,107 @@
+﻿<div ng-controller="addEditApplicationTypeModalController as vm" novalidate>
+    <form id="addApplicationTypeDiv" name="applicationTypeFrom">
+        <div class="col-sm-12">
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel">
+                        <div class="panel-body">
+                            <div class="col-sm-12">
+                                <div class="col-sm-6" style="padding-bottom:20px;">
+                                    <div class="form-group">
+                                        <input ng-class="{'alert alert-danger': applicationTypeFrom.applicationTypeName.$error.required}"
+                                               type="text"
+                                               name="applicationTypeName"
+                                               ng-required="true"
+                                               class="form-control"
+                                               placeholder="Application Type Name"
+                                               ng-model="vm.applicationType.name" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6" style="padding-bottom:20px;">
+                                    <div class="form-group">
+                                        <input name="Href"
+                                               type="text"
+                                               class="form-control"
+                                               placeholder="Href"
+                                               ng-model="vm.applicationType.href" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="col-sm-6" style="padding-bottom:20px;">
+                                    <div class="form-group">
+                                        <input type="text"
+                                               name="sref"
+                                               class="form-control"
+                                               placeholder="Sref"
+                                               ng-model="vm.applicationType.sref" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6" style="padding-bottom:20px;">
+                                    <div class="form-group">
+                                        <input name="icon"
+                                               type="text"
+                                               class="form-control"
+                                               placeholder="Icon"
+                                               ng-model="vm.applicationType.icon" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="col-sm-6" style="padding-bottom:20px;">
+                                    <div class="form-group">
+                                        <input type="text"
+                                               name="localHref"
+                                               class="form-control"
+                                               placeholder="LocalHref"
+                                               ng-model="vm.applicationType.localHref" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6" style="padding-bottom:20px;">
+                                    <div class="form-group">
+                                        <input name="validFrom"
+                                               type="text"
+                                               class="form-control"
+                                               placeholder="Valid From"
+                                               ng-model="vm.applicationType.validFrom" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="col-sm-6" style="padding-bottom:20px;">
+                                    <div class="form-group">
+                                        <input type="text"
+                                               name="validTo"
+                                               class="form-control"
+                                               placeholder="Valid To"
+                                               ng-model="vm.applicationType.validTo" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6" style="padding-bottom:20px;">
+                                    <div class="form-group">
+                                        <input name="descText"
+                                               type="text"
+                                               class="form-control"
+                                               placeholder="Product Description"
+                                               ng-model="vm.applicationType.descText" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <button ng-disabled="applicationStatusFrom.$invalid" class="btn btn-primary pull-right" ng-click="vm.performAction()">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="col-sm-6" style="padding-bottom:20px;">
+            </div>
+            <div class="col-sm-6" style="padding-bottom:20px;">
+                <button ng-disabled="applicationTypeFrom.$invalid" ng-if="vm.loggedInUser.FeatureName=='Admin'" class="btn btn-primary pull-right" ng-click="vm.saveApplicationType()">Save Application Type</button>
+            </div>
+        </div>
+        <br />
+    </form>
+</div>

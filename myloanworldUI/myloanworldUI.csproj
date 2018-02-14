@@ -66,6 +66,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\common-data\services\enquiry-service.js" />
+    <Content Include="app\pages\add-application-status-modal-controller.js" />
+    <Content Include="app\pages\add-application-status-modal.html" />
+    <Content Include="app\pages\add-application-type-modal-controller.js" />
+    <Content Include="app\pages\add-application-type-modal.html" />
     <Content Include="app\pages\all-applications-controller.js" />
     <Content Include="app\pages\all-applications.html" />
     <Content Include="app\pages\application-history-controller.js" />

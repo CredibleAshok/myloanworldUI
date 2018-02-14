@@ -6,99 +6,54 @@
         <div class="fixHeight50"></div>
     </div>
     <div id="emptyForm"></div>
-    <div class="row">
-        <div class="col-sm-6"></div>
-        <div class="col-sm-6">
-            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#addApplicationStatusDiv">Hide Save Application</button>
-        </div>
-    </div>
-    <div id="addApplicationStatusDiv" class="row collapse in">
-        <form name="applicationStatusFrom">
-            <div class="col-sm-12">
-                <div class="panel-group">
-                    <div class="panel panel-default">
-                        <div class="panel">
-                            <div class="panel-body">
-                                <div class="col-sm-12">
-                                    <div class="col-sm-6" style="padding-bottom:20px;">
-                                        <div class="form-group">
-                                            <input ng-class="{'alert alert-danger': applicationStatusFrom.applicationStatusName.$error.required}"
-                                                   type="text"
-                                                   name="applicationStatusName"
-                                                   ng-required="true"
-                                                   class="form-control"
-                                                   placeholder="Application Status Name"
-                                                   ng-model="vm.applicationStatus.Name" />
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6" style="padding-bottom:20px;">
-                                        <div class="form-group">
-                                            <input name="validFrom"
-                                                   type="text"
-                                                   class="form-control"
-                                                   placeholder="Valid From"
-                                                   ng-model="vm.applicationStatus.validFrom" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-12">
-                                    <div class="col-sm-6" style="padding-bottom:20px;">
-                                        <div class="form-group">
-                                            <input type="text"
-                                                   name="validTo"
-                                                   class="form-control"
-                                                   placeholder="Valid To"
-                                                   ng-model="vm.applicationStatus.validTo" />
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6" style="padding-bottom:20px;">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-12">
-                <div class="col-sm-6" style="padding-bottom:20px;">
-                </div>
-                <div class="col-sm-6" style="padding-bottom:20px;">
-                    <button ng-disabled="applicationStatusFrom.$invalid" class="btn btn-primary pull-right" ng-if="vm.loggedInUser.FeatureName=='Admin'" ng-click="vm.saveApplicationStatus()">Save Application Status</button>
-                </div>
-            </div>
-            <br />
-        </form>
-    </div>
+    
     <div class="row">
         <div class="col-sm-12">
             <div class="col-sm-6"></div>
             <div class="col-sm-6">
-                <button type="button" class="btn btn-info" ng-if="vm.loggedInUser.FeatureName=='Admin'" ng-click="vm.getApplicationStatusList()">See All Status</button>
+                <button type="button" class="btn btn-info pull-right" ng-if="vm.loggedInUser.FeatureName=='Admin'" ng-click="vm.getApplicationStatus()">See All Status</button>
             </div>
         </div>
-        <div class="table-responsive">
-            <table class="table table-striped table-bordered table-condensed table-hover">
-                <thead>
-                    <tr>
-                        <th class="col-sm-2">Status Id</th>
-                        <th class="col-sm-2">Status Name</th>
-                        <th class="col-sm-2">Valid From</th>
-                        <th class="col-sm-2">Valid To</th>
-                        <th class="col-sm-2"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="status in vm.applicationStatusList">
-                        <td class="col-sm-2">{{status.ApplicationStatusId}}</td>
-                        <td class="col-sm-2">{{status.Name}}</td>
-                        <td class="col-sm-2">{{status.ValidFrom}}</td>
-                        <td class="col-sm-2">{{status.ValidTo}}</td>
-                        <td class="col-sm-2"><button type="button" class="btn btn-info" ng-if="vm.loggedInUser.FeatureName=='Admin'" ng-click="vm.EditApplicationStatus(status.ApplicationStatusId)">See All Status</button></td>
-                    </tr>
-                </tbody>
-            </table>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered table-condensed table-hover">
+                    <thead>
+                        <tr>
+                            <th class="col-sm-2">Status Id</th>
+                            <th class="col-sm-2">Status Name</th>
+                            <th class="col-sm-2">Valid From</th>
+                            <th class="col-sm-2">Valid To</th>
+                            <th class="col-sm-2"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="status in vm.applicationStatusList">
+                            <td  class="col-sm-2">{{status.ApplicationStatusId}}</td>
+                            <td  class="col-sm-2">{{status.Name}}</td>
+                            <td  class="col-sm-2">{{status.ValidFrom}}</td>
+                            <td  class="col-sm-2">{{status.ValidTo}}</td>
+                            <td  class="col-sm-2">
+                            <button type="button" class="btn btn-info" ng-if="vm.loggedInUser.FeatureName=='Admin'" ng-click="vm.openApplicationStatusModal(status,'Edit')">Edit</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-sm-2"></td>
+                            <td class="col-sm-2"></td>
+                            <td class="col-sm-2"></td>
+                            <td class="col-sm-2"></td>
+                            <td class="col-sm-2">
+                                <button type="button" class="btn btn-info" ng-if="vm.loggedInUser.FeatureName=='Admin'" ng-click="vm.openApplicationStatusModal(status,'New')">Add New</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
+    
 </div>
 <div class="row">
     <div ng-include="'app/controls/footer.html'"></div>

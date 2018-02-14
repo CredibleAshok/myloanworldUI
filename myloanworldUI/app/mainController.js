@@ -133,14 +133,14 @@
                     "managementScreen": true
                 }
             })
-                .state('manageApplicationType', {
+            .state('maintainProducts', {
             url: '/manage-Application-type',
             templateUrl: 'app/pages/manage-application-type.html',
             data: {
                 "managementScreen": true
             }
         })
-        .state('manageApplicationStatus', {
+            .state('maintainApplicationStatus', {
             url: '/manage-Application-status',
             templateUrl: 'app/pages/manage-application-status.html',
             data: {

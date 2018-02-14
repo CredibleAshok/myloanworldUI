@@ -1,7 +1,8 @@
 ﻿(function () {
     var myapp = angular.module('myapp');
-    myapp.controller('enquiryController', function ($scope, enquiryService) {
+    myapp.controller('enquiryController', function ($scope, enquiryService, authenticationService) {
         var vm = this;
+        vm.loggedInUser = authenticationService.getLoggedInUser(); //check for user right.
         vm.title = "Search Enquiries";
         vm.searchFilter = {};
         vm.searchFilter.Name = "test";

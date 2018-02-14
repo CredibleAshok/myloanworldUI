@@ -4,6 +4,7 @@
         var isUserLoggedIn = false;
         var service = {
             isUserLoggedIn: function () { return isUserLoggedIn },
+            getLoggedInUser: function () { return loggedInUser },
             getProfile: function () { return getProfile() },
             validatePassword: function (user) { return validatePassword(user) },
             getAfterLoginMenus: function () { return getAfterLoginMenus() },
@@ -43,12 +44,11 @@
                     AccessKeyCode: user.AccessKeyCode
                 }
             }).then(function successCallback(response) {
-                loggedInUser = {};
-                loggedInUser.profile = response.data.$values[0];
+                loggedInUser = response.data.$values[0];
                 isUserLoggedIn = true;
                 return response.data.$values;
             }, function errorCallback(response) {
-                console.log("failed");
+                console.log("user authentication failed");
             });
         }
 

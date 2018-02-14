@@ -10,10 +10,8 @@
                 <div class="col-md-12">
                     <div class="col-md-6" style="padding-bottom:20px;">
                         <div class="form-group">
-                            <input ng-class="{'alert alert-danger': enquiryListForm.customerName.$error.required}"
-                                   type="text"
+                            <input type="text"
                                    name="customerName"
-                                   ng-required="true"
                                    class="form-control"
                                    placeholder="Name"
                                    ng-model="vm.searchFilter.Name" />
@@ -21,21 +19,39 @@
                     </div>
                     <div class="col-md-6" style="padding-bottom:20px;" ng-required="true">
                         <div class="form-group">
-                            <input ng-class="{'alert alert-danger': enquiryListForm.mobileNumber.$invalid}"
-                                   name="mobileNumber"
+                            <input name="mobileNumber"
                                    ng-pattern="/^[0-9]{10}$/"
                                    type="text"
                                    class="form-control"
                                    placeholder="Mobile Number"
-                                   ng-required="true"
                                    ng-model="vm.searchFilter.ContactNumber" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-6" style="padding-bottom:20px;">
+                        <div class="form-group">
+                            <input type="text"
+                                   name="loanAmt"
+                                   class="form-control"
+                                   placeholder="Date From"
+                                   ng-model="vm.searchFilter.fromDate" />
+                        </div>
+                    </div>
+                    <div class="col-md-6" style="padding-bottom:20px;">
+                        <div class="form-group">
+                            <input name="mobileNumber"
+                                   type="text"
+                                   class="form-control"
+                                   placeholder="To Date"
+                                   ng-model="vm.searchFilter.todate" />
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-12">
                     <div class="col-sm-6"></div>
                     <div class="col-sm-6" style="text-align:right;">
-                        <button ng-click="vm.getEnquiryList()">Search Enquiry</button>
+                        <button ng-if="vm.loggedInUser.FeatureName=='Admin'" ng-click="vm.getEnquiryList()">Search Enquiry</button>
                     </div>
                 </div>
             </div>
@@ -62,10 +78,7 @@
                     <td class="col-sm-2">{{item.ContactNumber}}</td>
                     <td class="col-sm-1">{{item.LoanAmt}}</td>
                     <td class="col-sm-2">
-                        <!--<a ui-sref="applicationHistory({applicationId: item.ApplicationId})" class="btn btn-default"><b>{{application.ApplicationId}}</b></a>-->
                         <a ng-if="item.EnquiryId != null" ui-sref="knowYourCustomer({fname: item.Name, contactNumber: item.ContactNumber, enquiryId: item.EnquiryId})" class="btn btn-default"><b>KYC Form</b></a>
-                        <a ng-if="item.EnquiryId == null" ui-sref="knowYourCustomer({fname: item.Name, contactNumber: item.ContactNumber, enquiryId: item.EnquiryId})" class="btn btn-default"><b>Start Application</b></a>
-                        <!--<button type="button" class="btn btn-default" ng-click="vm.startApplication(item)">Start Application</button>-->
                     </td>
                 </tr>
             </tbody>
