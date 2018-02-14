@@ -52,7 +52,6 @@
                                         </div>
                                     </div>
                                     <div class="col-sm-6" style="padding-bottom:20px;">
-
                                     </div>
                                 </div>
                             </div>
@@ -85,15 +84,16 @@
                         <th class="col-sm-2">Status Name</th>
                         <th class="col-sm-2">Valid From</th>
                         <th class="col-sm-2">Valid To</th>
+                        <th class="col-sm-2"></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr ng-repeat="status in vm.applicationStatusList">
-                        <td class="col-sm-1">{{status.ApplicationStatusId}}</td>
-                        <td class="col-sm-1">{{status.Name}}</td>
-                        <td class="col-sm-1">{{status.ValidFrom}}</td>
-                        <td class="col-sm-1">{{status.ValidTo}}</td>
-
+                        <td class="col-sm-2">{{status.ApplicationStatusId}}</td>
+                        <td class="col-sm-2">{{status.Name}}</td>
+                        <td class="col-sm-2">{{status.ValidFrom}}</td>
+                        <td class="col-sm-2">{{status.ValidTo}}</td>
+                        <td class="col-sm-2"><button type="button" class="btn btn-info" ng-if="vm.loggedInUser.FeatureName=='Admin'" ng-click="vm.EditApplicationStatus(status.ApplicationStatusId)">See All Status</button></td>
                     </tr>
                 </tbody>
             </table>
