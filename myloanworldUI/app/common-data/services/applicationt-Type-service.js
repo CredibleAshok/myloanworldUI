@@ -11,6 +11,7 @@
 
             changeApplicationStatus: function (application) { return changeApplicationStatus(application) },
             saveApplicationStatus: function (applicationStatus) { return saveApplicationStatus(applicationStatus) },
+            updateApplicationStatus: function (applicationStatus) { return updateApplicationStatus(applicationStatus) },
             saveApplicationType: function (applicationType) { return saveApplicationType(applicationType) },
             updateApplicationType: function (applicationType) { return updateApplicationType(applicationType) },
         };
@@ -127,6 +128,22 @@
                     Localhref:applicationType.Localhref,
                     UpdatedBy: applicationType.UpdatedBy,
                     ApplicationTypeId:applicationType.ApplicationTypeId
+                }
+            }).then(function successCallback(response) {
+                return response.data.$values;
+            }, function errorCallback(response) {
+                console.log("failed");
+            });
+        }
+
+        function updateApplicationStatus(applicationStatus) {
+            return $http({
+                method: 'POST',
+                url: (commonService.getUrl() + 'api/updateApplicationStatus'),
+                data: {
+                    Name: applicationType.Name,
+                    UpdatedBy: applicationType.UpdatedBy,
+                    ApplicationStatusId: applicationType.ApplicationStatusId
                 }
             }).then(function successCallback(response) {
                 return response.data.$values;
