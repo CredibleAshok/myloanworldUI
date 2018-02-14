@@ -17,5 +17,13 @@
                 console.log("Application Status saving failed");
             });
         }
+
+        vm.EditApplicationStatus = function (applicationStatusId){
+            applicationsService.updateApplicationStatus(applicationStatusId).then(function (resp) {
+                vm.applicationStatusList = resp;
+            }, function (error) {
+                console.log("Application Status Update failed");
+            });
+        }
     })
 })();
