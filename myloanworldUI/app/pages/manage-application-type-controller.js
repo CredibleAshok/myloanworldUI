@@ -18,7 +18,8 @@
             });
         }
 
-        vm.editApplicationType = function (applicationTypeId) {
+        vm.editApplicationType = function (applicationType) {
+
             applicationsService.updateApplicationType(applicationTypeId).then(function (resp) {
                 vm.applicationTypeList = resp;
             }, function (error) {
