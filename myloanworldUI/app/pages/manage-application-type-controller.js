@@ -1,6 +1,7 @@
 ﻿(function () {
-    angular.module('myapp').controller('manageApplicationTypeController', function (applicationsService) {
+    angular.module('myapp').controller('manageApplicationTypeController', function (applicationsService, authenticationService) {
         var vm = this;
+        vm.loggedInUser = authenticationService.getLoggedInUser();
         vm.getApplicationTypeList = function () {
             applicationsService.getApplicationTypeList().then(function (resp) {
                 vm.applicationTypeList = resp;
