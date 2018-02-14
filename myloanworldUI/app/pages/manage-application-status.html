@@ -64,7 +64,7 @@
                 <div class="col-sm-6" style="padding-bottom:20px;">
                 </div>
                 <div class="col-sm-6" style="padding-bottom:20px;">
-                    <button ng-disabled="applicationStatusFrom.$invalid" class="btn btn-primary pull-right" ng-click="vm.saveApplicationStatus()">Save Application Status</button>
+                    <button ng-disabled="applicationStatusFrom.$invalid" class="btn btn-primary pull-right" ng-if="vm.loggedInUser.FeatureName=='Admin'" ng-click="vm.saveApplicationStatus()">Save Application Status</button>
                 </div>
             </div>
             <br />
@@ -74,7 +74,7 @@
         <div class="col-sm-12">
             <div class="col-sm-6"></div>
             <div class="col-sm-6">
-                <button type="button" class="btn btn-info" ng-click="vm.getApplicationStatusList()">See All Status</button>
+                <button type="button" class="btn btn-info" ng-if="vm.loggedInUser.FeatureName=='Admin'" ng-click="vm.getApplicationStatusList()">See All Status</button>
             </div>
         </div>
         <div class="table-responsive">
