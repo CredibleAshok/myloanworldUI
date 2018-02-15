@@ -1,24 +1,27 @@
-﻿(function () {
-    var controllerId = 'applicationsController';
+(function () {
+    var controllerId = 'allApplicationsController';
     angular.module('myapp')
-        .controller(controllerId, ['$rootScope', '$modal', 'applicationsService', 'authenticationService', applicationsFunction]);
+        .controller(controllerId, ['$rootScope', '$modal', 'applicationsService', 'authenticationService', allApplicationsControllerFunction]);
 
-    function applicationsFunction($rootScope, $modal, applicationsService, authenticationService) {
+    function allApplicationsControllerFunction($rootScope, $modal, applicationsService, authenticationService) {
         var vm = this;
         vm.loggedInUser = authenticationService.getLoggedInUser();
         vm.title = "All Applications";
-        vm.getAllApplications = function (applicationId) {
-            applicationsService.getApplicationById(applicationId).then(function (resp) {
-                if (applicationId != null) {
-                    vm.application = resp;
-                } else {
-                    vm.applicationList = resp;
-                }
+        vm.searchFilter = {};
+
+        if (vm.loggedInUser.FeatureName == 'Customer') {
+            vm.searchFilter.EnquiryId = vm.loggedInUser.EnquiryId;
+            vm.getApplicationList(vm.searchFilter);
+        }
+
+        vm.getApplicationList = function (searchFilter) {
+            applicationsService.getApplicationList(vm.searchFilter).then(function (resp) {
+                vm.applicationList = resp;
             }, function (err) {
                 console.log("error is:- " + err.message);
             });
         }
-        vm.getAllApplications(null); // get all applications on page load.
+
         vm.openChangeApplicationStatusModal = function (application) {
             var modalScope = $rootScope.$new();
             modalScope.viewMode = "New";
@@ -50,7 +53,7 @@
             // issue a call to service
             applicationsService.changeApplicationStatus(data).then(
                 function (success) {
-                    vm.getAllApplications(null);
+                    vm.getApplicationList(vm.searchFilter);
                 }, function (error) {
                     console.log("error changing application status");
                 }
