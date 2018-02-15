@@ -4,59 +4,59 @@
             <span class="welcomeText">{{vm.title}}</span><br />
         </div>
     </div>
-    <div class="row">
-        <form name="enquiryListForm">
-            <div class="col-xs-12">
-                <div class="col-md-12">
-                    <div class="col-md-6" style="padding-bottom:20px;">
-                        <div class="form-group">
-                            <input type="text"
-                                   name="customerName"
-                                   class="form-control"
-                                   placeholder="Name"
-                                   ng-model="vm.searchFilter.Name" />
-                        </div>
-                    </div>
-                    <div class="col-md-6" style="padding-bottom:20px;" ng-required="true">
-                        <div class="form-group">
-                            <input name="mobileNumber"
-                                   ng-pattern="/^[0-9]{10}$/"
-                                   type="text"
-                                   class="form-control"
-                                   placeholder="Mobile Number"
-                                   ng-model="vm.searchFilter.ContactNumber" />
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="col-md-6" style="padding-bottom:20px;">
-                        <div class="form-group">
-                            <input type="text"
-                                   name="loanAmt"
-                                   class="form-control"
-                                   placeholder="Date From"
-                                   ng-model="vm.searchFilter.fromDate" />
-                        </div>
-                    </div>
-                    <div class="col-md-6" style="padding-bottom:20px;">
-                        <div class="form-group">
-                            <input name="mobileNumber"
-                                   type="text"
-                                   class="form-control"
-                                   placeholder="To Date"
-                                   ng-model="vm.searchFilter.todate" />
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12">
-                    <div class="col-sm-6"></div>
-                    <div class="col-sm-6" style="text-align:right;">
-                        <button ng-if="vm.loggedInUser.FeatureName=='Admin'" ng-click="vm.getEnquiryList()">Search Enquiry</button>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </div>
+     <div class="row" ng-if="vm.loggedInUser.FeatureName=='Admin'">
+         <form name="enquiryListForm">
+             <div class="col-xs-12">
+                 <div class="col-md-12">
+                     <div class="col-md-6" style="padding-bottom:20px;">
+                         <div class="form-group">
+                             <input type="text"
+                                    name="customerName"
+                                    class="form-control"
+                                    placeholder="Name"
+                                    ng-model="vm.searchFilter.Name" />
+                         </div>
+                     </div>
+                     <div class="col-md-6" style="padding-bottom:20px;" ng-required="true">
+                         <div class="form-group">
+                             <input name="mobileNumber"
+                                    ng-pattern="/^[0-9]{10}$/"
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="Mobile Number"
+                                    ng-model="vm.searchFilter.ContactNumber" />
+                         </div>
+                     </div>
+                 </div>
+                 <div class="col-md-12">
+                     <div class="col-md-6" style="padding-bottom:20px;">
+                         <div class="form-group">
+                             <input type="text"
+                                    name="loanAmt"
+                                    class="form-control"
+                                    placeholder="Date From"
+                                    ng-model="vm.searchFilter.fromDate" />
+                         </div>
+                     </div>
+                     <div class="col-md-6" style="padding-bottom:20px;">
+                         <div class="form-group">
+                             <input name="mobileNumber"
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="To Date"
+                                    ng-model="vm.searchFilter.todate" />
+                         </div>
+                     </div>
+                 </div>
+                 <div class="col-sm-12">
+                     <div class="col-sm-6"></div>
+                     <div class="col-sm-6" style="text-align:right;">
+                         <button class="btn btn-default" ng-click="vm.getEnquiryList()">Search Enquiry</button>
+                     </div>
+                 </div>
+             </div>
+         </form>
+     </div>
     <br />
     <div class="col-md-12 table-responsive">
         <table class="table table-striped table-bordered table-condensed table-hover">
