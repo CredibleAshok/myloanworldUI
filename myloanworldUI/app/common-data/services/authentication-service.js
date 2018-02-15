@@ -8,6 +8,8 @@
             getProfile: function () { return getProfile() },
             validatePassword: function (user) { return validatePassword(user) },
             getAfterLoginMenus: function () { return getAfterLoginMenus() },
+            getContactDetails: function () { return getAfterLoginMenus() },
+
             setLogOffUser: function () { return setLogOffUser() },
             createPassword: function (user) { return createPassword(user) },
             forgotPassword: function (user) { return forgotPassword(user) },
@@ -22,7 +24,17 @@
                 return loggedInUser.profile;
             }
         }
-
+        
+        function getContactDetails() {
+            return $http({
+                method: 'GET',
+                url: (commonService.getUrl() + 'api/getContactDetails')
+            }).then(function successCallback(response) {
+                return response.data.$values;
+            }, function errorCallback(response) {
+                console.log("failed");
+            });
+        }
         function getAfterLoginMenus() {
             return $http({
                 method: 'GET',
