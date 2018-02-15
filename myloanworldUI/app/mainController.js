@@ -134,21 +134,29 @@
                 }
             })
             .state('maintainProducts', {
-            url: '/manage-Application-type',
-            templateUrl: 'app/pages/manage-application-type.html',
-            data: {
-                "managementScreen": true
-            }
-        })
+                url: '/manage-Application-type',
+                templateUrl: 'app/pages/manage-application-type.html',
+                data: {
+                    "managementScreen": true
+                }
+            })
             .state('maintainApplicationStatus', {
-            url: '/manage-Application-status',
-            templateUrl: 'app/pages/manage-application-status.html',
+                url: '/manage-Application-status',
+                templateUrl: 'app/pages/manage-application-status.html',
+                data: {
+                    "managementScreen": true
+                }
+            })
+        .state('contactDetails', {
+            url: '/manage-contact-details',
+            templateUrl: 'app/controls/manage-control-details.html',
             data: {
                 "managementScreen": true
             }
         })
         //
-        
+        //
+
         $urlRouterProvider.when('', 'home');
         $urlRouterProvider.when('#!/', '/home');
     });
@@ -159,14 +167,14 @@
             "saath main bula ke nache.aisa koi field nahi jaha hum na ho.Chaye wo hawai jahaz udana ho ya phir engineering ya phir sports." +
             "ladkiyo hum maarte nahi, log badnaam karte hai.";
         var checkUrl = $scope.$on('$locationChangeStart', function () {
-            if ($state.$current.self.name =='logOff') {
+            if ($state.$current.self.name == 'logOff') {
                 authenticationService.setLogOffUser();
                 $rootScope.$broadcast('noManagementMenus');
                 $state.go('home');
             }
             if ($state.$current.data != undefined && $state.$current.data.managementScreen) {
                 if (!authenticationService.isUserLoggedIn()) { //if user is not logged in
-                    $state.go('unauthorisedAccess');    
+                    $state.go('unauthorisedAccess');
                 }
             }
         });
