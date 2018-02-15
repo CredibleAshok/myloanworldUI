@@ -452,3 +452,12 @@ span.psw {
         text-align: right;
     }
 }
+.table thead{
+    background-color:#ab735f;
+    color:white;
+}
+
+.table tr:hover{
+    background-color:#d28a46fc!important;
+    color:white;
+}
