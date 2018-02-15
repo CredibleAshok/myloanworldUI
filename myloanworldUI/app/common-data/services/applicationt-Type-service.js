@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
     angular.module('myapp').factory('applicationsService', ['$http', 'commonService', 'authenticationService', function ($http, commonService, authenticationService) {
         var loanTypes = {};
         var service = {
@@ -7,6 +7,7 @@
             getLoanTypes: function () { return loanTypes },
             getApplicationHistory: function (applicationId) { return getApplicationHistory(applicationId) },
             getApplicationStatus: function () { return getApplicationStatus() },
+            getApplicationList: function (searchFilter) { return getApplicationList(searchFilter) },
 
             changeApplicationStatus: function (application) { return changeApplicationStatus(application) },
             saveApplicationStatus: function (applicationStatus) { return saveApplicationStatus(applicationStatus) },
@@ -15,6 +16,18 @@
             updateApplicationType: function (applicationType) { return updateApplicationType(applicationType) },
         };
         return service;
+
+        function getApplicationList(searchFilter) {
+            return $http({
+                method: 'GET',
+                params: searchFilter,
+                url: (commonService.getUrl() + 'api/getApplicationList')
+            }).then(function successCallback(response) {
+                return response.data.$values;
+            }, function errorCallback(response) {
+                console.log("failed");
+            });
+        }
 
         function getApplicationType() {
             return $http({
