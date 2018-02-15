@@ -23,14 +23,14 @@
                                    type="text"
                                    class="form-control"
                                    placeholder="Address"
-                                   ng-model="vm.contactDetail.Address" />
+                                   ng-model="vm.contactDetail.AddressList" />
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-12">
                     <div class="col-sm-6"></div>
                     <div class="col-sm-6" style="text-align:right;">
-                        <button class="btn btn-default" ng-click="vm.saveContactDetails()" ng-if="vm.loggedInUser.FeatureName == 'Admin'">Save Contact Details</button>
+                        <button class="btn btn-default" ng-click="vm.updateContactDetails()" ng-if="vm.loggedInUser.FeatureName == 'Admin'">Save Contact Details</button>
                     </div>
                 </div>
             </div>

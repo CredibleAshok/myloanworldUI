@@ -149,7 +149,7 @@
             })
         .state('contactDetails', {
             url: '/manage-contact-details',
-            templateUrl: 'app/controls/manage-control-details.html',
+            templateUrl: 'app/controls/manage-contact-details.html',
             data: {
                 "managementScreen": true
             }

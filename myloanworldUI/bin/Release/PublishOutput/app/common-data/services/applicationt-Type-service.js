@@ -1,16 +1,21 @@
 ﻿(function () {
-    angular.module('myapp').factory('applicationsService', ['$http', 'commonService', function ($http, commonService) {
+    angular.module('myapp').factory('applicationsService', ['$http', 'commonService', 'authenticationService', function ($http, commonService, authenticationService) {
         var loanTypes = {};
         var service = {
             getApplicationById: function (applicationId) { return getApplicationById(applicationId) },
             getApplicationType: function () { return getApplicationType() },
-            
+            getLoanTypes: function () { return loanTypes },
             getApplicationHistory: function (applicationId) { return getApplicationHistory(applicationId) },
             getApplicationStatus: function () { return getApplicationStatus() },
-            changeApplicationStatus: function (application) { return changeApplicationStatus(application) }
+
+            changeApplicationStatus: function (application) { return changeApplicationStatus(application) },
+            saveApplicationStatus: function (applicationStatus) { return saveApplicationStatus(applicationStatus) },
+            updateApplicationStatus: function (applicationStatus) { return updateApplicationStatus(applicationStatus) },
+            saveApplicationType: function (applicationType) { return saveApplicationType(applicationType) },
+            updateApplicationType: function (applicationType) { return updateApplicationType(applicationType) },
         };
         return service;
-        
+
         function getApplicationType() {
             return $http({
                 method: 'GET',
@@ -56,6 +61,7 @@
                 console.log("failed");
             });
         }
+
         function changeApplicationStatus(application) {
             return $http({
                 method: 'POST',
@@ -65,6 +71,78 @@
                     ApplicationStatusId: application.ApplicationStatusId,
                     Comments: application.Comments,
                     CreatedBy: application.CreatedBy
+                }
+            }).then(function successCallback(response) {
+                return response.data.$values;
+            }, function errorCallback(response) {
+                console.log("failed");
+            });
+        }
+
+        function saveApplicationStatus(applicationStatus) {
+            return $http({
+                method: 'POST',
+                url: (commonService.getUrl() + 'api/saveApplicationStatus'),
+                data: {
+                    Name: applicationStatus.Name,
+                    UpdatedBy: authenticationService.getLoggedInUser().UserName
+                }
+            }).then(function successCallback(response) {
+                return response.data.$values;
+            }, function errorCallback(response) {
+                console.log("failed");
+            });
+        }
+
+        function saveApplicationType(applicationType) {
+            return $http({
+                method: 'POST',
+                url: (commonService.getUrl() + 'api/saveApplicationType'),
+                data: {
+                    Name: applicationType.name,
+                    DescText:applicationType.descText,
+                    Href:applicationType.href,
+                    Icon:applicationType.icon,
+                    Sref:applicationType.sref,
+                    Localhref:applicationType.localhref,
+                    UpdatedBy: authenticationService.getLoggedInUser().UserName
+                }
+            }).then(function successCallback(response) {
+                return response.data.$values;
+            }, function errorCallback(response) {
+                console.log("failed");
+            });
+        }
+
+        function updateApplicationType(applicationType) {
+            return $http({
+                method: 'POST',
+                url: (commonService.getUrl() + 'api/updateApplicationType'),
+                data: {
+                    Name: applicationType.name,
+                    DescText:applicationType.descText,
+                    Href:applicationType.href,
+                    Icon:applicationType.icon,
+                    Sref:applicationType.sref,
+                    Localhref:applicationType.localhref,
+                    UpdatedBy: authenticationService.getLoggedInUser().UserName,
+                    ApplicationTypeId:applicationType.applicationTypeId
+                }
+            }).then(function successCallback(response) {
+                return response.data.$values;
+            }, function errorCallback(response) {
+                console.log("failed");
+            });
+        }
+
+        function updateApplicationStatus(applicationStatus) {
+            return $http({
+                method: 'POST',
+                url: (commonService.getUrl() + 'api/updateApplicationStatus'),
+                data: {
+                    Name: applicationStatus.Name,
+                    UpdatedBy: applicationStatus.UpdatedBy,
+                    ApplicationStatusId: applicationStatus.ApplicationStatusId
                 }
             }).then(function successCallback(response) {
                 return response.data.$values;

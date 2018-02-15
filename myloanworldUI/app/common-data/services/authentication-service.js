@@ -8,14 +8,17 @@
             getProfile: function () { return getProfile() },
             validatePassword: function (user) { return validatePassword(user) },
             getAfterLoginMenus: function () { return getAfterLoginMenus() },
-            getContactDetails: function () { return getAfterLoginMenus() },
+            getContactDetails: function () { return getContactDetails() },
 
+            updateContactDetails: function (contactDetail) { return updateContactDetails(contactDetail) },
             setLogOffUser: function () { return setLogOffUser() },
             createPassword: function (user) { return createPassword(user) },
             forgotPassword: function (user) { return forgotPassword(user) },
             updateCustomer: function (customer) { return updateCustomer(customer) }
         };
         return service;
+
+        
 
         function getProfile() {
             if (loggedInUser == undefined) {
@@ -45,12 +48,25 @@
                 console.log("failed");
             });
         }
+        function updateContactDetails(contactDetail) {
+            return $http({
+                method: 'POST',
+                url: (commonService.getUrl() + 'api/updateContactDetails'),
+                data: {
+                    EmailList: contactDetail.EmailList,
+                    AddressList: contactDetail.AddressList
+                }
+            }).then(function successCallback(response) {
+                return response;
+            }, function errorCallback(response) {
+                console.log("update contact details failed");
+            });
+        }
 
         function validatePassword(user) {
             return $http({
                 method: 'POST',
                 url: (commonService.getUrl() + 'api/getUser'),
-                //params: { customer: user }
                 data: {
                     UserName: user.UserName,
                     AccessKeyCode: user.AccessKeyCode

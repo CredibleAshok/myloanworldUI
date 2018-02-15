@@ -66,6 +66,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\common-data\services\enquiry-service.js" />
+    <Content Include="app\controls\manage-contact-details-controller.js" />
+    <Content Include="app\controls\manage-contact-details.html" />
     <Content Include="app\pages\add-application-status-modal-controller.js" />
     <Content Include="app\pages\add-application-status-modal.html" />
     <Content Include="app\pages\add-application-type-modal-controller.js" />
@@ -90,6 +92,8 @@
     <Content Include="app\pages\profile.html" />
     <Content Include="common\angular-ui\ui-select\select.css" />
     <Content Include="common\angular-ui\ui-select\select.js" />
+    <Content Include="common\images\user-avatar-mobile.png" />
+    <Content Include="common\images\user-avatar.png" />
     <Content Include="packages.config" />
     <Content Include="common\bootstrap\3.3.7\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="common\bootstrap\3.3.7\fonts\glyphicons-halflings-regular.ttf" />
