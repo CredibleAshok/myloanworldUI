@@ -1,13 +1,13 @@
-﻿//
+//
 (function () {
     var controllerId = 'kycDetailController';
     angular.module('myapp')
-        .controller(controllerId, ['$scope', '$state', '$stateParams', 'authenticationService', 'enquiryService', kycDetailControllerFunction]);
+        .controller(controllerId, ['$scope', '$state', '$stateParams', 'authenticationService', 'enquiryService', 'commonService', '$timeout', kycDetailControllerFunction]);
 
-    function kycDetailControllerFunction($scope, $state, $stateParams, authenticationService, enquiryService) {
+    function kycDetailControllerFunction($scope, $state, $stateParams, authenticationService, enquiryService, commonService, $timeout) {
         var vm = this;
         vm.customer = {};
-        vm.enqiryId = 5; //$stateParams.enqiryId;
+        vm.enqiryId = parseInt($stateParams.enquiryId);
 
         vm.getCustomer = function () {
             enquiryService.getCustomer(vm.enqiryId).then(function (resp) {
@@ -15,6 +15,11 @@
             }, function (error) {
                 console.log("fail");
             });
+        }
+
+        vm.getCommonData = function () {
+            vm.sexOptions = commonService.sexOptions();
+            vm.maritalStatusOptions = commonService.maritalStatusOptions();
         }
 
         vm.updateCustomer = function () {
@@ -25,6 +30,14 @@
             });
         }
 
-        vm.getCustomer();
+        vm.getCommonData();
+
+        var waitTillCommondataLoaded = $timeout(function () {
+            vm.getCustomer();
+        });
+        
+        $scope.$on('$destroy', function () {
+            $timeout.cancel(waitTillCommondataLoaded);
+        });
     }
 })();
