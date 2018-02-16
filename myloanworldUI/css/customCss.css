@@ -461,3 +461,8 @@ span.psw {
     background-color:#d28a46fc!important;
     color:white;
 }
+@media (max-width: 979px) {
+    .form-group label{
+    color:red!important;
+}
+}
