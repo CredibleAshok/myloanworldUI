@@ -41,19 +41,22 @@
                                 <div class="col-sm-12">
                                     <div class="col-sm-6" style="padding-bottom:20px;">
                                         <div class="form-group">
-                                            <select ng-model="vm.customer.sex">
-                                                <option>Male</option>
-                                                <option>Female</option>
-                                            </select>
+                                            <ui-select ng-model="vm.customer.sex" theme="bootstrap">
+                                                <ui-select-match placeholder="Select or search a sex in the list...">{{$select.selected.name}}</ui-select-match>
+                                                <ui-select-choices repeat="item in vm.sexOptions | filter: $select.search">
+                                                    <div ng-bind-html="item.name | highlight: $select.search"></div>
+                                                </ui-select-choices>
+                                            </ui-select>
                                         </div>
                                     </div>
                                     <div class="col-sm-6" style="padding-bottom:20px;" ng-required="true">
                                         <div class="form-group">
-                                            <select ng-model="vm.customer.MaritalStatus">
-                                                <option>Married</option>
-                                                <option>Never Married</option>
-                                                <option>Divorce</option>
-                                            </select>
+                                            <ui-select ng-model="vm.customer.maritalStatus" theme="bootstrap">
+                                                <ui-select-match placeholder="Select Marital Status...">{{$select.selected.name}}</ui-select-match>
+                                                <ui-select-choices repeat="item in vm.maritalStatusOptions | filter: $select.search">
+                                                    <div ng-bind-html="item.name | highlight: $select.search"></div>
+                                                </ui-select-choices>
+                                            </ui-select>
                                         </div>
                                     </div>
                                 </div>
@@ -207,7 +210,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -221,10 +224,6 @@
                 </div>
             </div>
         </form>
-    </div>
-    <div class="col-sm-12" ng-repeat="enquiry in vm.customerList">
-        <div class="col-sm-6">{{enquiry.Name}}</div>
-        <div class="col-sm-6">{{enquiry.Comments}}</div>
     </div>
 </div>
 <div class="row">
