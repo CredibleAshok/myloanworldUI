@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="/#/home">
                 <img src="common/images/myloanworld-logo.png" height="30">
             </a>
         </div>
@@ -34,7 +34,7 @@
                 </li>
                 <li>
                     <a class="dropdown-toggle" data-toggle="dropdown">
-                        <button ng-if="vm.loggedInUser == undefined" ng-click="vm.openModal()"><i class="fa fa-bars"></i>Login</button>
+                        <button ng-if="vm.loggedInUser == undefined" ng-click="vm.openModal()"><i class="fa fa-user"></i>Login</button>
                         <button ng-if="vm.loggedInUser != undefined"><i class="fa fa-bars"></i>{{vm.loggedInUser.UserName}}</button>
                     </a>
                     <!--<ul class="dropdown-menu">

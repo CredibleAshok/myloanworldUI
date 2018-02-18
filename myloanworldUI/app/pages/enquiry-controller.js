@@ -11,11 +11,9 @@
 
         if (vm.loggedInUser.FeatureName == 'Customer') {
             vm.searchFilter.EnquiryId = vm.loggedInUser.EnquiryId;
-            vm.getEnquiryList = function () {
-                enquiryService.getEnquiryList(vm.searchFilter).then(function (resp) {
-                    return vm.enquiryList = resp;
-                });
-            }
+            enquiryService.getEnquiryList(vm.searchFilter).then(function (resp) {
+                return vm.enquiryList = resp;
+            });
         }
 
         

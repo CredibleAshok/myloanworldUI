@@ -1,5 +1,5 @@
 (function () {
-    angular.module('myapp').controller('footerController', function ($scope, commonService, applicationsService) {
+    angular.module('myapp').controller('footerController', function ($scope, commonService, applicationsService, authenticationService) {
         var vm = this;
         vm.footerLinks = commonService.footerLinks;
         //on this page only static links are required but from service everything is returned

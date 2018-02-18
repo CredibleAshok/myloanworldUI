@@ -1,0 +1,39 @@
+﻿<div ng-controller="manageContactDetailsController as vm">
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <span class="welcomeText">{{vm.title}}</span><br />
+        </div>
+    </div>
+    <div class="row" ng-if="vm.loggedInUser.FeatureName=='Admin'">
+        <form name="contactDetailsForm">
+            <div class="col-xs-12">
+                <div class="col-md-12">
+                    <div class="col-md-6" style="padding-bottom:20px;" ng-required="true">
+                        <div class="form-group">
+                            <input type="text"
+                                   name="emailList"
+                                   class="form-control"
+                                   placeholder="List of emails"
+                                   ng-model="vm.contactDetail.EmailList" />
+                        </div>
+                    </div>
+                    <div class="col-md-6" style="padding-bottom:20px;" ng-required="true">
+                        <div class="form-group">
+                            <input name="address"
+                                   type="text"
+                                   class="form-control"
+                                   placeholder="Address"
+                                   ng-model="vm.contactDetail.AddressList" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="col-sm-6"></div>
+                    <div class="col-sm-6" style="text-align:right;">
+                        <button class="btn btn-default" ng-click="vm.updateContactDetails()" ng-if="vm.loggedInUser.FeatureName == 'Admin'">Save Contact Details</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

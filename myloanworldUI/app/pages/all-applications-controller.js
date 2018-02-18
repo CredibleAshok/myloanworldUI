@@ -9,17 +9,17 @@
         vm.title = "All Applications";
         vm.searchFilter = {};
 
-        if (vm.loggedInUser.FeatureName == 'Customer') {
-            vm.searchFilter.EnquiryId = vm.loggedInUser.EnquiryId;
-            vm.getApplicationList(vm.searchFilter);
-        }
-
         vm.getApplicationList = function (searchFilter) {
             applicationsService.getApplicationList(vm.searchFilter).then(function (resp) {
                 vm.applicationList = resp;
             }, function (err) {
                 console.log("error is:- " + err.message);
             });
+        }
+
+        if (vm.loggedInUser.FeatureName == 'Customer') {
+            vm.searchFilter.EnquiryId = vm.loggedInUser.EnquiryId;
+            vm.getApplicationList(vm.searchFilter);
         }
 
         vm.openChangeApplicationStatusModal = function (application) {

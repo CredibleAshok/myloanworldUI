@@ -57,7 +57,7 @@
                     AddressList: contactDetail.AddressList
                 }
             }).then(function successCallback(response) {
-                return response;
+                return response.data;
             }, function errorCallback(response) {
                 console.log("update contact details failed");
             });

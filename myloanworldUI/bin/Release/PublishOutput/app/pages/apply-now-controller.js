@@ -46,7 +46,7 @@
 
         vm.saveEnquiry = function () {
             enquiryService.saveEnquiry(vm.enquiry).then(function (success) {
-                vm.enquiryList = response.data.$values;
+                alert(success);
                 //vm.sendEmail();
             }, function (err) {
                 console.log("database saving failed:- " + response.exceptionMessage);

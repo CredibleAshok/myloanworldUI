@@ -10,7 +10,7 @@
         function getCustomer(enquiryId) {
             return $http({
                 method: 'GET',
-                url: (commonService.getUrl() + 'api/getCustomerByEnquiryId?enquiryId=5')
+                url: (commonService.getUrl() + 'api/getCustomerByEnquiryId?enquiryId=' + enquiryId)
             }).then(function successCallback(response) {
                 return response.data.$values;
             }, function errorCallback(response) {
@@ -34,15 +34,16 @@
                 method: 'POST',
                 url: (commonService.getUrl() + 'api/saveEnquiry'),
                 data: {
-                    Name: enquiry.firstName + " " + enquiry.middleName + " " + enquiry.lastName,
+                    Name: enquiry.firstName + (enquiry.middleName == undefined ? "" : enquiry.middleName) + (enquiry.lastName == undefined ? "" : enquiry.lastName),
                     ContactNumber: enquiry.moblieNumber,
                     LoanAmt: enquiry.loanAmt,
                     Comments: enquiry.comments,
                     Tennure: enquiry.tennure,
+                    EmailId: enquiry.EmailId,
                     customer: {
                         HomeAddress: enquiry.homeAddress,
                         OfficeAddress: enquiry.officeAddress,
-                        Name: enquiry.firstName + enquiry.middleName + enquiry.lastName,
+                        Name: enquiry.firstName + (enquiry.middleName == undefined ? "" : enquiry.middleName) + (enquiry.lastName == undefined ? "" : enquiry.lastName),
                         HomeContact: enquiry.localHomeContact,
                         OfficeContact: enquiry.localOfficeContact,
                         //OtherContact:
@@ -63,7 +64,7 @@
                     }
                 }
             }).then(function successCallback(response) {
-                return response.data.$values;
+                return response.data;
             }, function errorCallback(response) {
                 console.log("database saving failed:- " + response.exceptionMessage);
             });

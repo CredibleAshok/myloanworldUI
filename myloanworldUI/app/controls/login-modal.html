@@ -1,7 +1,14 @@
 ﻿<div ng-controller="loginModalController as vm">
     <form id="loginForm">
         <div class="imgcontainer">
-            <img src="" data-src="common/images/user-avatar-mobile.png" data-src-big="common/images/user-avatar.png" alt="Avatar" class="avatar">
+            <img srcset="common/images/user-avatar-mobile.png 320w,
+             common/images/user-avatar-mobile.png 480w,
+             common/images/user-avatar.png 800w"
+                 sizes="(max-width: 320px) 280px,
+            (max-width: 480px) 440px,
+            800px"
+                 src="common/images/user-avatar.png" alt="Elva dressed as a fairy" alt="Avatar" class="avatar">
+            <!--<img src="" data-src="common/images/user-avatar-mobile.png" data-src-big="common/images/user-avatar.png" alt="Avatar" class="avatar">-->
         </div>
 
         <div class="containerModal">
