@@ -105,14 +105,11 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-12">
-                <div class="col-sm-6" style="padding-bottom:20px;">
-                </div>
-                <div class="col-sm-6" style="padding-bottom:20px;">
+            <div class="panel-group">
+                <div class="panel-body">
                     <button ng-disabled="enquiryForm.$invalid" class="btn btn-primary pull-right" ng-click="vm.saveEnquiry()">Send Enquiry</button>
                 </div>
             </div>
-            <br />
             <div class="col-sm-12">
                 <div class="panel-group">
                     <div class="panel panel-default">
@@ -320,20 +317,11 @@
                     </div>
                 </div>
             </div>
-
             <div class="col-sm-12">
-                <div class="col-sm-6" style="padding-bottom:20px;">
-                </div>
-                <div class="col-sm-6" style="padding-bottom:20px;">
-                    <button ng-disabled="enquiryForm.$invalid" class="btn btn-primary pull-right" ng-click="vm.saveEnquiry()">Start Application</button>
-                </div>
+                <button ng-disabled="enquiryForm.$invalid" class="btn btn-primary pull-right" ng-click="vm.saveEnquiry()">Start Application</button>
             </div>
         </form>
     </div>
-    <!--<div class="col-sm-12" ng-repeat="enquiry in vm.enquiryList">
-        <div class="col-sm-6">{{enquiry.Name}}</div>
-        <div class="col-sm-6">{{enquiry.Comments}}</div>
-    </div>-->
 </div>
 <div class="row">
     <div ng-include="'app/controls/footer.html'"></div>

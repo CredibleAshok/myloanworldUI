@@ -92,6 +92,7 @@
     <Content Include="app\pages\profile.html" />
     <Content Include="common\angular-ui\ui-select\select.css" />
     <Content Include="common\angular-ui\ui-select\select.js" />
+    <Content Include="common\images\banner-img-homepage-mobile-1.png" />
     <Content Include="common\images\user-avatar-mobile.png" />
     <Content Include="common\images\user-avatar.png" />
     <Content Include="packages.config" />
