@@ -1,4 +1,11 @@
 ﻿<div ng-controller="allApplicationsController as vm">
+    <div class="col-sm-12 loaderoverlay" ng-if="vm.isbusy == true">
+        <div class="loading-bar-spinner">
+            <span class="responsiveSpinner">
+                <i class="fa fa-spinner fa-spin"></i>
+            </span>
+        </div>
+    </div>
     <div class="row">
         <div class="col-xs-12 text-center">
             <span class="welcomeText">{{vm.title}}</span><br />
@@ -64,20 +71,20 @@
                 <thead>
                     <tr>
                         <th class="col-sm-1">Application Id</th>
-                        <th class="col-sm-3">Customer Name</th>
+                        <th class="col-sm-4">Customer Name</th>
                         <th class="col-sm-1">Application Status</th>
                         <th class="col-sm-2">Application Type</th>
-                        <th class="col-sm-3">Application Date</th>
+                        <th class="col-sm-2">Application Date</th>
                         <th class="col-sm-2"></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr ng-repeat="application in vm.applicationList">
                         <td class="col-sm-1"><a ui-sref="applicationHistory({applicationId: application.ApplicationId})"><b>{{application.ApplicationId}}</b></a></td>
-                        <td class="col-sm-3">{{application.CustomerName}}</td>
+                        <td class="col-sm-4">{{application.CustomerName}}</td>
                         <td class="col-sm-1">{{application.ApplicationStatus}}</td>
                         <td class="col-sm-2">{{application.ApplicationType}}</td>
-                        <td class="col-sm-3">{{application.CreationDate}}</td>
+                        <td class="col-sm-2">{{application.CreationDate | date:'dd/MM/yyyy'}}</td>
                         <td class="col-sm-2"><button class="btn btn-default" ng-if="vm.loggedInUser.FeatureName=='Admin'" ng-click="vm.openChangeApplicationStatusModal(application)"><b>Change Application Status</b></button></td>
                     </tr>
                 </tbody>

@@ -1,5 +1,12 @@
 ﻿
 <div ng-controller="applicationHistoryController as vm" style="margin-top:50px;">
+    <div class="col-sm-12 loaderoverlay" ng-if="vm.isbusy == true">
+        <div class="loading-bar-spinner">
+            <span class="responsiveSpinner">
+                <i class="fa fa-spinner fa-spin"></i>
+            </span>
+        </div>
+    </div>
     <div class="col-md-12 text-center">
         <span class="welcomeText"></span><br />
     </div>

@@ -1,4 +1,11 @@
 ﻿<div ng-controller="enquiryController as vm">
+    <div class="col-sm-12 loaderoverlay" ng-if="vm.isbusy == true">
+        <div class="loading-bar-spinner">
+            <span class="responsiveSpinner">
+                <i class="fa fa-spinner fa-spin"></i>
+            </span>
+        </div>
+    </div>
     <div class="row">
         <div class="col-xs-12 text-center">
             <span class="welcomeText">{{vm.title}}</span><br />
@@ -78,7 +85,7 @@
                     <td class="col-sm-3">{{item.Comments}}</td>
                     <td class="col-sm-2">{{item.ContactNumber}}</td>
                     <td class="col-sm-1">{{item.LoanAmt}}</td>
-                    <td class="col-sm-1">{{item.creationDate | date:'dd/MM/yyyy'}}</td>
+                    <td class="col-sm-1">{{item.CreationDate | date:'dd/MM/yyyy'}}</td>
                     <td class="col-sm-2">
                         <a ng-if="item.EnquiryId != null" ui-sref="knowYourCustomer({fname: item.Name, contactNumber: item.ContactNumber, enquiryId: item.EnquiryId})" class="btn btn-default"><b>KYC Form</b></a>
                     </td>

@@ -21,7 +21,7 @@
                 vm.className = "col-sm-" + vm.colWidth;
                 vm.getApplicationHistory(vm.applicationId);
             }, function (error) {
-                console.log("application status call fetched.");
+                toastr.error("application status call fetched.");
             });
         }
 
@@ -29,7 +29,7 @@
             applicationsService.getApplicationHistory(applicationId).then(function (response) {
                 vm.applicationHistory = response;
             }, function (error) {
-                console.log("history call fetched.");
+                toastr.error("history call fetched.");
             });
         }
         vm.getApplicationStatus();

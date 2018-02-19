@@ -11,7 +11,7 @@
             authenticationService.getContactDetails().then(function (resp) {
                 vm.contactDetail = resp[0];
             }, function (error) {
-                console.log("Application Status fetching failed");
+                toastr.error("Contact Details fetching failed.");                
             });
         }
 
@@ -19,7 +19,7 @@
             authenticationService.updateContactDetails(vm.contactDetail).then(function (resp) {
                 alert(resp);
             }, function (error) {
-                console.log("Application Status fetching failed");
+                toastr.error("Contact Details Updation failed.");                
             });
         }
         

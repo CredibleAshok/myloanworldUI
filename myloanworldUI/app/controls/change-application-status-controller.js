@@ -11,6 +11,7 @@
             if (vm.application.OriginalApplicationStatusId != parseInt(vm.application.ApplicationStatusId)) {
                 $scope.modalInstance.close(vm.application);
             } else {
+                toastr.info("Please change the status");                
                 vm.responseMessage = "Please change the status";
             }
         }
@@ -19,7 +20,7 @@
             applicationsService.getApplicationStatus().then(function (resp) {
                 vm.applicationStatusList = resp;
             }, function (error) {
-                console.log("Application Status fetching failed");
+                toastr.error("Application Status fetching failed");                
             });
         }
 

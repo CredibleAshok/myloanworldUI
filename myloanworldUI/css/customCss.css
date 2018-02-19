@@ -502,14 +502,25 @@ span.psw {
         background-size: cover; /*because image was not rendered full*/
         height: 400px;
     }
+    .loaderoverlay {
+        width: 92%!important;
+    }
 }
 
 .loaderoverlay {
-    background: rgba(255, 255, 255, 0.5);
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    z-index: 99999;
     border: 1px solid red;
+    position: absolute;
+    height: 100%;
+    width: 98%;
+    z-index: 9999;
+    background: rgba(255, 255, 255, 0.5);
 }
-
+.loading-bar-spinner {
+    position: absolute;
+    left:46%;
+    top:40%;
+    z-index: 99999;
+}
+.responsiveSpinner {
+    font-size: 60px;
+}

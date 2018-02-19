@@ -163,6 +163,9 @@
 
     myapp.controller('mainController', function ($scope, $rootScope, $state, authenticationService) {
         var vm = this;
+        toastr.options = {
+            "positionClass": "toast-bottom-right"
+        }
         vm.commentry = "na hum badmass hai. na hum tao ko piche hatate." +
             "saath main bula ke nache.aisa koi field nahi jaha hum na ho.Chaye wo hawai jahaz udana ho ya phir engineering ya phir sports." +
             "ladkiyo hum maarte nahi, log badnaam karte hai.";

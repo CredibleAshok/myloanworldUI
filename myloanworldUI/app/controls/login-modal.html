@@ -1,4 +1,14 @@
 ﻿<div ng-controller="loginModalController as vm">
+    <div class="loaderoverlay container" ng-if="vm.isbusy == true">
+        <!--This is where the spinner div should appear -->
+        <div class="loading-bar-spinner">
+            <!--This is the icon itself-->
+            <span>
+                Please Wait...
+                <i class="fa fa-spinner fa-spin"></i>
+            </span>
+        </div>
+    </div>
     <form id="loginForm">
         <div class="imgcontainer">
             <img srcset="common/images/user-avatar-mobile.png 320w,

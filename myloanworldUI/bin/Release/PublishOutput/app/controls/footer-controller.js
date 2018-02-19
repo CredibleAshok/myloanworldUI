@@ -10,7 +10,7 @@
         authenticationService.getContactDetails().then(function (resp) {
             vm.contactDetail = resp[0];
         }, function (error) {
-            console.log("contact detail fetch failed");
+            toastr.error("contact detail fetch failed");                
         });
     })
 })();

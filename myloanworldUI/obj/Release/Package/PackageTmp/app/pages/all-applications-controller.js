@@ -13,7 +13,7 @@
             applicationsService.getApplicationList(vm.searchFilter).then(function (resp) {
                 vm.applicationList = resp;
             }, function (err) {
-                console.log("error is:- " + err.message);
+                toastr.error("error is:- " + err.message);
             });
         }
 
@@ -55,7 +55,7 @@
                 function (success) {
                     vm.getApplicationList(vm.searchFilter);
                 }, function (error) {
-                    console.log("error changing application status");
+                    toastr.error("error changing application status");
                 }
             );
         }

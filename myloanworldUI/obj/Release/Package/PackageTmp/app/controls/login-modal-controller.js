@@ -6,28 +6,35 @@
     function loginModalControllerFunction($rootScope, $scope, $state, $modal, authenticationService) {
         var vm = this;
         vm.user = {};
-        vm.user.UserName = "TestCustomer";
-        vm.user.AccessKeyCode = "Test";
+        vm.isbusy = false;
+        //todo: uncomment these lines when testing
+        //vm.user.UserName = "TestCustomer";
+        //vm.user.AccessKeyCode = "Test";
         vm.validateUser = function () {
+            vm.isbusy = true;
             authenticationService.validatePassword(vm.user).then(function (resp) {
+                vm.isbusy = false;
                 if (resp != undefined && resp.length > 0) {
                     vm.user = authenticationService.getLoggedInUser();
                     vm.getAfterLoginMenus();
                 } else {
+                    toastr.success("User details not correct!");                
                     vm.responseMessage = "User details not correct!";
                 }
             }, function () {
                 vm.user.AccessKeyCode = "";
-                console.log("password validated failed.");
+                toastr.error("password validated failed.");                
             });
         };
-        
+
         vm.getAfterLoginMenus = function () {
+            vm.isbusy = true;
             authenticationService.getAfterLoginMenus().then(function (resp) {
+                vm.isbusy = false;
                 vm.user.afterLoginMenu = resp;
                 $scope.modalInstance.close(vm.user);
             }, function () {
-                console.log("password validated failed.");
+                toastr.error("password validated failed.");                
             });
         }
 
@@ -39,7 +46,10 @@
             $state.go(state);
         }
         vm.openModal = function (modeName) {
-            vm.loggedInUser = { "userName": "Manya", "age": 9 };
+            //close the login modal
+            $scope.modalInstance.close();
+
+            //open the forgot or create password modal.
             var modalScope = $rootScope.$new();
             modalScope.viewMode = "New";
             modalScope.modeName = modeName; //pass anything to modal scope from this.
@@ -57,8 +67,7 @@
             };
             modalScope.modalInstance = $modal.open(modalOptions);
             modalScope.modalInstance.result.then(function (data) {
-                // Returned from modal, so refresh list.
-                vm.loggedInUser = data; // temporary, change this
+                // Returned from modal, so required nothing from the closed modal.
             }, function () {
                 // Cancelled.
             })['finally'](function () {

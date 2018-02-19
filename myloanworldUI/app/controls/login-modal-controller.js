@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
     var controllerId = 'loginModalController';
     angular.module('myapp')
         .controller(controllerId, ['$rootScope', '$scope', '$state', '$modal', 'authenticationService', loginModalControllerFunction]);
@@ -18,11 +18,12 @@
                     vm.user = authenticationService.getLoggedInUser();
                     vm.getAfterLoginMenus();
                 } else {
+                    toastr.success("User details not correct!");                
                     vm.responseMessage = "User details not correct!";
                 }
             }, function () {
                 vm.user.AccessKeyCode = "";
-                console.log("password validated failed.");
+                toastr.error("password validated failed.");                
             });
         };
 
@@ -33,7 +34,7 @@
                 vm.user.afterLoginMenu = resp;
                 $scope.modalInstance.close(vm.user);
             }, function () {
-                console.log("password validated failed.");
+                toastr.error("password validated failed.");                
             });
         }
 

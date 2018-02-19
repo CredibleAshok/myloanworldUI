@@ -11,17 +11,17 @@
         vm.performAction = function () {
             if (vm.action == "New") {
                 applicationsService.saveApplicationType(vm.applicationType).then(function (resp) {
-                    console.log("Application Type saving passed");
+                    toastr.success("Application Type saving passed");
                     $scope.modalInstance.close();
                 }, function (error) {
-                    console.log("Application Status saving failed");
+                    toastr.error("Application Status saving failed");
                 });
             } else {
                 applicationsService.updateApplicationType(vm.applicationType).then(function (resp) {
-                    console.log("Application Type update passsed");
+                    toastr.success("Application Type update passsed");
                     $scope.modalInstance.close();
                 }, function (error) {
-                    console.log("Application Status Update failed");
+                    toastr.error("Application Status Update failed");
                 });
 
             }

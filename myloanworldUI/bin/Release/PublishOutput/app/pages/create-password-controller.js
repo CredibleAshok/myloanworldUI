@@ -3,9 +3,9 @@
 (function () {
     var controllerId = 'createPasswordController';
     angular.module('myapp')
-        .controller(controllerId, ['$scope', '$rootScope', '$state', 'applicationsService', 'authenticationService', createPasswordFunction]);
+        .controller(controllerId, ['$scope', '$rootScope', '$state', 'authenticationService', createPasswordFunction]);
 
-    function createPasswordFunction($scope, $rootScope, $state, applicationsService, authenticationService) {
+    function createPasswordFunction($scope, $rootScope, $state, authenticationService) {
         var vm = this;
         vm.title = $scope.modeName == "forgotPassword" ? "Forget Password" : "Create Password";
         vm.user = { "name": "TestCustomer", "accessKeyCode": "mypassword" };
@@ -16,18 +16,18 @@
                     // function sucess, ask user to go to his registered email id and login again with the new password
                     //vm.response = resp;
                     if (resp != undefined) {
-                        alert("Your password created");
+                        toastr.success("Your password created");
                         $scope.modalInstance.close();
                     }
                 }, function (error) {
-                    alert("Password creation Failed.");
+                    toastr.error("Password creation Failed.");
                 });
             } else {
                 authenticationService.forgotPassword(vm.user).then(function (resp) {
                     // function sucess, ask user to go to his registered email id and login again with the new password
                     vm.response = resp;
                 }, function (error) {
-                    alert("Forget Password Failed.");
+                    toastr.error("Forget Password Failed.");
                     // in case of error
                 });
             }

@@ -2,7 +2,7 @@
     angular.module('myapp').controller('applyNowController', function ($scope, $state, $stateParams, $http, commonService, applicationsService, enquiryService) {
         var vm = this;
         vm.enquiry = {};
-        vm.isbusy = true;
+        vm.isbusy = false;
         if (commonService.environment == "local") {
             vm.enquiry.name = "Ashok1";
             vm.enquiry.moblieNumber = "9876543238";
@@ -18,8 +18,9 @@
             vm.isbusy = true;
             applicationsService.getApplicationType().then(function (resp) {
                 vm.loanTypes = resp;
-                //vm.isbusy = false;
+                vm.isbusy = false;
             }, function (error) {
+                vm.isbusy = false;
                 console.log("loan type fetching failed");
             });
         }
@@ -28,7 +29,7 @@
             vm.isbusy = true;
             vm.sexOptions = commonService.sexOptions();
             vm.maritalStatusOptions = commonService.maritalStatusOptions();
-            //vm.isbusy = false;
+            vm.isbusy = false;
         }
 
         vm.getCommonData();
@@ -53,16 +54,16 @@
         vm.saveEnquiry = function () {
             vm.isbusy = true;
             enquiryService.saveEnquiry(vm.enquiry).then(function (success) {
-                //vm.isbusy = false;
-                toastr.success(success);
+                vm.isbusy = false;
+                toastr.success("Enquiry Saved!");
                 $state.go('home');
                 //vm.sendEmail();
             }, function (err) {
+                vm.isbusy = false;
                 toastr.error("database saving failed:- " + response.exceptionMessage);
             });
         }
         // load loan types on page load.
         vm.getLoanTypes();
-
     })
 })();

@@ -6,12 +6,12 @@
 
     function navbarControllerFunction($rootScope, $modal, applicationsService) {
         var vm = this;
-        console.log("this is new method of calling function.");
 
         applicationsService.getApplicationType().then(function (resp) {
             vm.applicationType = resp;
         }, function (err) {
-            console.log("error is:- " + err.message);
+            toastr.error("error is:- " + err.message);                
+            console.log();
         });
 
         vm.openModal = function (add, channel) {

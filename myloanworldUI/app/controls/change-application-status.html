@@ -7,11 +7,11 @@
             <label><b>Application Id</b></label>
             <input type="text" placeholder="Enter Application Id" name="applicationId" ng-model="vm.application.ApplicationId" readonly="readonly">
             <label><b>New Status</b></label>
-            <ui-select ng-model="vm.application.ApplicationStatusId" theme="bootstrap"
+            <ui-select ng-model="vm.application" theme="bootstrap"
                        ng-required="true" ng-class="{'alert alert-danger': changeApplicationForm.applicationStatusId.$error.required}">
-                <ui-select-match placeholder="Select Application Status...">{{$select.selected.name}}</ui-select-match>
+                <ui-select-match placeholder="Select Application Status...">{{$select.selected.Name}}</ui-select-match>
                 <ui-select-choices repeat="applicationStatus in vm.applicationStatusList | filter: $select.search">
-                    <div ng-bind-html="applicationStatus.name | highlight: $select.search"></div>
+                    <div ng-bind-html="applicationStatus.Name | highlight: $select.search"></div>
                 </ui-select-choices>
             </ui-select>
 

@@ -10,7 +10,7 @@
             applicationsService.saveApplicationType(vm.applicationType).then(function (resp) {
                 vm.applicationTypeList = resp;
             }, function (error) {
-                console.log("application type saving failed");
+                toastr.error("application type saving failed");                
             });
         }
 

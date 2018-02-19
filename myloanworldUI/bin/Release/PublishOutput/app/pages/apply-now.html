@@ -1,10 +1,19 @@
 ﻿<div class="row" ng-controller="applyNowController as vm">
+    <!--This is the one who covers the whole window-->
+    <div class="col-sm-12 loaderoverlay" ng-if="vm.isbusy == true">
+        <div class="loading-bar-spinner">
+            <span class="responsiveSpinner">
+                <i class="fa fa-spinner fa-spin"></i>
+            </span>
+        </div>
+    </div>
     <div class="col-sm-12 text-center">
         <span class="welcomeText">Apply Now</span><br />
     </div>
     <div class="col-sm-12">
         <div class="fixHeight50"></div>
     </div>
+    
     <div id="emptyForm"></div>
     <div class="col-sm-12">
         <form name="enquiryForm">
@@ -322,6 +331,7 @@
             </div>
         </form>
     </div>
+
 </div>
 <div class="row">
     <div ng-include="'app/controls/footer.html'"></div>

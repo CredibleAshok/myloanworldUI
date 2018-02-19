@@ -1,7 +1,8 @@
 ﻿(function () {
-    angular.module('myapp').controller('applyNowController', function ($scope, $stateParams, $http, commonService, applicationsService, enquiryService) {
+    angular.module('myapp').controller('applyNowController', function ($scope, $state, $stateParams, $http, commonService, applicationsService, enquiryService) {
         var vm = this;
         vm.enquiry = {};
+        vm.isbusy = false;
         if (commonService.environment == "local") {
             vm.enquiry.name = "Ashok1";
             vm.enquiry.moblieNumber = "9876543238";
@@ -14,19 +15,25 @@
         }
 
         vm.getLoanTypes = function () {
+            vm.isbusy = true;
             applicationsService.getApplicationType().then(function (resp) {
                 vm.loanTypes = resp;
+                vm.isbusy = false;
             }, function (error) {
+                vm.isbusy = false;
                 console.log("loan type fetching failed");
             });
         }
 
         vm.getCommonData = function () {
+            vm.isbusy = true;
             vm.sexOptions = commonService.sexOptions();
             vm.maritalStatusOptions = commonService.maritalStatusOptions();
+            vm.isbusy = false;
         }
 
         vm.getCommonData();
+        //This function is no more used, but keeping this as a souviner because this was something i learnt new.
         vm.sendEmail = function () {
             var emptyForm = document.getElementById("emptyForm");
             var newChild = '<form id="emailForm" action="http://formspree.io/ashok.forklift@gmail.com" method="POST"><button id="sendEmail" type="submit">Send Email</button>'
@@ -45,15 +52,18 @@
         }
 
         vm.saveEnquiry = function () {
+            vm.isbusy = true;
             enquiryService.saveEnquiry(vm.enquiry).then(function (success) {
-                alert(success);
+                vm.isbusy = false;
+                toastr.success("Enquiry Saved!");
+                $state.go('home');
                 //vm.sendEmail();
             }, function (err) {
-                console.log("database saving failed:- " + response.exceptionMessage);
+                vm.isbusy = false;
+                toastr.error("database saving failed:- " + response.exceptionMessage);
             });
         }
         // load loan types on page load.
         vm.getLoanTypes();
-
     })
 })();

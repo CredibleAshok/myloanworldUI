@@ -6,7 +6,7 @@
             applicationsService.getApplicationStatus().then(function (resp) {
                 vm.applicationStatusList = resp;
             }, function (error) {
-                console.log("Application Status fetching failed");
+                toastr.error("Application Status fetching failed");                
             });
         }
 

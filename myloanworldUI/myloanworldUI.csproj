@@ -95,6 +95,8 @@
     <Content Include="common\images\banner-img-homepage-mobile-1.png" />
     <Content Include="common\images\user-avatar-mobile.png" />
     <Content Include="common\images\user-avatar.png" />
+    <Content Include="common\toaster\toastr.min.css" />
+    <Content Include="common\toaster\toastr.min.js" />
     <Content Include="packages.config" />
     <Content Include="common\bootstrap\3.3.7\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="common\bootstrap\3.3.7\fonts\glyphicons-halflings-regular.ttf" />

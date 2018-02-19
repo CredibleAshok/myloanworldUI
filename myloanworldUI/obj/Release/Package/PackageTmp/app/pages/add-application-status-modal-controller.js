@@ -11,14 +11,14 @@
         vm.performAction = function () {
             if (vm.action == "New") {
                 applicationsService.saveApplicationStatus(vm.applicationStatus).then(function (resp) {
-                    console.log("Application Status saving passed");
+                    toastr.success("Application Status saving passed");
                     $scope.modalInstance.close();
                 }, function (error) {
-                    console.log("Application Status saving failed");
+                    toastr.error("Application Status saving failed");
                 });
             } else {
                 applicationsService.updateApplicationStatus(vm.applicationStatus).then(function (resp) {
-                    console.log("Application Status update passsed");
+                    toastr.success("Application Status update passsed");
                     $scope.modalInstance.close();
                 }, function (error) {
                     console.log("Application Status Update failed");

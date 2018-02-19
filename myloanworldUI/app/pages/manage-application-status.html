@@ -1,4 +1,11 @@
 ﻿<div class="row" ng-controller="manageApplicationStatusController as vm">
+    <div class="col-sm-12 loaderoverlay" ng-if="vm.isbusy == true">
+        <div class="loading-bar-spinner">
+            <span class="responsiveSpinner">
+                <i class="fa fa-spinner fa-spin"></i>
+            </span>
+        </div>
+    </div>
     <div class="col-sm-12 text-center">
         <span class="welcomeText">Maintain Application Status</span><br />
     </div>

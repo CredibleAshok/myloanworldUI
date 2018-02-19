@@ -13,7 +13,7 @@
             enquiryService.getCustomer(vm.enqiryId).then(function (resp) {
                 vm.customer = resp[0];
             }, function (error) {
-                console.log("fail");
+                toastr.error("Customer Fetching failed.");
             });
         }
 
@@ -24,9 +24,10 @@
 
         vm.updateCustomer = function () {
             authenticationService.updateCustomer(vm.customer).then(function (success) {
-                alert("Application Created Successfully!");
+                toastr.success("Application Created Successfully!");
+                alert();
             }, function (error) {
-                console.log("fail");
+                toastr.error("fail");
             });
         }
 
