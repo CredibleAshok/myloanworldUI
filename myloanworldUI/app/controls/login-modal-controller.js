@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
     var controllerId = 'loginModalController';
     angular.module('myapp')
         .controller(controllerId, ['$rootScope', '$scope', '$state', '$modal', 'authenticationService', loginModalControllerFunction]);
@@ -21,7 +21,7 @@
                 console.log("password validated failed.");
             });
         };
-        
+
         vm.getAfterLoginMenus = function () {
             authenticationService.getAfterLoginMenus().then(function (resp) {
                 vm.user.afterLoginMenu = resp;
@@ -39,7 +39,10 @@
             $state.go(state);
         }
         vm.openModal = function (modeName) {
-            vm.loggedInUser = { "userName": "Manya", "age": 9 };
+            //close the login modal
+            $scope.modalInstance.close();
+
+            //open the forgot or create password modal.
             var modalScope = $rootScope.$new();
             modalScope.viewMode = "New";
             modalScope.modeName = modeName; //pass anything to modal scope from this.
@@ -57,8 +60,7 @@
             };
             modalScope.modalInstance = $modal.open(modalOptions);
             modalScope.modalInstance.result.then(function (data) {
-                // Returned from modal, so refresh list.
-                vm.loggedInUser = data; // temporary, change this
+                // Returned from modal, so required nothing from the closed modal.
             }, function () {
                 // Cancelled.
             })['finally'](function () {
