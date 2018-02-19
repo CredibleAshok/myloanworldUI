@@ -33,8 +33,8 @@
                         <tr ng-repeat="status in vm.applicationStatusList">
                             <td  class="col-sm-2">{{status.ApplicationStatusId}}</td>
                             <td  class="col-sm-2">{{status.Name}}</td>
-                            <td  class="col-sm-2">{{status.ValidFrom}}</td>
-                            <td  class="col-sm-2">{{status.ValidTo}}</td>
+                            <td  class="col-sm-2">{{status.ValidFrom | date:'dd/MM/yyyy'}}</td>
+                            <td  class="col-sm-2">{{status.ValidTo | date:'dd/MM/yyyy'}}</td>
                             <td  class="col-sm-2">
                             <button type="button" class="btn btn-info" ng-if="vm.loggedInUser.FeatureName=='Admin'" ng-click="vm.openApplicationStatusModal(status,'Edit')">Edit</button>
                             </td>

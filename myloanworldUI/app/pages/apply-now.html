@@ -1,4 +1,15 @@
 ﻿<div class="row" ng-controller="applyNowController as vm">
+    <!--This is the one who covers the whole window-->
+    <div class="loaderoverlay" ng-if="vm.isbusy == true">
+        <!--This is where the spinner div should appear -->
+        <div id="loading-bar-spinner">
+            <!--This is the icon itself-->
+            <span>
+                Please Wait...
+                <i class="fa fa-spinner fa-spin"></i>
+            </span>
+        </div>
+    </div>
     <div class="col-sm-12 text-center">
         <span class="welcomeText">Apply Now</span><br />
     </div>
@@ -322,6 +333,7 @@
             </div>
         </form>
     </div>
+
 </div>
 <div class="row">
     <div ng-include="'app/controls/footer.html'"></div>
