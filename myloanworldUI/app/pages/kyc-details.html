@@ -5,7 +5,6 @@
     <div class="col-sm-12">
         <div class="fixHeight50"></div>
     </div>
-    <div id="emptyForm"></div>
     <div class="col-sm-12">
         <form name="enquiryForm">
             <div class="col-sm-12">
@@ -28,7 +27,7 @@
                                                    ng-model="vm.customer.MiddleName" />
                                         </div>
                                     </div>
-                                    <div class="col-sm-6" style="padding-bottom:20px;" ng-required="true">
+                                    <div class="col-sm-6" style="padding-bottom:20px;">
                                         <div class="form-group">
                                             <input name="lastName"
                                                    type="text"
@@ -49,7 +48,7 @@
                                             </ui-select>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6" style="padding-bottom:20px;" ng-required="true">
+                                    <div class="col-sm-6" style="padding-bottom:20px;">
                                         <div class="form-group">
                                             <ui-select ng-model="vm.customer.maritalStatus" theme="bootstrap">
                                                 <ui-select-match placeholder="Select Marital Status...">{{$select.selected.name}}</ui-select-match>
@@ -70,7 +69,7 @@
                                                    ng-model="vm.customer.MotherName" />
                                         </div>
                                     </div>
-                                    <div class="col-sm-6" style="padding-bottom:20px;" ng-required="true">
+                                    <div class="col-sm-6" style="padding-bottom:20px;">
                                         <div class="form-group">
                                             <input name="fatherName"
                                                    type="text"
@@ -90,7 +89,7 @@
                                                    ng-model="vm.customer.HusbandName" />
                                         </div>
                                     </div>
-                                    <div class="col-sm-6" style="padding-bottom:20px;" ng-required="true">
+                                    <div class="col-sm-6" style="padding-bottom:20px;">
                                         <div class="form-group">
                                             <input name="otherPersonal"
                                                    type="text"
@@ -210,16 +209,15 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-sm-12">
-                <div class="col-sm-6" style="padding-bottom:20px;">
+                <div class="col-sm-6">
                 </div>
-                <div class="col-sm-6" style="padding-bottom:20px;">
+                <div class="col-sm-6">
                     <button class="btn btn-primary pull-right" ng-click="vm.updateCustomer()">Update Customer</button>
                 </div>
             </div>
