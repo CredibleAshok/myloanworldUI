@@ -1,11 +1,11 @@
-﻿// This same screen and controller would be used to create user password and forget password. 
+// This same screen and controller would be used to create user password and forget password. 
 // In case of create password both textbox would be seen but in case of forget password. only user id would be asked.
 (function () {
     var controllerId = 'createPasswordController';
     angular.module('myapp')
-        .controller(controllerId, ['$scope', '$rootScope', '$state', 'applicationsService', 'authenticationService', createPasswordFunction]);
+        .controller(controllerId, ['$scope', '$rootScope', '$state', 'authenticationService', createPasswordFunction]);
 
-    function createPasswordFunction($scope, $rootScope, $state, applicationsService, authenticationService) {
+    function createPasswordFunction($scope, $rootScope, $state, authenticationService) {
         var vm = this;
         vm.title = $scope.modeName == "forgotPassword" ? "Forget Password" : "Create Password";
         vm.user = { "name": "TestCustomer", "accessKeyCode": "mypassword" };
