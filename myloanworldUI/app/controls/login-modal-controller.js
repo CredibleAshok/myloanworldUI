@@ -6,10 +6,14 @@
     function loginModalControllerFunction($rootScope, $scope, $state, $modal, authenticationService) {
         var vm = this;
         vm.user = {};
-        vm.user.UserName = "TestCustomer";
-        vm.user.AccessKeyCode = "Test";
+        vm.isbusy = false;
+        //todo: uncomment these lines when testing
+        //vm.user.UserName = "TestCustomer";
+        //vm.user.AccessKeyCode = "Test";
         vm.validateUser = function () {
+            vm.isbusy = true;
             authenticationService.validatePassword(vm.user).then(function (resp) {
+                vm.isbusy = false;
                 if (resp != undefined && resp.length > 0) {
                     vm.user = authenticationService.getLoggedInUser();
                     vm.getAfterLoginMenus();
@@ -23,7 +27,9 @@
         };
 
         vm.getAfterLoginMenus = function () {
+            vm.isbusy = true;
             authenticationService.getAfterLoginMenus().then(function (resp) {
+                vm.isbusy = false;
                 vm.user.afterLoginMenu = resp;
                 $scope.modalInstance.close(vm.user);
             }, function () {
