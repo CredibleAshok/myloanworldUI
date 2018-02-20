@@ -24,8 +24,8 @@
 
         vm.updateCustomer = function () {
             authenticationService.updateCustomer(vm.customer).then(function (success) {
-                toastr.success("Application Created Successfully!");
-                alert();
+                //toastr.success("Application Updated Successfully!");
+                customDialog.greenDialog("Application Updated Successfully!", "OK");
             }, function (error) {
                 toastr.error("fail");
             });
