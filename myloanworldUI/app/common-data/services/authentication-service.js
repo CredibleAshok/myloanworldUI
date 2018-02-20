@@ -1,5 +1,5 @@
 ﻿(function () {
-    angular.module('myapp').factory('authenticationService', ['$http', 'commonService', function ($http, commonService) {
+    angular.module('myapp').factory('authenticationService', ['$http', 'commonService', 'customDialog', function ($http, commonService, customDialog) {
         var loggedInUser = {};
         var isUserLoggedIn = false;
         var service = {
@@ -35,7 +35,7 @@
             }).then(function successCallback(response) {
                 return response.data.$values;
             }, function errorCallback(response) {
-                console.log("failed");
+                customDialog.redDialog("failed!", "OK");
             });
         }
         function getAfterLoginMenus() {
@@ -45,7 +45,7 @@
             }).then(function successCallback(response) {
                 return response.data.$values;
             }, function errorCallback(response) {
-                console.log("failed");
+                customDialog.redDialog("failed!", "OK");
             });
         }
         function updateContactDetails(contactDetail) {
@@ -59,7 +59,7 @@
             }).then(function successCallback(response) {
                 return response.data;
             }, function errorCallback(response) {
-                console.log("update contact details failed");
+                customDialog.redDialog("Update Contact details failed!", "OK");
             });
         }
 
@@ -76,7 +76,7 @@
                 isUserLoggedIn = true;
                 return response.data.$values;
             }, function errorCallback(response) {
-                console.log("user authentication failed");
+                customDialog.redDialog("User Authentication failed!", "OK");
             });
         }
 
@@ -96,7 +96,7 @@
             }).then(function successCallback(response) {
                 return response.data;
             }, function errorCallback(response) {
-                console.log("create password failed");
+                customDialog.redDialog("Create Password failed!", "OK");
             });
         }
 
@@ -110,7 +110,7 @@
             }).then(function successCallback(response) {
                 return response.data;
             }, function errorCallback(response) {
-                console.log("create password failed");
+                customDialog.redDialog("Password email sending failed!", "OK");
             });
         }
 
@@ -135,7 +135,7 @@
             }).then(function successCallback(response) {
                 return response.data;
             }, function errorCallback(response) {
-                console.log("update customer failed");
+                customDialog.redDialog("Update customer failed!", "OK");
             });
         }
 
