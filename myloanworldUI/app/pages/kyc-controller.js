@@ -2,9 +2,9 @@
 (function () {
     var controllerId = 'kycDetailController';
     angular.module('myapp')
-        .controller(controllerId, ['$scope', '$state', '$stateParams', 'authenticationService', 'enquiryService', 'commonService', '$timeout', kycDetailControllerFunction]);
+        .controller(controllerId, ['$scope', '$state', '$stateParams', '$filter', 'authenticationService', 'enquiryService', 'commonService', '$timeout','customDialog', kycDetailControllerFunction]);
 
-    function kycDetailControllerFunction($scope, $state, $stateParams, authenticationService, enquiryService, commonService, $timeout) {
+    function kycDetailControllerFunction($scope, $state, $stateParams, $filter, authenticationService, enquiryService, commonService, $timeout, customDialog) {
         var vm = this;
         vm.customer = {};
         vm.enqiryId = parseInt($stateParams.enquiryId);
@@ -12,6 +12,9 @@
         vm.getCustomer = function () {
             enquiryService.getCustomer(vm.enqiryId).then(function (resp) {
                 vm.customer = resp[0];
+                vm.customer.Sex = $filter('filter')(vm.sexOptions, { 'SexId': vm.customer.SexId })[0];
+                vm.customer.MaritalStatus = $filter('filter')(vm.maritalStatusOptions, { 'MaritalStatusId': vm.customer.MaritalStatusId })[0];
+                //tagItems = $select.$filter('filter')(items, { 'isTag': true });
             }, function (error) {
                 toastr.error("Customer Fetching failed.");
             });

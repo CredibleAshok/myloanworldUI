@@ -162,7 +162,7 @@
                                     </div>
                                     <div class="col-sm-6" style="padding-bottom:20px;" ng-required="true">
                                         <div class="form-group">
-                                            <ui-select ng-model="vm.enquiry.maritalStatus" theme="bootstrap">
+                                            <ui-select ng-model="vm.enquiry.MaritalStatus" theme="bootstrap">
                                                 <ui-select-match placeholder="Select Marital Status...">{{$select.selected.name}}</ui-select-match>
                                                 <ui-select-choices repeat="item in vm.maritalStatusOptions | filter: $select.search">
                                                     <div ng-bind-html="item.name | highlight: $select.search"></div>

@@ -17,8 +17,14 @@
             applicationsService.getApplicationStatus().then(function (response) {
                 vm.applicationStatus = response;
                 vm.numOfCols = vm.applicationStatus.length;
-                vm.colWidth = (12 / vm.numOfCols);
-                vm.className = "col-sm-" + vm.colWidth;
+                if (vm.numOfCols == 4) {
+                    vm.className = "col-sm-3";
+                } else if (vm.numOfCols == 5 || vm.numOfCols == 6) {
+                    vm.className = "col-sm-2";
+                } else if (vm.numOfCols == 7 || vm.numOfCols == 8){
+                    vm.className = "col-sm-1";
+                }
+                //vm.colWidth = (12 / vm.numOfCols); // This will give us either decimal or int
                 vm.getApplicationHistory(vm.applicationId);
             }, function (error) {
                 toastr.error("application status call fetched.");

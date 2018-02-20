@@ -1,6 +1,6 @@
 ﻿(function () {
     angular.module('myapp').factory('commonService', function () {
-        var environment = "live";// this can have 3 values like 'local', 'localIIS' and 'live'
+        var environment = "local";// this can have 3 values like 'local', 'localIIS' and 'live'
         var liveServiceUrl = "http://service.myloanworld.com/";
         var localIISServiceUrl = "http://localhost/myloanworldService/";
         var localServiceUrl = "http://localhost:55750/";
@@ -104,10 +104,10 @@
             }];
         }
         function sexOptions() {
-            return [{ "name": "Male", "sexId": 1 }, { "name": "Female", "sexId": 2 }];
+            return [{ "name": "Male", "SexId": 1 }, { "name": "Female", "SexId": 2 }, { "name": "Not Disclosed", "SexId": 3 }];
         }
         function maritalStatusOptions() {
-            return [{ "name": "Married", "Id": 1 }, { "name": "UnMarried", "Id": 2 }, { "name": "Divorced", "Id": 3 }, { "name": "NeverMarried", "Id": 4 }];
+            return [{ "name": "Married", "MaritalStatusId": 1 }, { "name": "UnMarried", "MaritalStatusId": 2 }, { "name": "Divorced", "MaritalStatusId": 3 }, { "name": "NeverMarried", "MaritalStatusId": 4 }];
         }
         
         function getUrl() {

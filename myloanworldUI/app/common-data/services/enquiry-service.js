@@ -47,11 +47,11 @@
                         HomeContact: enquiry.localHomeContact,
                         OfficeContact: enquiry.localOfficeContact,
                         //OtherContact:
-                        Sex: enquiry.sex == undefined ? true : enquiry.sex.sexId, // by default male
+                        Sex: enquiry.Sex == undefined ? true : enquiry.Sex.SexId, // by default male
                         FirstName: enquiry.firstName,
                         MiddleName: enquiry.middleName,
                         LastName: enquiry.lastName,
-                        MaritalStatusId: enquiry.maritalStatus == undefined ? 1 : enquiry.maritalStatus.Id, // by default 1
+                        MaritalStatusId: enquiry.MaritalStatus == undefined ? 1 : enquiry.MaritalStatus.MaritalStatusId, // by default 1
                         MotherName: enquiry.motherName,
                         FatherName: enquiry.fatherName,
                         OtherPersonal: enquiry.otherPersonal,

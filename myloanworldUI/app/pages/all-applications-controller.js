@@ -1,9 +1,9 @@
 (function () {
     var controllerId = 'allApplicationsController';
     angular.module('myapp')
-        .controller(controllerId, ['$rootScope', '$modal', 'applicationsService', 'authenticationService', allApplicationsControllerFunction]);
+        .controller(controllerId, ['$rootScope', '$modal', 'applicationsService', 'authenticationService','customDialog', allApplicationsControllerFunction]);
 
-    function allApplicationsControllerFunction($rootScope, $modal, applicationsService, authenticationService) {
+    function allApplicationsControllerFunction($rootScope, $modal, applicationsService, authenticationService, customDialog) {
         var vm = this;
         vm.loggedInUser = authenticationService.getLoggedInUser();
         vm.title = "All Applications";
@@ -54,6 +54,7 @@
             applicationsService.changeApplicationStatus(data).then(
                 function (success) {
                     vm.getApplicationList(vm.searchFilter);
+                    customDialog.greenDialog("Application Stauts Updated Successfully!", "OK");
                 }, function (error) {
                     toastr.error("error changing application status");
                 }

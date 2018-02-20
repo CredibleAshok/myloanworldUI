@@ -130,7 +130,9 @@
                     EnquiryId: customer.EnquiryId,
                     ApplicationTypeId: customer.ApplicationTypeId,
                     Comments: customer.Comments,
-                    CreatedBy: customer.CreatedBy
+                    CreatedBy: customer.CreatedBy,
+                    SexId: customer.Sex.SexId,
+                    MaritalStatusId: customer.MaritalStatus.MaritalStatusId
                 }
             }).then(function successCallback(response) {
                 return response.data;
