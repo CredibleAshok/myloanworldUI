@@ -1,18 +1,9 @@
 ﻿(function () {
-    angular.module('myapp').controller('applyNowController', function ($scope, $state, $stateParams, $http, commonService, applicationsService, enquiryService) {
+    angular.module('myapp').controller('applyNowController', function ($scope, $state, $stateParams, $http, commonService, applicationsService, enquiryService, customDialog) {
         var vm = this;
         vm.enquiry = {};
         vm.isbusy = false;
-        if (commonService.environment == "local") {
-            vm.enquiry.name = "Ashok1";
-            vm.enquiry.moblieNumber = "9876543238";
-            vm.enquiry.email = "akshdfk.askdhf@gmail.com";
-            vm.enquiry.loanAmt = $stateParams.loanAmt == undefined ? 12000 : $stateParams.loanAmt;
-            vm.enquiry.tennure = "12";
-            vm.enquiry.comments = "Ashok is my name";
-        } else {
-            vm.enquiry.loanAmt = $stateParams.loanAmt == undefined ? 12000 : $stateParams.loanAmt;
-        }
+        vm.enquiry.loanAmt = $stateParams.loanAmt == undefined ? 120000 : $stateParams.loanAmt;
 
         vm.getLoanTypes = function () {
             vm.isbusy = true;
@@ -21,7 +12,7 @@
                 vm.isbusy = false;
             }, function (error) {
                 vm.isbusy = false;
-                console.log("loan type fetching failed");
+                toastr.error("loan type fetching failed:- " + response.exceptionMessage);
             });
         }
 
@@ -55,7 +46,7 @@
             vm.isbusy = true;
             enquiryService.saveEnquiry(vm.enquiry).then(function (success) {
                 vm.isbusy = false;
-                toastr.success("Enquiry Saved!");
+                customDialog.greenDialog("Thanks! " + vm.enquiry.firstName + ", for your Enquiry. We will soon get in touch with you!", "OK");//toastr.success("Enquiry Saved!");
                 $state.go('home');
                 //vm.sendEmail();
             }, function (err) {
