@@ -37,22 +37,22 @@
                  </div>
                  <div class="col-md-12">
                      <div class="col-md-6" style="padding-bottom:20px;">
-                         <div class="form-group">
-                             <input type="text"
-                                    name="loanAmt"
-                                    class="form-control"
-                                    placeholder="Date From"
-                                    ng-model="vm.searchFilter.fromDate" />
-                         </div>
+                         <p class="input-group">
+                             <input placeholder="Choose From Date" name="fromDate" type="text" class="form-control" uib-datepicker-popup ng-model="vm.searchFilter.fromDate"
+                                    is-open="vm.fromDateOpen" close-text="Close" />
+                             <span class="input-group-btn">
+                                 <button type="button" class="btn btn-default" ng-click="vm.toggleFromDate()"><i class="glyphicon glyphicon-calendar"></i></button>
+                             </span>
+                         </p>
                      </div>
                      <div class="col-md-6" style="padding-bottom:20px;">
-                         <div class="form-group">
-                             <input name="mobileNumber"
-                                    type="text"
-                                    class="form-control"
-                                    placeholder="To Date"
-                                    ng-model="vm.searchFilter.todate" />
-                         </div>
+                         <p class="input-group">
+                             <input placeholder="Choose To Date" name="toDate" type="text" class="form-control" uib-datepicker-popup ng-model="vm.searchFilter.todate"
+                                    is-open="vm.toDateOpen" close-text="Close" />
+                             <span class="input-group-btn">
+                                 <button type="button" class="btn btn-default" ng-click="vm.toggleToDate()"><i class="glyphicon glyphicon-calendar"></i></button>
+                             </span>
+                         </p>
                      </div>
                  </div>
                  <div class="col-sm-12">

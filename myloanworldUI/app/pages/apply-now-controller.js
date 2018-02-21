@@ -16,6 +16,7 @@
             });
         }
 
+        
         vm.getCommonData = function () {
             vm.isbusy = true;
             vm.sexOptions = commonService.sexOptions();

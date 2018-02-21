@@ -1,5 +1,5 @@
 (function () {
-    angular.module('myapp').controller('manageApplicationTypeController', function ($rootScope, $modal, applicationsService, authenticationService) {
+    angular.module('myapp').controller('manageApplicationTypeController', function ($rootScope, $uibModal, applicationsService, authenticationService) {
         var vm = this;
         vm.loggedInUser = authenticationService.getLoggedInUser();
         vm.getApplicationType = function () {
@@ -31,7 +31,7 @@
                     }
                 }
             };
-            modalScope.modalInstance = $modal.open(modalOptions);
+            modalScope.modalInstance = $uibModal.open(modalOptions);
             modalScope.modalInstance.result.then(function (data) {
                 // Returned from modal, so refresh list.
                 //vm.loggedInUser = data; // temporary, change this

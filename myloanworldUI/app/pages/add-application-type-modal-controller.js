@@ -8,6 +8,16 @@
         var vm = this;
         vm.applicationType = $scope.applicationType;
         vm.action = $scope.action;
+        //#region datePicker Settings
+        vm.fromDateOpen = false;
+        vm.toggleFromDate = function () {
+            vm.fromDateOpen = !vm.fromDateOpen;
+        }
+        vm.toDateOpen = false;
+        vm.toggleToDate = function () {
+            vm.toDateOpen = !vm.toDateOpen;
+        }
+        //#endregion datePicker Settings
         vm.performAction = function () {
             if (vm.action == "New") {
                 applicationsService.saveApplicationType(vm.applicationType).then(function (resp) {

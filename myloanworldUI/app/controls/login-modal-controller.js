@@ -1,9 +1,9 @@
 ﻿(function () {
     var controllerId = 'loginModalController';
     angular.module('myapp')
-        .controller(controllerId, ['$rootScope', '$scope', '$state', '$modal', 'authenticationService', loginModalControllerFunction]);
+        .controller(controllerId, ['$rootScope', '$scope', '$state', '$uibModal', 'authenticationService', loginModalControllerFunction]);
 
-    function loginModalControllerFunction($rootScope, $scope, $state, $modal, authenticationService) {
+    function loginModalControllerFunction($rootScope, $scope, $state, $uibModal, authenticationService) {
         var vm = this;
         vm.user = {};
         vm.isbusy = false;
@@ -65,7 +65,7 @@
                     }
                 }
             };
-            modalScope.modalInstance = $modal.open(modalOptions);
+            modalScope.modalInstance = $uibModal.open(modalOptions);
             modalScope.modalInstance.result.then(function (data) {
                 // Returned from modal, so required nothing from the closed modal.
             }, function () {
