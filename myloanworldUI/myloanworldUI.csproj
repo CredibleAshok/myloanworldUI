@@ -65,6 +65,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\common-data\services\dialog-service.js" />
     <Content Include="app\common-data\services\enquiry-service.js" />
     <Content Include="app\controls\manage-contact-details-controller.js" />
     <Content Include="app\controls\manage-contact-details.html" />
@@ -90,13 +91,19 @@
     <Content Include="app\pages\manage-application-type.html" />
     <Content Include="app\pages\profile-controller.js" />
     <Content Include="app\pages\profile.html" />
+    <Content Include="common\ajax\libs\angular-ui-router\1.0.3\angular-ui-router.min.js" />
     <Content Include="common\angular-ui\ui-select\select.css" />
     <Content Include="common\angular-ui\ui-select\select.js" />
+    <Content Include="common\angularjs\1.4.0\angular-animate.min.js" />
+    <Content Include="common\angularjs\1.4.0\angular-sanitize.min.js" />
+    <Content Include="common\angularjs\1.4.0\angular.min.js" />
+    <Content Include="common\angularjs\1.6.4\angular-animate.min.js" />
     <Content Include="common\images\banner-img-homepage-mobile-1.png" />
     <Content Include="common\images\user-avatar-mobile.png" />
     <Content Include="common\images\user-avatar.png" />
     <Content Include="common\toaster\toastr.min.css" />
     <Content Include="common\toaster\toastr.min.js" />
+    <Content Include="common\ui-bootstrap\ui-bootstrap-tpls-2.5.0.min.js" />
     <Content Include="packages.config" />
     <Content Include="common\bootstrap\3.3.7\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="common\bootstrap\3.3.7\fonts\glyphicons-halflings-regular.ttf" />
@@ -107,6 +114,7 @@
     <Content Include="common\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
     <Content Include="common\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
     <Content Include="common\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <Content Include="common\angularjs\1.6.4\angular-animate.min.js.map" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

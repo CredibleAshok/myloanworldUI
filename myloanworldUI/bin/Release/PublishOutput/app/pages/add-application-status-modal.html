@@ -7,50 +7,38 @@
         </div>
     </div>
     <form name="applicationStatusFrom">
-        <div class="col-sm-12">
-            <div class="panel-group">
-                <div class="panel panel-default">
-                    <div class="panel">
-                        <div class="panel-body">
-                            <div class="col-sm-12">
-                                <div class="col-sm-6" style="padding-bottom:20px;">
-                                    <div class="form-group">
-                                        <input ng-class="{'alert alert-danger': applicationStatusFrom.applicationStatusName.$error.required}"
-                                               type="text"
-                                               name="applicationStatusName"
-                                               ng-required="true"
-                                               class="form-control"
-                                               placeholder="Application Status Name"
-                                               ng-model="vm.applicationStatus.Name" />
-                                    </div>
-                                </div>
-                                <div class="col-sm-6" style="padding-bottom:20px;">
-                                    <div class="form-group">
-                                        <input name="validFrom"
-                                               type="text"
-                                               class="form-control"
-                                               placeholder="Valid From"
-                                               ng-model="vm.applicationStatus.validFrom" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-12">
-                                <div class="col-sm-6" style="padding-bottom:20px;">
-                                    <div class="form-group">
-                                        <input type="text"
-                                               name="validTo"
-                                               class="form-control"
-                                               placeholder="Valid To"
-                                               ng-model="vm.applicationStatus.validTo" />
-                                    </div>
-                                </div>
-                                <div class="col-sm-6" style="padding-bottom:20px;">
-                                    <button ng-disabled="applicationStatusFrom.$invalid" class="btn btn-primary pull-right" ng-click="vm.performAction()">Save Application Status</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div class="imgcontainer">
+            <span>Add New Application Status</span>
+        </div>
+        <div class="containerModal">
+            <label><b>Application Status</b></label>
+            <input ng-class="{'alert alert-danger': applicationStatusFrom.applicationStatusName.$error.required}"
+                   type="text"
+                   name="applicationStatusName"
+                   ng-required="true"
+                   class="form-control"
+                   placeholder="Application Status Name"
+                   ng-model="vm.applicationStatus.Name" />
+
+            <label><b>Valid From</b></label>
+            <input name="validFrom"
+                   type="text"
+                   class="form-control"
+                   placeholder="Valid From"
+                   ng-model="vm.applicationStatus.validFrom" />
+
+            <label><b>Valid To</b></label>
+            <input type="text"
+                   name="validTo"
+                   class="form-control"
+                   placeholder="Valid To"
+                   ng-model="vm.applicationStatus.validTo" />
+            <div class="text-right">
+                <button ng-disabled="applicationStatusFrom.$invalid" class="btn btn-primary" ng-click="vm.performAction()">Save</button>
+                <button type="button" class="btn btn-primary" ng-click="vm.closeModal()">Cancel</button>
+            </div>
+            <div>
+                <span style="color:red;">{{vm.responseMessage}}</span>
             </div>
         </div>
     </form>
