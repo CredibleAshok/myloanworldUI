@@ -1,9 +1,9 @@
 (function () {
     var controllerId = 'allApplicationsController';
     angular.module('myapp')
-        .controller(controllerId, ['$rootScope', '$modal', 'applicationsService', 'authenticationService','customDialog', allApplicationsControllerFunction]);
+        .controller(controllerId, ['$rootScope', '$uibModal', 'applicationsService', 'authenticationService','customDialog', allApplicationsControllerFunction]);
 
-    function allApplicationsControllerFunction($rootScope, $modal, applicationsService, authenticationService, customDialog) {
+    function allApplicationsControllerFunction($rootScope, $uibModal, applicationsService, authenticationService, customDialog) {
         var vm = this;
         vm.loggedInUser = authenticationService.getLoggedInUser();
         vm.title = "All Applications";
@@ -16,7 +16,16 @@
                 toastr.error("error is:- " + err.message);
             });
         }
-
+        //#region datePicker Settings
+        vm.fromDateOpen = false;
+        vm.toggleFromDate = function () {
+            vm.fromDateOpen = !vm.fromDateOpen;
+        }
+        vm.toDateOpen = false;
+        vm.toggleToDate = function () {
+            vm.toDateOpen = !vm.toDateOpen;
+        }
+        //#endregion datePicker Settings
         if (vm.loggedInUser.FeatureName == 'Customer') {
             vm.searchFilter.EnquiryId = vm.loggedInUser.EnquiryId;
             vm.getApplicationList(vm.searchFilter);
@@ -38,7 +47,7 @@
                     }
                 }
             };
-            modalScope.modalInstance = $modal.open(modalOptions);
+            modalScope.modalInstance = $uibModal.open(modalOptions);
             modalScope.modalInstance.result.then(function (data) {
                 // Returned from modal, so refresh list.
                 //vm.loggedInUser = data; // temporary, change this

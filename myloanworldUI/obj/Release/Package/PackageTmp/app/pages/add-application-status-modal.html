@@ -21,18 +21,21 @@
                    ng-model="vm.applicationStatus.Name" />
 
             <label><b>Valid From</b></label>
-            <input name="validFrom"
-                   type="text"
-                   class="form-control"
-                   placeholder="Valid From"
-                   ng-model="vm.applicationStatus.validFrom" />
-
+            <p class="input-group">
+                <input placeholder="Choose From Date" name="fromDate" type="text" class="form-control" uib-datepicker-popup ng-model="vm.applicationStatus.validFrom"
+                       is-open="vm.fromDateOpen" close-text="Close" />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="vm.toggleFromDate()"><i class="glyphicon glyphicon-calendar"></i></button>
+                </span>
+            </p>
             <label><b>Valid To</b></label>
-            <input type="text"
-                   name="validTo"
-                   class="form-control"
-                   placeholder="Valid To"
-                   ng-model="vm.applicationStatus.validTo" />
+            <p class="input-group">
+                <input placeholder="Choose To Date" name="toDate" type="text" class="form-control" uib-datepicker-popup ng-model="vm.applicationStatus.validTo"
+                       is-open="vm.toDateOpen" close-text="Close" />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="vm.toggleToDate()"><i class="glyphicon glyphicon-calendar"></i></button>
+                </span>
+            </p>
             <div class="text-right">
                 <button ng-disabled="applicationStatusFrom.$invalid" class="btn btn-primary" ng-click="vm.performAction()">Save</button>
                 <button type="button" class="btn btn-primary" ng-click="vm.closeModal()">Cancel</button>

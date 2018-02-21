@@ -2,9 +2,9 @@
 
     var controllerId = 'navbarController';
     angular.module('myapp')
-        .controller(controllerId, ['$rootScope', '$modal', 'applicationsService', navbarControllerFunction]);
+        .controller(controllerId, ['$rootScope', '$uibModal', 'applicationsService', navbarControllerFunction]);
 
-    function navbarControllerFunction($rootScope, $modal, applicationsService) {
+    function navbarControllerFunction($rootScope, $uibModal, applicationsService) {
         var vm = this;
 
         applicationsService.getApplicationType().then(function (resp) {
@@ -32,7 +32,7 @@
                     }
                 }
             };
-            modalScope.modalInstance = $modal.open(modalOptions);
+            modalScope.modalInstance = $uibModal.open(modalOptions);
             modalScope.modalInstance.result.then(function (data) {
                 // Returned from modal, so refresh list.
                 vm.loggedInUser = data; // temporary, change this

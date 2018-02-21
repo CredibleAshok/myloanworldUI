@@ -1,5 +1,5 @@
 (function () {
-    var myapp = angular.module('myapp', ['ui.router', 'ui.bootstrap', 'ngSanitize', 'ui.select']);
+    var myapp = angular.module('myapp', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui.select', 'ui.router']);
 
     myapp.config(function ($stateProvider, $urlRouterProvider, $rootScopeProvider) {
         $urlRouterProvider.otherwise('/home');

@@ -1,5 +1,5 @@
 (function () {
-    angular.module('myapp').controller('manageApplicationStatusController', function ($modal, $rootScope, applicationsService, authenticationService) {
+    angular.module('myapp').controller('manageApplicationStatusController', function ($uibModal, $rootScope, applicationsService, authenticationService) {
         var vm = this;
         vm.loggedInUser = authenticationService.getLoggedInUser();
         vm.getApplicationStatus = function () {
@@ -28,7 +28,7 @@
                     }
                 }
             };
-            modalScope.modalInstance = $modal.open(modalOptions);
+            modalScope.modalInstance = $uibModal.open(modalOptions);
             modalScope.modalInstance.result.then(function (data) {
                 // Returned from modal, so refresh list.
                 //vm.loggedInUser = data; // temporary, change this

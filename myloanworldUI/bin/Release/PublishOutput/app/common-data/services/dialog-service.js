@@ -1,9 +1,9 @@
 ﻿(function () {
 
     angular.module('myapp')
-   .factory('customDialog', ['$modal', '$templateCache', modalDialog]);
+   .factory('customDialog', ['$uibModal', '$templateCache', modalDialog]);
 
-    function modalDialog($modal, $templateCache) {
+    function modalDialog($uibModal, $templateCache) {
         var service = {
             deleteDialog: deleteDialog,
             confirmationDialog: confirmationDialog,
@@ -78,7 +78,7 @@
                 }
             };
 
-            return $modal.open(modalOptions).result;
+            return $uibModal.open(modalOptions).result;
         }
 
         function infoDialog(title, bigInfo, msg, okText) {
@@ -101,7 +101,7 @@
                 }
             };
 
-            return $modal.open(modalOptions).result;
+            return $uibModal.open(modalOptions).result;
         }
 
         function errorDialog(title, bigInfo, msg, okText) {
@@ -126,7 +126,7 @@
                 }
             };
 
-            return $modal.open(modalOptions).result;
+            return $uibModal.open(modalOptions).result;
         }
 
         function greenDialog(bigInfo, okText, message, actionText) {
@@ -150,7 +150,7 @@
                 }
             };
 
-            return $modal.open(modalOptions).result;
+            return $uibModal.open(modalOptions).result;
         }
 
         function redDialog(bigInfo, okText) {
@@ -174,13 +174,13 @@
                 }
             };
 
-            return $modal.open(modalOptions).result;
+            return $uibModal.open(modalOptions).result;
         }
     }
 
 
-    var ModalInstance = ['$scope', '$modalInstance', 'options', '$rootScope',
-        function ($scope, $modalInstance, options, $rootScope) {
+    var ModalInstance = ['$scope', '$uibModalInstance', 'options', '$rootScope',
+        function ($scope, $uibModalInstance, options, $rootScope) {
             $scope.vm = {};
             $scope.vm.note = null;
             $scope.labelText = options.labelText || 'All';
@@ -191,12 +191,12 @@
             $scope.actionText = options.actionText || null;
             $scope.bigInfo = options.bigInfo || null;
             $scope.ok = function (data) {
-                $modalInstance.close({ note: $scope.vm.note, action: data });
+                $uibModalInstance.close({ note: $scope.vm.note, action: data });
             };
             $scope.okBroadcast = function (data) {
-                $modalInstance.close({ action: data });
+                $uibModalInstance.close({ action: data });
             };
-            $scope.cancel = function () { $modalInstance.dismiss('cancel'); };
+            $scope.cancel = function () { $uibModalInstance.dismiss('cancel'); };
             $scope.hideOk = options.hideOk || false;
         }];
 })();

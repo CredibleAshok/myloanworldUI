@@ -16,7 +16,17 @@
             });
         }
 
-        
+        //#region datePicker Settings
+        vm.fromDateOpen = false;
+        vm.toggleFromDate = function () {
+            vm.fromDateOpen = !vm.fromDateOpen;
+        }
+        vm.toDateOpen = false;
+        vm.toggleToDate = function () {
+            vm.toDateOpen = !vm.toDateOpen;
+        }
+        //#endregion datePicker Settings
+
         vm.getEnquiryList = function () {
             enquiryService.getEnquiryList(vm.searchFilter).then(function (resp) {
                 return vm.enquiryList = resp;
