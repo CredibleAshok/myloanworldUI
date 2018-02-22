@@ -29,7 +29,9 @@
 
         vm.getAfterLoginMenus = function () {
             vm.isbusy = true;
-            authenticationService.getAfterLoginMenus().then(function (resp) {
+            var roleId = vm.user.FeatureName == 'Admin' ? 1 : 0;
+            
+            authenticationService.getAfterLoginMenus(roleId).then(function (resp) {
                 vm.isbusy = false;
                 vm.user.afterLoginMenu = resp;
                 $scope.modalInstance.close(vm.user);
