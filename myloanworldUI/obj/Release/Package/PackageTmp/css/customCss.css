@@ -518,6 +518,9 @@ span.psw {
     .input-group-btn .btn-default {
         height: 34px !important;
     }
+    .mylikePosition {
+        left: 65%!important;
+    }
 }
 
 .loaderoverlay {
@@ -555,3 +558,10 @@ span.psw {
     .input-group-btn .btn-default {
         height: 35px;
     }
+
+.mylikePosition {
+    position: fixed;
+    z-index: 999999;
+    
+    bottom:80%;
+}

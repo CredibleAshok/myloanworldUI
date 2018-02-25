@@ -7,7 +7,7 @@
             getLoggedInUser: function () { return loggedInUser },
             getProfile: function () { return getProfile() },
             validatePassword: function (user) { return validatePassword(user) },
-            getAfterLoginMenus: function () { return getAfterLoginMenus() },
+            getAfterLoginMenus: function (roleId) { return getAfterLoginMenus(roleId) },
             getContactDetails: function () { return getContactDetails() },
 
             updateContactDetails: function (contactDetail) { return updateContactDetails(contactDetail) },
@@ -38,9 +38,10 @@
                 customDialog.redDialog("failed!", "OK");
             });
         }
-        function getAfterLoginMenus() {
+        function getAfterLoginMenus(roleId) {
             return $http({
                 method: 'GET',
+                params: { "roleId": roleId },
                 url: (commonService.getUrl() + 'api/getMenusList')
             }).then(function successCallback(response) {
                 return response.data.$values;

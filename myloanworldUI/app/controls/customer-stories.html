@@ -7,34 +7,7 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <div uib-carousel active="0" interval="5000" no-wrap="false">
-                <div uib-slide ng-repeat="slide in vm.carouselItems track by slide.id" index="slide.id">
-                    <img ng-src="{{common/images/myloanworld-logo.png}}" style="margin:auto;">
-                    <!--<div class="carousel-caption">
-                        <h4>Slide {{slide.id}}</h4>
-                        <p>{{slide.text}}</p>
-                    </div>-->
-                    <div class="row corouselItemCenter">
-                        <div class="col-md-6" ng-repeat="customer in slide.customers">
-                            <div class="row" style="padding:15px;">
-                                <div class="col-md-12 customerImage">
-                                </div>
-                                <div class="col-md-12 customerSaying">
-                                    <p>
-                                        {{customer.message}}
-                                    </p>
-                                    <br />
-                                    <p>{{customer.customerName}}</p>
-                                    <br />
-                                    <p>{{customer.designation}}</p>
-                                    <br />
-                                    <p>{{customer.add}}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
             <!--<div id="myCarousel" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>

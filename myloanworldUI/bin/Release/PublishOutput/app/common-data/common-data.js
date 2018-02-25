@@ -5,7 +5,7 @@
         var localIISServiceUrl = "http://localhost/myloanworldService/";
         var localServiceUrl = "http://localhost:55750/";
         
-        var service = {
+        var service = {`
             loanTypes: function () { return loanTypes() },
             footerLinks: function () { return footerLinks() },
             getUrl: function () { return getUrl() },
