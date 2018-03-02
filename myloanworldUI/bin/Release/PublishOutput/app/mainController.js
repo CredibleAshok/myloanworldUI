@@ -20,9 +20,9 @@
                     "managementScreen": false
                 }
             })
-            .state('educationloan', {
-                url: '/education',
-                templateUrl: 'app/pages/education.html',
+            .state('loanAgainstProperty', {
+                url: '/lap',
+                templateUrl: 'app/pages/loan-against-property.html',
                 data: {
                     "managementScreen": false
                 }
@@ -34,9 +34,9 @@
                     "managementScreen": false
                 }
             })
-            .state('businessloan', {
-                url: '/business',
-                templateUrl: 'app/pages/business.html',
+            .state('creditCard', {
+                url: '/creditCard',
+                templateUrl: 'app/pages/credit-card.html',
                 data: {
                     "managementScreen": false
                 }
@@ -163,6 +163,10 @@
 
     myapp.controller('mainController', function ($scope, $rootScope, $state, authenticationService) {
         var vm = this;
+        vm.displaySocialLike = true;
+        vm.hideSocialLike = function () {
+            vm.displaySocialLike = false;
+        }
         toastr.options = {
             "positionClass": "toast-bottom-right"
         }

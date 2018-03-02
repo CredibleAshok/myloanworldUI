@@ -6,13 +6,18 @@
         <p style="text-align:center;" class="fontAgencyFb">How much do you want to borrow?</p>
     </div>
     <div class="col-md-12">
-        <p style="text-align:center;" id="moneyValue">{{vm.inputValue}}</p>
+        <img src="../../common/images/inr.png" width="15" height="15" /><p style="text-align:center;" id="moneyValue">{{vm.inputValue}}</p>
     </div>
     <div class="col-md-12">
-        <div class="col-md-1  fontAgencyFb">{{vm.sliderMin}}</div><div class="col-md-10">
+        <div class="col-md-1  fontAgencyFb">
+            <img src="../../common/images/inr.png" width="15" height="15" />10,000
+        </div>
+        <div class="col-md-10">
             <input id="inputValue" ng-change="vm.changeValue()" type="range" min="{{vm.sliderMin}}" max="{{vm.sliderMax}}" ng-model="vm.inputValue" class="slider" />
         </div>
-        <div class="col-md-1 fontAgencyFb">{{vm.sliderMax}}</div>
+        <div class="col-md-1 fontAgencyFb">
+            <img src="../../common/images/inr.png" width="15" height="15" />1,00,00,000
+        </div>
     </div>
     <div class="col-md-12" style="padding-top:10px;">
         <div class="col-md-1">

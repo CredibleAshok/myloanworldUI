@@ -1,28 +1,31 @@
 ﻿<div class="row">
-    <div class="col-md-12 text-center">
+    <div class="col-sm-12 text-center">
         <span class="welcomeText">About Us</span><br />
     </div>
-    <div class="col-md-12 fillHeader">
+    <div class="col-sm-12 fillHeader">
         
     </div>
     
-    <div class="col-md-12">
+    <div class="col-sm-12">
         <h1>Welcome to My loan World</h1>
-        <p>My Loan World asf  asdf asdf asddf is a new-age financial services platform that afa dsfa f leverages technology and data-science to make lending quick and easy</p>
-        <p>My Loan World is adsf adf credit for Incredible afa fdas  af  India. We use technology and data-science adf asdf asdf to make lending quick, simple and hassle-free. We believe traditional ways of lending can exclude those most in need because of outdated, rigid and often inefficient processes. At My loan world, we have simplified the lending process with a sharp focus on serving our borrowers’ unique needs and circumstances – offering our customers a truly superior borrowing experience.</p>
+        <p>My Loan World is a new-age financial services organisation which depends on customer service, high end technology and data analytics to make borrowing super fast.</p>
+        <p>Our process are simple and easy. At My loan world, we have simplified the banking process according to our customer's unique needs and 
+        circumstances. Our highly customized solutions make us the best in industry.</p>
+
+        <h1>Give us a chance to serve you. We are just a call away. To start the process just give us your name and contact number. Let us do everything for you while sitting at home check your application status online.</h1>
     </div>
 </div>
 <div class="row" ng-controller="aboutUsController as vm">
-    <div class="col-md-12 text-center">
+    <div class="col-sm-12 text-center">
         <h1>TYPES OF LOANS</h1>
-        <h2>We operate 4 businesses as part of the My Loan World Group</h2>
+        <h2>We operate in {{vm.applicationType.length}} types of business as part of the My Loan World Group</h2>
     </div>
     <div ng-repeat="row in vm.applicationType">
-        <div class="col-md-12" style="padding:20px;">
-            <div class="col-md-3">
+        <div class="col-sm-12" style="padding:20px;">
+            <div class="col-sm-4">
                 <img src="common/images/myloanworld-logo.png" class="customerImage" />
             </div>
-            <div class="col-md-9">
+            <div class="col-sm-8">
                 <h1>{{row.name}}</h1>
                 <p>{{row.descText}}</p>
             </div>

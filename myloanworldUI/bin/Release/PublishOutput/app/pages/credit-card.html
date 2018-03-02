@@ -1,0 +1,21 @@
+﻿<div class="row" ng-controller="creditCardController as vm">
+    <div class="col-md-12 fillHeader">
+        <div class="col-md-12" style="padding-bottom:40px;">
+            <span class="welcomeText">Ask for Credit Card</span><br />
+        </div>
+        <div class="col-md-12">
+            <div ng-include="'app/controls/how-much-you-need.html'"></div>
+        </div>
+    </div>
+    <loan-types exclude-loan-type='Credit Card'></loan-types>
+</div>
+<div class="row">
+    <div class="col-md-12 text-center">
+        <h1>Credit Card</h1>
+        Have you ever heard! Credit card is a hell! But, if you use it wisely it proves to be the best tool in your wallet.
+        This allows you to borrow money from a bank to make purchases, whether you’re shopping or paying some bill.
+        If you pay back the money you borrow within the “grace period” of 25-30 days, you don’t have to pay extra.
+        If you don’t pay it back in that time period, you’ll have to pay interest — a percentage of the money you owe the bank..
+    </div>
+</div>
+<div ng-include="'app/controls/footer.html'"></div>

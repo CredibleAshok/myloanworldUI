@@ -101,6 +101,9 @@
     <Content Include="common\bootstrap\4.0.0\bootstrap.css" />
     <Content Include="common\bootstrap\4.0.0\bootstrap.js" />
     <Content Include="common\images\banner-img-homepage-mobile-1.png" />
+    <Content Include="common\images\ceo.png" />
+    <Content Include="common\images\cto.png" />
+    <Content Include="common\images\inr.png" />
     <Content Include="common\images\user-avatar-mobile.png" />
     <Content Include="common\images\user-avatar.png" />
     <Content Include="common\toaster\toastr.min.css" />
@@ -153,11 +156,11 @@
     <Content Include="app\pages\apply-now.html" />
     <Content Include="app\pages\auto-loan-controller.js" />
     <Content Include="app\pages\auto.html" />
-    <Content Include="app\pages\business-loan-controller.js" />
-    <Content Include="app\pages\business.html" />
+    <Content Include="app\pages\credit-card-controller.js" />
+    <Content Include="app\pages\credit-card.html" />
     <Content Include="app\pages\contact-us.html" />
-    <Content Include="app\pages\education-loan-controller.js" />
-    <Content Include="app\pages\education.html" />
+    <Content Include="app\pages\loan-against-property-controller.js" />
+    <Content Include="app\pages\loan-against-property.html" />
     <Content Include="app\pages\home-controller.js" />
     <Content Include="app\pages\home-loan-controller.js" />
     <Content Include="app\pages\home-loan.html" />
